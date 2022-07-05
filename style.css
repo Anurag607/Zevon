@@ -1,0 +1,688 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,html {
+    height: 100%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* -----------------------------------TITLE-------------------------------------*/
+
+/* -----------BACKGROUND----------- */
+
+#title {
+    background-image: url('./images/bg_o.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    background-attachment: fixed;
+    background-position: fixed;
+}
+
+/* -----------NAVBAR----------- */
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    padding: 20px 0px 0px 20px;
+}
+
+#navli ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style-type: none;
+    align-items: center;
+}
+
+.navl {
+    padding: 0 15px;
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navl:hover {
+    color: #f0e7da;
+    text-shadow: 0 0 5px #FFEBC1;
+}
+
+#navicons {
+    display: flex;
+    justify-content: spcae-evenly;
+    flex-wrap: wrap;
+    padding: 16px 15px 0px 15px;
+}
+
+.navico {
+    padding: 0px 15px 0px 15px;
+    width: 28px;
+    filter: brightness(0) invert(1);
+    transition: 0.5s;
+}
+
+.navico:hover {
+    filter: none;
+}
+
+#login {
+    cursor: pointer;
+    margin: -2px 15px 0px 15px;
+    padding-top: 2.5px;
+    border: 1.5px solid white;
+    text-align: center;
+    border-radius: 50em;
+    width: 8em;
+    height: 28px;
+    background-color: transparent;
+    color: white;
+    transition: 0.5s;
+}
+
+#login:hover {
+    filter: brightness(0.5);
+}
+
+/* -----------TITLE PAGE----------- */
+
+#logo {
+    padding: 3% 0;
+    padding-right: 2%;
+    font-size: 18rem;
+    font-family: 'Better Grade', cursive;
+    color: white;
+    text-align: center;
+    cursor: default;
+}
+
+#shopnow {
+    cursor: pointer;
+    margin: auto;
+    vertical-align: middle;
+    padding: 3px 0px;
+    border: 1.5px solid white;
+    text-align: center;
+    border-radius: 20px;
+    width: 260px;
+    height: auto;
+    background-color: transparent;
+    color: white;
+    transition: 0.5s;
+    font-size: 18px;
+    transition: all 1s;
+}
+
+#shopnow:hover {
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 20px white;
+    }
+    
+    to {
+        box-shadow: 0 0 10px white;
+    }
+}
+
+/* -----------------------------------SLIDESHOW-------------------------------------*/
+
+#slideshow {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.slider {
+    display: none;
+    height: 500px;
+}
+
+.slider img {
+    width: 100%;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 6s;
+  }
+  
+@keyframes fade {
+    from {opacity: 0.0}
+    to {opacity: 1.0}
+}
+
+/* -----------------------------------SHOP-------------------------------------*/
+
+/* -----------CATEGORIES----------- */
+
+.shop {
+    background-image: url('./images/leaf.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+/* -----------SHOPPING CARDS----------- */
+
+
+/* Category Card Design */
+.cards {
+    border-radius: 4px;
+    padding: 10px;
+    position: relative;
+    width: 30%;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,20%);
+    margin: -5% 0;
+}
+
+.cards:nth-child(odd) {
+    transform: rotate(15deg);
+    margin-left: 15%;
+}
+
+.cards:nth-child(even) {
+    transform: rotate(-15deg);
+    margin-left: 55%;
+}
+
+/* Category Card Image */
+.cards img {
+    display: block;
+    width: 100%;
+    transition: all 0.8s;
+}
+
+.cards:hover img{
+    transform: scale(1.3);
+    opacity: 0.5;
+}
+
+/* Category Card Overlay */
+.overlay {
+    opacity: 0;
+    transition: all 0.8s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.cards:hover .overlay{
+    opacity: 1;
+}
+
+/* Category Card Overlay Text */
+.card_text {
+    background-color: #a64b2a;
+    width: 120px;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: bold;
+}
+
+.card_text span {
+    position: relative;
+    display: inline-block;
+    transition: all 0.5s;
+}
+
+.card_text span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+}
+
+.card_text:hover span {
+    opacity: 1;
+    padding-right: 15px;
+}
+
+.card_text:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* Shopping Card Heading */
+.div_title {
+    text-align: center;
+    cursor: default;
+    font-size: 1.5rem;
+    padding: 3% 0 1% 0;
+    font-weight: bold;
+}
+
+.div_subtitle {
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+/* Shopping Card Design */
+.card {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.c {
+    cursor: pointer;
+    border-top-right-radius: 25%;
+    border-bottom-left-radius: 25%;
+    width: 20%;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    background : white;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.5s;
+    position: relative;
+}
+
+.c:hover {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;  
+    border-top-left-radius: 25%;
+    border-bottom-right-radius: 25%; 
+}
+
+/* Shopping Card Image */
+.c img {
+    transition: 0.5s;
+    display: block;
+}
+
+.c:hover img{
+    transform: scale(1.2);
+    opacity: 0.5;
+}
+
+/* Shopping Card Overlay */
+.cardadd {
+    width: 14%;
+    opacity: 0;
+    text-align: center;
+    transition: 0.5s;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transition: all 0.5s;
+}
+
+.cardwish {
+    width: 14%;
+    opacity: 0;
+    text-align: center;
+    transition: 0.5s;
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    transition: all 0.5s;
+}
+
+.cardadd:hover {
+    filter: brightness(0.8);
+}
+
+.cardwish:hover {
+    filter: brightness(0.8);
+}
+
+.c:hover .cardadd {
+    opacity: 1;
+}
+
+.c:hover .cardwish {
+    opacity: 1;
+}
+
+.overlay1 {
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: all .5s;
+    background: white;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    border-top-left-radius: 65%;
+}
+
+.c:hover .overlay1 {
+    height: 70%;
+}
+
+/* Shopping Card Size */
+.size {
+    opacity: 0;
+    position: absolute;
+    top: 12%;
+    right: 4.5%;
+    transition: all 0.5s;
+}
+
+.size ul {
+    align-items: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    list-style-type: none;
+    text-align: right;
+}
+
+.size li {
+    margin-bottom: 0.6em;
+    display: inline-block;
+}
+
+.size a {
+    font-size: 0.8rem;
+    transition: all 0.5s;
+    text-decoration: none;
+    color: black;
+}
+
+.c:hover .size {
+    opacity: 1;
+}
+
+.size a:hover {
+    text-shadow: 0px 0px 7px #32A564;
+    color: white;
+}
+
+/* -----------------------------------FOOTER-------------------------------------*/
+footer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap-reverse;
+    background: linear-gradient(-45deg, #00093c, #2d0b00);
+    padding: 0 10% 10% 10%;
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    height: 600px;
+    border-radius: 9% 11% 0 0;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+#footlogo h2{
+    font-family: "Water Brush", cursive;
+    font-size: 6rem;
+    color: white;
+    cursor: default;
+    margin-bottom: -5%;
+}
+
+#contact {
+    cursor: default;
+    width: 230px;
+    color: white;
+    padding-top: 18%;
+}
+
+#contact_numer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#contact_numer span {
+    text-align: right;
+}
+
+#contact_email {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#contact_email span {
+    text-align: right;
+}
+
+#newsletter {
+    cursor: default;
+    color: white;
+    padding-top: 22%;
+}
+
+.separator {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    display: block;
+}
+
+#email {
+    border-radius: 10px;
+    border: none;
+    width: 300px;
+    height: 20px;
+    text-align: left;
+    padding: 10px;
+    cursor: text;
+    margin: 5px;
+}
+
+#submit {
+    border-radius: 10px;
+    border: none;
+    width: 150px;
+    height: 40px;
+    text-align: left;
+    cursor: pointer;
+    background-color: #A64B2A;
+    color:hsl(207, 100%, 98%);
+    transition: 0.3s;
+    text-align: center;
+}
+
+#submit:hover {
+    box-shadow: 0 0 10px #A64B2A;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+#contact a {
+    padding: 0 4%;
+}
+
+.contact_ico {
+    width: 40px;
+    height:40px;
+    filter: brightness(0) invert(1);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.contact_ico:hover {
+    filter: none;
+}
+/* .footer {
+    width: 100%;
+    background: linear-gradient(-45deg, #00093c, #2d0b00);
+    height: 50%;
+    position: relative;
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    border-radius: 21% 25% 0 0;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.footico {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8%;
+    flex-wrap: wrap;
+    margin-left: 2.2%;
+}
+
+.footico img {
+    margin: 0 1em;
+    cursor: pointer;
+    width: 35px;
+    filter: brightness(0) invert(1);
+    transition: all 0.5s;
+}
+
+.footico img:hover {
+    filter: none;
+}
+
+.footmenu ul {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin-top: 4%;
+    flex-wrap: wrap;
+}
+
+.footmenu li {
+    display: inline-block;
+    padding: 0 3%;
+}
+
+.footmenu a {
+    display: inline-block;
+    position: absolute;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    transition: 0.5s;
+}
+
+.footmenu a:hover {
+    filter: brightness(0.5);
+} */
+
+/* -----------------------------------CREDITS-------------------------------------*/
+#credits {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    cursor: default;
+}
+
+/* -----------------------------------MEDIA QUERIES-------------------------------------*/
+
+@media screen and (max-width: 950px) {
+    .nav {
+        display: flex;
+        align-items: center;
+        flex-flow: column;
+        text-align: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap-reverse;
+    }
+
+    .navl {
+        font-size: 1rem;
+    }
+
+    #navicons {
+        margin-left: 28px;
+    }
+
+    .navico {
+        width: 24px;
+    }
+
+    #login {
+        padding-top: 1px;
+        width: 6em;
+        height: 24px;
+    }
+
+    #logo {
+        font-size: 10rem;
+    }
+
+    #shopnow {
+        padding: 2px 0px;
+        width: 200px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #newsletter {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-flow: column;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .bg1,.bg2,.bg3 {
+        text-align: center;
+    }
+    .txt, #email, #footlogo h2, #contact_email span, #contact_number span {
+        text-align: center;
+    }
+
+}
+
+/* @media screen and (max-width: 600px) {
+    .footico img {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 25px;
+        padding: auto;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .footmenu a {
+        font-size: 14px;
+    }
+} */
