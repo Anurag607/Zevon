@@ -18,9 +18,8 @@ body,html {
     background-image: url('./images/bg_o.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
+    height: 616px;
     background-attachment: fixed;
-    background-position: fixed;
 }
 
 /* -----------NAVBAR----------- */
@@ -117,13 +116,18 @@ body,html {
     transition: 0.5s;
     font-size: 18px;
     transition: all 1s;
+    animation: glow1 1s infinite alternate;
+    box-shadow: none;
+    text-shadow: none;
 }
 
 #shopnow:hover {
-    animation: glow 1s infinite alternate;
+    text-shadow: 0 0 10px white;
+    box-shadow: 0 0 10px white;
+    animation: none;
 }
 
-@keyframes glow {
+@keyframes glow1 {
     from {
         text-shadow: 0 0 20px white;
     }
@@ -274,6 +278,7 @@ body,html {
 
 .div_subtitle {
     text-align: center;
+    cursor: default;
     padding-bottom: 5%;
 }
 
