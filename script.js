@@ -1,16 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    var div = document.querySelector('#title');
 
     // Searchbox...........................
     var search = document.querySelector(".searchbox");
     var searchinput = search.children[0];
     var searchico = search.children[1];
-    // searchico.onmouseover = () => {
-    //     searchico.style.filter = "none";
-    // }
-    // searchico.onmouseout = () => {
-    //     searchico.style.filter = "invert(1)";
-    // }
     search.onclick = () => {
         if (searchico.dataset.toggle == "off") {
             searchico.style.filter = "none";
@@ -24,6 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Title Background...........................
+    var title = document.querySelector('#title');
+    var imgs = ['./images/mt1rs.jpg', './images/mt2.jpg', './images/mt3.jpg', './images/mt4rs.jpg', './images/mt5.jpg'];
+    var bgindex = 0;
+    function titlebg() {
+        title.style.backgroundImage = 'url(' + imgs[bgindex] + ')';
+        bgindex++;
+        if(bgindex > imgs.length-1) bgindex = 0;
+        setTimeout(titlebg, 5000);
+    }
+    titlebg();
+
     // Slideshow...........................
     // Automatic
     var slideindex = 0;
@@ -33,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             slides.style.display = 'none';
         })
         slideindex++;
-        if (slideindex === slides.length-1) slideindex = 0;
+        if (slideindex > slides.length-1) slideindex = 0;
         slides[slideindex].style.display = 'block';
         setTimeout(slideshow,4000);
     }
@@ -42,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var dots = document.querySelectorAll(".dot");
     dots.forEach((dots) => {
         dots.onclick = () => {
-            var slide = document.querySelector("#${this.slide}");
+            var slide = document.querySelector(`${this.slide}"`);
             slide.style.display = 'none';
         }
     });

@@ -22,6 +22,8 @@ body,html {
     background-size: cover;
     height: 100vh;
     background-attachment: fixed;
+    -webkit-transition: background-image 2s ease-in-out;
+    transition: background-image 2s ease-in-out;
 }
 
 /* -----------SLIDESHOW----------- */
@@ -167,7 +169,7 @@ body,html {
     padding: 10% 2% 10% 0;
     font-size: 8rem;
     font-family: 'Kaushan Script', cursive;
-    color: #090909;
+    color: #e8e8e8;
     text-align: center;
     cursor: default;
 }
@@ -378,6 +380,7 @@ body,html {
     align-items: center;
     cursor: pointer;
     font-size: 2rem;
+    transition: all 0.3s;
 }
 
 #prev {
@@ -422,11 +425,13 @@ body,html {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: all 0.3s;
 }
 
 .filter img {
     width: 1.75rem;
     height: 1.75rem;
+    transition: all 0.3s;
 }
 
 .filter:hover {
