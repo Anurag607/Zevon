@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Title Background...........................
     var title = document.querySelector('#title');
-    var imgs = ['./images/mt1rs.jpg', './images/mt2.jpg', './images/mt3.jpg', './images/mt4rs.jpg', './images/mt5.jpg'];
+    var imgs = ['./images/mt1rs.jpg', './images/mt2rs.jpg', './images/mt3rs.jpg', './images/mt4rs.jpg', './images/mt5rs.jpg'];
     var bgindex = 0;
     function titlebg() {
         title.style.backgroundImage = 'url(' + imgs[bgindex] + ')';
