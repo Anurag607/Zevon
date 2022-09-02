@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+body,
+html {
+    min-height: 100vh;
+    min-width: 100vw;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+    background: #e8e8e8;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.divider {
+    height: 3.75rem;
+    width: 100vw;
+}
+
+@import "./preloader";
+
+@import "./title";
+
+@import "./navbar";
+
+@import "./categories";
+
+@import "./paginator";
+
+@import "./shop";
+
+@import "./slideshow";
+
+@import "./footer";
+
+@import "./mediaQueries";

@@ -1,0 +1,33 @@
+{
+  "name": "zevon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anurag607/Zevon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anurag607/Zevon/issues"
+  },
+  "homepage": "https://github.com/Anurag607/Zevon#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "browserify": "^17.0.0",
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.1",
+    "node-html-parser": "^5.4.2",
+    "nodemailer": "^6.7.8",
+    "require": "^2.4.20",
+    "uniq": "^1.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
