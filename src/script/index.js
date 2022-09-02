@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('load', () => {
         preLoader.style.opacity = '0';
         setTimeout(() => {
-            preLoader.style.opacity = "none";
+            preLoader.style.display = "none";
         }, 100);
     });
 
