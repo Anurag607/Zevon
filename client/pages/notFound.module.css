@@ -1,0 +1,95 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  background-color: white;
+}
+.wrapper .nav {
+  width: 96.5vw;
+  padding-left: 5rem;
+  padding-right: 6.5rem;
+  gap: 0;
+}
+.wrapper .nav .nav-left li a {
+  padding: 0.25rem 0.5rem;
+  color: rgba(0, 0, 0, 0.75);
+}
+.wrapper .nav .nav-left li a:hover {
+  border-radius: 0.5rem;
+  color: #ffffff;
+  filter: none;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.wrapper .nav .nav-right a span:not(.cartCount) {
+  padding: 0.25rem;
+  color: #000;
+  filter: brightness(0.5);
+  transition: all 0.3s;
+}
+.wrapper .nav .nav-right a span:not(.cartCount):hover {
+  color: #ffffff;
+  filter: none;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 0.5rem;
+}
+.wrapper .nav .nav-right .searchbox div {
+  filter: brightness(0.25);
+}
+.wrapper .nav .nav-right .searchbox input {
+  border: 0.075rem solid #000000;
+}
+.wrapper .nav .nav-right .navDash {
+  color: #000;
+  transition: all 0.3s;
+  border-color: #000000;
+  margin-left: 0.75rem;
+}
+.wrapper .nav .nav-right .navDash:hover {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.wrapper .nav .nav-right .navicons {
+  gap: 1rem;
+}
+.wrapper .nav .nav-right .login {
+  border-color: rgba(0, 0, 0, 0.75);
+  color: rgb(0, 0, 0);
+}
+.wrapper .nav .nav-right .login:hover {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #fff;
+}
+
+.wrapper > h1 {
+  background-image: url("/404.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 15rem;
+  font-family: "Oswald", sans-serif;
+  cursor: default;
+}
+
+.wrapper > p {
+  text-align: center;
+  width: 62.5%;
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  cursor: default;
+}
+
+@media screen and (max-width: 775px) {
+  .wrapper > h1 {
+    font-size: 10rem;
+  }
+  .wrapper > p {
+    font-size: 1.1rem;
+  }
+}/*# sourceMappingURL=notFound.module.css.map */

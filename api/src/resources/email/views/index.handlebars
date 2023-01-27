@@ -1,0 +1,331 @@
+<!Doctype html>
+<html lang = "en-in/us">
+    <head>
+        <link rel = "icon" href = "#" type = "image/x-icon">
+        <meta charset="UTF-8">
+        <meta name="description" content="#">
+        <meta name="keywords" content="#">
+        <meta name="author" content="Deep">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <title>Zevon | Order Details</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+            @-webkit-keyframes fade_cardcont {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            @keyframes fade_cardcont {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            html,
+            body {
+                padding: 0;
+                margin: 0;
+                min-height: 100vh;
+                min-width: 100vw;
+                scroll-behavior: smooth;
+                background: #ffffff;
+                overflow-x: hidden;
+                font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+                    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Poppins sans-serif;
+            }
+            ::-webkit-scrollbar {
+                height: 0.05rem;
+                width: 0.15rem;
+            }
+            
+            ::-webkit-scrollbar-track {
+                background: #ffffff;
+            }
+            
+            ::-webkit-scrollbar-thumb {
+                background-color: #37474f;
+                border: 2px solid #37474f;
+            }
+            
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+            .greeting {
+                width: 100vw;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+                font-family: "Poppins", sans-serif;
+                color: rgba(0, 0, 0, 0.8);
+                text-transform: capitalize;
+                padding-block: 0.75rem;
+                margin-bottom: 12.5%;
+                text-align: center;
+                cursor: default;
+            }
+            .cartContent {
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+                -webkit-animation: fade_cardcont 0.75s ease;
+                        animation: fade_cardcont 0.75s ease;
+                transition: all 0.5s;
+                padding-inline: 5rem;
+            }
+            .cartContent .bill {
+                width: 65vw;
+                height: auto;
+                padding-top: 2rem;
+                -webkit-padding-start: 1rem;
+                        padding-inline-start: 1rem;
+                background-color: #f9f9f9;
+                box-shadow: 0 0 0.75rem 1rem #f9f9f9, 0 0 0.75rem 1rem #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                position: relative;
+            }
+            .cartContent .bill .head {
+                cursor: default;
+                font-family: "Poppins", sans-serif;
+                text-transform: capitalize;
+                background-color: #37474f;
+                color: #ffffff;
+                padding-inline: 1rem;
+                margin-bottom: 1rem;
+                font-size: 1.75rem;
+            }
+            .cartContent .bill .billContents {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                justify-content: flex-start;
+                align-items: flex-start;
+                width: 100%;
+            }
+            .cartContent .bill .billContents .item {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 0rem;
+                justify-content: center;
+                align-items: center;
+                cursor: default;
+                color: #37474f;
+                font-size: 1.575rem;
+                font-weight: 600;
+                font-family: "Poppins", sans-serif;
+                text-transform: capitalize;
+                padding-bottom: 0.5rem;
+                border-bottom: 0.125rem solid #c5c5c5;
+            }
+            .cartContent .bill .billContents .item .itemImg {
+                width: 7.5rem;
+                height: 5.5rem;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .cartContent .bill .billContents .item .itemName {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 0rem;
+                justify-content: flex-start;
+                align-items: center;
+                width: 80%;
+                padding-left: 12.5%;
+                padding-right: 7.5%;
+            }
+            .cartContent .bill .billContents .item .price {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 0rem;
+                justify-content: flex-start;
+                align-items: center;
+                width: 20%;
+                padding-right: 11%;
+            }
+            .cartContent .bill .ttlAmt {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 17.5rem;
+                justify-content: space-evenly;
+                cursor: default;
+                color: #37474f;
+                font-size: 1.45rem;
+                font-weight: 600;
+                font-family: "Poppins", sans-serif;
+                text-transform: capitalize;
+                margin-bottom: 5rem;
+                padding-left: 0rem;
+                translate: 7.5rem 0;
+            }
+            .cartContent .bill .ttlAmt span {
+                background-color: #37474f;
+                color: #ffffff;
+                padding: 0rem 1rem;
+                translate: -9rem 0;
+            }
+            @media screen and (max-width: 1240px) {
+                .cartContent .bill .billContents .item {
+                    font-size: 1.275rem;
+                }
+            }
+            @media screen and (max-width: 1000px) {
+                .cartContent .bill .billContents .item {
+                    font-size: 1.15rem;
+                }
+            }
+            @media screen and (max-width: 875px) {
+                .greeting h1 {
+                    font-size: 1.5rem;
+                }
+                .greeting p {
+                    width: 25rem;
+                }
+                .cartContent .bill .head {
+                    font-size: 1.5rem;
+                }
+                .cartContent .bill .billContents .item {
+                    font-size: 1rem;
+                }
+                .cartContent .bill .ttlAmt {
+                    gap: 6.5rem;
+                    font-size: 1.125rem;
+                    padding-left: 0rem;
+                    translate: 0rem 0;
+                }
+                .cartContent .bill .ttlAmt span {
+                    translate: 0rem 0;
+                }
+            }
+            @media screen and (max-width: 647px) {
+                .cartContent .bill {
+                    width: 85vw;
+                }
+                .cartContent .bill .billContents .item {
+                    font-size: 0.9rem;
+                }
+                .cartContent .bill .billContents .item .itemName {
+                    width: 70%;
+                }
+                .cartContent .bill .billContents .item .price {
+                    width: 30%;
+                }
+            }
+            @media screen and (max-width: 540px) {
+                .greeting {
+                    margin-bottom: 2rem;
+                }
+                .greeting h1 {
+                    font-size: 1.45rem;
+                }
+                .greeting p {
+                    width: 22.5rem;
+                }
+                .cartContent .bill .billContents .item {
+                    font-size: 0.8rem;
+                }
+                .cartContent .bill .ttlAmt {
+                    gap: 3rem;
+                    font-size: 0.9rem;
+                    padding-left: 0rem;
+                }
+                .cartContent .bill .ttlAmt span {
+                    translate: 0rem 0;
+                }
+            }
+            @media screen and (max-width: 426px) {
+                .greeting h1 {
+                    font-size: 1.325rem;
+                }
+                .greeting p {
+                    font-size: 0.85rem;
+                    width: 20rem;
+                }
+                .cartContent .bill .head {
+                    font-size: 1.35rem;
+                }
+                .cartContent .bill .billContents .item {
+                    font-size: 0.75rem;
+                }
+                .cartContent .bill .billContents .item .itemName {
+                    width: 65%;
+                }
+                .cartContent .bill .billContents .item .price {
+                    width: 35%;
+                }
+                .cartContent .bill .ttlAmt {
+                    gap: 3rem;
+                    font-size: 0.85rem;
+                    padding-left: 0rem;
+                }
+                .cartContent .bill .ttlAmt span {
+                    translate: 0rem 0;
+                }
+            }
+            @media screen and (max-width: 360px) {
+                .greeting h1 {
+                    font-size: 1.2rem;
+                }
+                .greeting p {
+                    font-size: 0.75rem;
+                    width: 15rem;
+                }
+                .cartContent .bill .head {
+                    font-size: 1.25rem;
+                }
+                .cartContent .bill .billContents .item {
+                    font-size: 0.65rem;
+                }
+                .cartContent .bill .billContents .item .itemName {
+                    width: 62.5%;
+                }
+                .cartContent .bill .billContents .item .price {
+                    width: 37.5%;
+                }
+                .cartContent .bill .ttlAmt {
+                    gap: 3rem;
+                    font-size: 0.75rem;
+                    padding-left: 0rem;
+                }
+                .cartContent .bill .ttlAmt span {
+                    translate: 0rem 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div style="width: 100vw; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 9.375rem;"><div class="orderDetails_greeting__zqetj greeting"><h1>Hello anurag,</h1><p>b-3, type-4, tower-5, NBCC towers, east kidwai nagar, near AIIMS  , new delhi , india - 110023</p><p>Your order details for which are listed below : </p></div><main class="orderDetails_cartContent__MisEi cartContent"><div class="orderDetails_bill__N_2tI bill"><h2 class="orderDetails_head__6oNit head">Order Details</h2><div class="orderDetails_billContents__S67Uh billContents"><div class="orderDetails_item__TTlpe item"><span class="orderDetails_itemImg__HEy_p itemImg" style="background-image: url(&quot;/clothes/mens/lowers/chinos.webp&quot;);"></span><span class="orderDetails_itemName__hbQp9 itemName">chinos</span><span class="orderDetails_price__okNbI price"> ₹ 1250 </span></div><div class="orderDetails_item__TTlpe item"><span class="orderDetails_itemImg__HEy_p itemImg" style="background-image: url(&quot;/clothes/mens/shoes/active_sneakers.png&quot;);"></span><span class="orderDetails_itemName__hbQp9 itemName">active sneakers</span><span class="orderDetails_price__okNbI price"> ₹ 799 </span></div><div class="orderDetails_item__TTlpe item"><span class="orderDetails_itemImg__HEy_p itemImg" style="background-image: url(&quot;/clothes/mens/shoes/active_sandals.png&quot;);"></span><span class="orderDetails_itemName__hbQp9 itemName">active sandals</span><span class="orderDetails_price__okNbI price"> ₹ 489 </span></div><div class="orderDetails_item__TTlpe item"><span class="orderDetails_itemImg__HEy_p itemImg" style="background-image: url(&quot;/clothes/mens/shirts/camp_collared_short_sleeve_shirt.jpeg&quot;);"></span><span class="orderDetails_itemName__hbQp9 itemName">camp collared short sleeve</span><span class="orderDetails_price__okNbI price"> ₹ 789 </span></div><div class="orderDetails_item__TTlpe item"><span class="orderDetails_itemImg__HEy_p itemImg" style="background-image: url(&quot;/clothes/mens/shirts/denim_shirt.webp&quot;);"></span><span class="orderDetails_itemName__hbQp9 itemName">denim shirt</span><span class="orderDetails_price__okNbI price"> ₹ 918 </span></div></div><div class="orderDetails_ttlAmt__VIFWd ttlAmt">Total Payable Amount:<span> ₹ 4245 </span></div></div></main></div>
+    </body>
+</html>

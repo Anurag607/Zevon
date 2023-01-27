@@ -1,0 +1,543 @@
+/* -----------------------------------CART_PAGE-------------------------------------*/
+@-webkit-keyframes fade_cardcont {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade_cardcont {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.cartWrapper {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  justify-content: flex-start;
+  background-color: #ffffff;
+}
+.cartWrapper .nav {
+  width: 96.5vw;
+  padding-left: 5rem;
+  padding-right: 6.5rem;
+  gap: 0;
+}
+.cartWrapper .nav .nav-left li a {
+  padding: 0.25rem 0.5rem;
+  color: rgba(0, 0, 0, 0.75);
+}
+.cartWrapper .nav .nav-left li a:hover {
+  border-radius: 0.5rem;
+  color: #ffffff;
+  filter: none;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.cartWrapper .nav .nav-right a span:not(.cartCount) {
+  padding: 0.25rem;
+  color: #000;
+  filter: brightness(0.5);
+  transition: all 0.3s;
+}
+.cartWrapper .nav .nav-right a span:not(.cartCount):hover {
+  color: #ffffff;
+  filter: none;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 0.5rem;
+}
+.cartWrapper .nav .nav-right .searchbox div {
+  filter: brightness(0.25);
+}
+.cartWrapper .nav .nav-right .searchbox input {
+  border: 0.075rem solid #000000;
+}
+.cartWrapper .nav .nav-right .navDash {
+  color: #000;
+  transition: all 0.3s;
+  border-color: #000000;
+  margin-left: 0.75rem;
+}
+.cartWrapper .nav .nav-right .navDash:hover {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.cartWrapper .nav .nav-right .navicons {
+  gap: 1rem;
+}
+.cartWrapper .nav .nav-right .login {
+  border-color: rgba(0, 0, 0, 0.75);
+  color: rgb(0, 0, 0);
+}
+.cartWrapper .nav .nav-right .login:hover {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #fff;
+}
+.cartWrapper .cartContent {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 2.75vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  -webkit-animation: fade_cardcont 0.75s ease;
+          animation: fade_cardcont 0.75s ease;
+  transition: all 0.5s;
+  padding-inline: 5rem;
+}
+.cartWrapper .cartContent .itemList {
+  width: 50vw;
+  z-index: 10;
+}
+.cartWrapper .cartContent .itemList .cardcont .card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-inline: 2rem;
+  z-index: 10;
+}
+.cartWrapper .cartContent .itemList .cardcont .card .cartItem {
+  cursor: pointer;
+  border-radius: 25% 0 25% 0;
+  width: 16rem;
+  height: auto;
+  box-shadow: 0 0 0.5rem #e8e8e8;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.5s;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+}
+.cartWrapper .cartContent .itemList .cardcont .card .cartItem .shopimgCont {
+  width: 100%;
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.3s;
+  display: block;
+}
+.cartWrapper .cartContent .itemList .cardcont .card .cartItem .overlay {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  position: absolute;
+  top: 42.5%;
+  left: 50%;
+  translate: -50% -50%;
+}
+.cartWrapper .cartContent .itemList .cardcont .card .cartItem .overlay .price, .cartWrapper .cartContent .itemList .cardcont .card .cartItem .overlay .size, .cartWrapper .cartContent .itemList .cardcont .card .cartItem .overlay .qty {
+  opacity: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+  width: auto;
+  height: auto;
+  padding: 0.25rem 1.5rem;
+  color: #fff;
+  transition: all 0.5s;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+}
+.cartWrapper .cartContent .itemList .cardcont .card .cartItem .overlay .size {
+  width: 6rem;
+  position: absolute;
+  top: 175%;
+  left: 50%;
+  translate: -50% -50%;
+}
+.cartWrapper .cartContent .itemList .cardcont .card .cartItem .overlay .qty {
+  padding: 0.5rem 0.75rem;
+  border-radius: 5rem;
+  position: absolute;
+  top: 400%;
+  left: 90%;
+  translate: -50% -50%;
+  font-size: 1rem;
+}
+.cartWrapper .cartContent .itemList .cardcont .card .cartItem:hover {
+  border-radius: 0 25% 0 25%;
+}
+.cartWrapper .cartContent .itemList .cardcont .card .cartItem:hover .price, .cartWrapper .cartContent .itemList .cardcont .card .cartItem:hover .size, .cartWrapper .cartContent .itemList .cardcont .card .cartItem:hover .qty {
+  opacity: 1;
+}
+.cartWrapper .cartContent .itemList .cardcont .card .cartItem:hover .shopimgCont {
+  transform: scale(1.2);
+  opacity: 0.5;
+}
+.cartWrapper .cartContent .bill {
+  width: 40vw;
+  height: 90rem;
+  padding-top: 2rem;
+  -webkit-padding-start: 1rem;
+          padding-inline-start: 1rem;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 0.75rem 1rem #f9f9f9, 0 0 0.75rem 1rem #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.cartWrapper .cartContent .bill .head {
+  cursor: default;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  background-color: #37474f;
+  color: #ffffff;
+  padding: 0rem 1rem;
+}
+.cartWrapper .cartContent .bill .billContents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.cartWrapper .cartContent .bill .billContents .item {
+  width: 40vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+  color: #37474f;
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.125rem solid #c5c5c5;
+}
+.cartWrapper .cartContent .bill .billContents .item .itemName {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+  padding-left: 12.5%;
+}
+.cartWrapper .cartContent .bill .billContents .item .price {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+  justify-content: flex-start;
+  align-items: center;
+  width: 20%;
+  padding-right: 11%;
+}
+.cartWrapper .cartContent .bill .ttlAmt {
+  width: 37.5vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+  justify-content: space-around;
+  cursor: default;
+  color: #37474f;
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  padding-left: 1.85rem;
+}
+.cartWrapper .cartContent .bill .ttlAmt span {
+  background-color: #37474f;
+  color: #ffffff;
+  padding: 0rem 1rem;
+}
+.cartWrapper .cartContent .bill .placeOrder {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  translate: 8rem 5rem;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  color: #fff;
+  background-color: #39de84;
+  cursor: pointer;
+  padding: 0.5rem 2.25rem;
+  border-radius: 0.5rem;
+}
+.cartWrapper .cartContent .bill .placeOrder span {
+  width: 2rem;
+  height: 2rem;
+  background-image: url("../../public/cartGo.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: invert(1);
+  transition: all 0.3s;
+}
+.cartWrapper .cartContent .bill .placeOrder:hover span {
+  translate: 0.25rem 0;
+}
+.cartWrapper .modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  -webkit-backdrop-filter: blur(0.25rem);
+          backdrop-filter: blur(0.25rem);
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+}
+.cartWrapper .modal div {
+  width: 35vw;
+  height: 35vh;
+  background-color: #ffffff;
+  padding-block: 1rem;
+  border-radius: 1rem;
+  z-index: 105;
+  box-shadow: 0 0 0.5rem #c5c5c5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.cartWrapper .modal div .checkmark {
+  width: 4rem;
+  height: 4rem;
+  background-image: url("../../public/checkmark.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.cartWrapper .modal div .confirmation {
+  font-family: "Poppins", sans-serif;
+  color: #0277bd;
+  cursor: default;
+}
+.cartWrapper .modal div .redirection {
+  cursor: default;
+}
+.cartWrapper .modal div .redirection a {
+  cursor: pointer;
+}
+.cartWrapper .modal div .redirection a button {
+  margin-top: 1.5rem;
+  width: 15.5rem;
+  height: 2.5rem;
+  background-color: #39de84;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.cartWrapper .loginRedirect {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  -webkit-backdrop-filter: blur(0.25rem);
+          backdrop-filter: blur(0.25rem);
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+}
+.cartWrapper .loginRedirect div {
+  width: 35vw;
+  height: 35vh;
+  background-color: #ffffff;
+  padding-block: 1rem;
+  border-radius: 1rem;
+  z-index: 105;
+  box-shadow: 0 0 0.5rem #c5c5c5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.cartWrapper .loginRedirect div .message {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: #e3242b;
+  cursor: default;
+}
+.cartWrapper .loginRedirect div .redirection {
+  cursor: default;
+  translate: 0.15rem 0;
+}
+.cartWrapper .loginRedirect div .redirection a {
+  cursor: pointer;
+}
+.cartWrapper .loginRedirect div .redirection a button {
+  margin-top: 1.5rem;
+  width: 15.5rem;
+  height: 2.5rem;
+  background-color: #e3242b;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.cartWrapper .footer {
+  width: 100vw;
+  height: auto;
+}
+
+.emptyCartWrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+  justify-content: flex-start;
+  background-color: #ffffff;
+}
+.emptyCartWrapper .nav {
+  width: 96.5vw;
+  padding-left: 5rem;
+  padding-right: 6.5rem;
+  gap: 0;
+}
+.emptyCartWrapper .nav .nav-left li a {
+  padding: 0.25rem 0.5rem;
+  color: rgba(0, 0, 0, 0.75);
+}
+.emptyCartWrapper .nav .nav-left li a:hover {
+  border-radius: 0.5rem;
+  color: #ffffff;
+  filter: none;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.emptyCartWrapper .nav .nav-right a span:not(.cartCount) {
+  padding: 0.25rem;
+  color: #000;
+  filter: brightness(0.5);
+  transition: all 0.3s;
+}
+.emptyCartWrapper .nav .nav-right a span:not(.cartCount):hover {
+  color: #ffffff;
+  filter: none;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 0.5rem;
+}
+.emptyCartWrapper .nav .nav-right .searchbox div {
+  filter: brightness(0.25);
+}
+.emptyCartWrapper .nav .nav-right .searchbox input {
+  border: 0.075rem solid #000000;
+}
+.emptyCartWrapper .nav .nav-right .navDash {
+  color: #000;
+  transition: all 0.3s;
+  border-color: #000000;
+  margin-left: 0.75rem;
+}
+.emptyCartWrapper .nav .nav-right .navDash:hover {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.emptyCartWrapper .nav .nav-right .navicons {
+  gap: 1rem;
+}
+.emptyCartWrapper .nav .nav-right .login {
+  border-color: rgba(0, 0, 0, 0.75);
+  color: rgb(0, 0, 0);
+}
+.emptyCartWrapper .nav .nav-right .login:hover {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #fff;
+}
+.emptyCartWrapper .message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.emptyCartWrapper .message span {
+  width: 50rem;
+  height: 15rem;
+  background-image: url("../../public/emptyCart.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.emptyCartWrapper .message h2 {
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  color: #e3242b;
+  cursor: default;
+}
+.emptyCartWrapper .message p {
+  font-size: 1rem;
+  width: 17.5rem;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  color: #0277bd;
+  cursor: default;
+}
+.emptyCartWrapper .message button {
+  margin-top: 1.5rem;
+  width: 15.5rem;
+  height: 2.5rem;
+  background-color: #0277bd;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}/*# sourceMappingURL=cart.module.css.map */

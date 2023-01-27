@@ -1,0 +1,87 @@
+/* -----------------------------------CART-------------------------------------*/
+
+@mixin flex($dir : row, $gap: 0rem) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: center;
+    align-items: center;
+    gap: $gap;
+}
+
+@mixin bg($url : '') {
+    background-image: url($url);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cartItem {
+    cursor: pointer;
+    border-radius: 25% 0 25% 0;
+    width: 16rem;
+    height: 20rem;
+    box-shadow: 0 0 0.5rem #e8e8e8;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.5s;
+    position: relative;
+    @include flex($dir : row, $gap: 0rem);
+    .shopimgCont {
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: 0.3s;
+        display: block;
+    }
+    .overlay {
+        width: 100%;
+        height: auto;
+        @include flex($dir : column, $gap: 1.5rem);
+        position: absolute;
+        top: 42.5%;
+        left: 50%;
+        translate: -50% -50%;
+        .price, .size, .qty {
+            opacity: 0;
+            @include flex($dir : row, $gap: 0rem);
+            width: auto;
+            height: auto;
+            padding: 0.25rem 1.5rem;
+            color: #fff;
+            transition: all 0.5s;
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            text-transform: capitalize;
+        }
+        .size {
+            width: 6rem;
+            position: absolute;
+            top: 175%;
+            left: 50%;
+            translate: -50% -50%;
+        }
+        .qty {
+            padding: 0.5rem 0.75rem;
+            border-radius: 5rem;
+            position: absolute;
+            top: 400%;
+            left: 90%;
+            translate: -50% -50%;
+            font-size: 1rem;
+        }
+    }
+}
+
+.cartItem:hover {
+    border-radius: 0 25% 0 25%;
+    .price, .size, .qty {
+        opacity: 1;
+    }
+    .shopimgCont {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+}

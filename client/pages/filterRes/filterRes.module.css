@@ -1,0 +1,111 @@
+/* -----------------------------------FILTER_RESULT_PAGE-------------------------------------*/
+.filterResWrapper {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  justify-content: flex-start;
+  background-color: #ffffff;
+}
+.filterResWrapper .resContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+  align-items: flex-start;
+}
+.filterResWrapper .resContent .filterOptions {
+  width: 25vw;
+  height: 200vh;
+  position: relative;
+  border-right: 0.05rem solid #c5c5c5;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.filterResWrapper .resContent .filterOptions .filterForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+}
+.filterResWrapper .resContent .filterOptions .filterForm .filterGender, .filterResWrapper .resContent .filterOptions .filterForm .filterCost, .filterResWrapper .resContent .filterOptions .filterForm .filterColor, .filterResWrapper .resContent .filterOptions .filterForm .filterCategory {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 85%;
+}
+.filterResWrapper .resContent .filterOptions .filterForm .filterGender h3, .filterResWrapper .resContent .filterOptions .filterForm .filterCost h3, .filterResWrapper .resContent .filterOptions .filterForm .filterColor h3, .filterResWrapper .resContent .filterOptions .filterForm .filterCategory h3 {
+  text-transform: capitalize;
+}
+.filterResWrapper .resContent .filterOptions .filterForm .filterGender span, .filterResWrapper .resContent .filterOptions .filterForm .filterCost span, .filterResWrapper .resContent .filterOptions .filterForm .filterColor span, .filterResWrapper .resContent .filterOptions .filterForm .filterCategory span {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  font-family: "Poppins", sans-serif;
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s;
+  border-radius: 0.5rem;
+  text-transform: capitalize;
+}
+.filterResWrapper .resContent .filterOptions .filterForm .filterGender .filterColorRow, .filterResWrapper .resContent .filterOptions .filterForm .filterCost .filterColorRow, .filterResWrapper .resContent .filterOptions .filterForm .filterColor .filterColorRow, .filterResWrapper .resContent .filterOptions .filterForm .filterCategory .filterColorRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+  justify-content: space-around;
+}
+.filterResWrapper .resContent .filterOptions .filterForm .filterGender .filterColorRow span, .filterResWrapper .resContent .filterOptions .filterForm .filterCost .filterColorRow span, .filterResWrapper .resContent .filterOptions .filterForm .filterColor .filterColorRow span, .filterResWrapper .resContent .filterOptions .filterForm .filterCategory .filterColorRow span {
+  width: 5rem;
+}
+.filterResWrapper .resContent .filterOptions .filterForm .goFilter {
+  outline: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+  padding-block: 0.5rem;
+  margin-top: 1.5rem;
+  width: 15rem;
+  cursor: pointer;
+  z-index: 201;
+  color: #37474f;
+  border: 0.1rem solid rgba(0, 0, 0, 0.5);
+  transition: all 0.3s;
+}
+.filterResWrapper .resContent .filterOptions .filterForm .goFilter:hover {
+  color: #ffffff;
+  border-color: transparent;
+  background-color: #318CE7;
+}
+.filterResWrapper .resContent .resList {
+  width: 75vw;
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.filterResWrapper .resContent .resList .card .c {
+  filter: brightness(100%);
+}/*# sourceMappingURL=filterRes.module.css.map */

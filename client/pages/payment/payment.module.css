@@ -1,0 +1,403 @@
+/* -----------------------------------PAYMENT_PAGE-------------------------------------*/
+.paymentWrapper {
+  width: 100vw;
+  height: auto;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  justify-content: flex-start;
+  outline: 0;
+  position: relative;
+}
+.paymentWrapper .paymentPage {
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+.paymentWrapper .paymentPage .heading {
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  background-image: url("../../public/678.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.paymentWrapper .paymentPage .heading h1 {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-block: 2rem;
+  font-size: 2.5rem;
+}
+.paymentWrapper .paymentPage .content {
+  width: 80%;
+  position: relative;
+  margin-bottom: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+.paymentWrapper .paymentPage .content .prsnlblockWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.paymentWrapper .paymentPage .content .prsnlblockWrapper aside {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+.paymentWrapper .paymentPage .content .prsnlblockWrapper aside span {
+  font-family: "Michroma", sans-serif;
+  color: #c5c5c5;
+  font-weight: 600;
+  cursor: default;
+  font-size: 1.25rem;
+}
+.paymentWrapper .paymentPage .content .prsnlblockWrapper aside h2 {
+  font-size: 1.25rem;
+  font-family: "Oswald", sans-serif;
+  color: rgba(0, 0, 0, 0.69);
+  text-transform: uppercase;
+}
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms {
+  width: 75%;
+}
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div .inputField {
+  width: 15rem;
+  height: 2rem;
+  box-sizing: border-box;
+  position: relative;
+}
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div .inputField input {
+  width: 100%;
+  height: 100%;
+  padding-left: 0.5rem;
+  border: 0.05rem solid #c5c5c5;
+  border-radius: 0.5rem;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+}
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div .inputField label {
+  position: absolute;
+  top: 55%;
+  left: 7.5%;
+  translate: 0% -50%;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  background-color: #ffffff;
+  color: #c5c5c5;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  border-radius: 0.3rem;
+  cursor: text;
+}
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div .inputField input:focus + label,
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div .inputField input:valid + label {
+  font-size: 0.65rem;
+  top: 0;
+  left: 0.5rem;
+  padding: 0 0.25rem;
+  margin-bottom: 0.5rem;
+}
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div .inputField input:focus {
+  outline: none;
+  border-color: #c5c5c5;
+}
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div .inputField input:valid {
+  background-color: rgba(137, 207, 240, 0.15);
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper aside {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper aside span {
+  font-family: "Michroma", sans-serif;
+  color: #c5c5c5;
+  font-weight: 600;
+  cursor: default;
+  font-size: 1.25rem;
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper aside h2 {
+  font-size: 1.25rem;
+  font-family: "Oswald", sans-serif;
+  color: rgba(0, 0, 0, 0.69);
+  text-transform: uppercase;
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper .forms {
+  width: 75%;
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div .inputField {
+  width: 15rem;
+  height: 2rem;
+  box-sizing: border-box;
+  position: relative;
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div .inputField input {
+  width: 100%;
+  height: 100%;
+  padding-left: 0.5rem;
+  border: 0.05rem solid #c5c5c5;
+  border-radius: 0.5rem;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div .inputField label {
+  position: absolute;
+  top: 55%;
+  left: 7.5%;
+  translate: 0% -50%;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  background-color: #ffffff;
+  color: #c5c5c5;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  border-radius: 0.3rem;
+  cursor: text;
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div .inputField input:focus + label,
+.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div .inputField input:valid + label {
+  font-size: 0.65rem;
+  top: 0;
+  left: 0.5rem;
+  padding: 0 0.25rem;
+  margin-bottom: 0.5rem;
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div .inputField input:focus {
+  outline: none;
+  border-color: #c5c5c5;
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div .inputField input:valid {
+  background-color: rgba(137, 207, 240, 0.15);
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form .address .inputField {
+  width: 46.95rem;
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form .address .inputField label {
+  left: 2.5%;
+}
+.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form .others {
+  gap: 1rem;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper aside {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper aside span {
+  font-family: "Michroma", sans-serif;
+  color: #c5c5c5;
+  font-weight: 600;
+  cursor: default;
+  font-size: 1.25rem;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper aside h2 {
+  font-size: 1.25rem;
+  font-family: "Oswald", sans-serif;
+  color: rgba(0, 0, 0, 0.69);
+  text-transform: uppercase;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms {
+  width: 75%;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div .inputField {
+  width: 15rem;
+  height: 2rem;
+  box-sizing: border-box;
+  position: relative;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div .inputField input {
+  width: 100%;
+  height: 100%;
+  padding-left: 0.5rem;
+  border: 0.05rem solid #c5c5c5;
+  border-radius: 0.5rem;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div .inputField label {
+  position: absolute;
+  top: 55%;
+  left: 7.5%;
+  translate: 0% -50%;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  background-color: #ffffff;
+  color: #c5c5c5;
+  font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
+  border-radius: 0.3rem;
+  cursor: text;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div .inputField input:focus + label,
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div .inputField input:valid + label {
+  font-size: 0.65rem;
+  top: 0;
+  left: 0.5rem;
+  padding: 0 0.25rem;
+  margin-bottom: 0.5rem;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div .inputField input:focus {
+  outline: none;
+  border-color: #c5c5c5;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div .inputField input:valid {
+  background-color: rgba(137, 207, 240, 0.15);
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .options span {
+  height: 2rem;
+  border: 0.05rem solid #c5c5c5;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0rem;
+  justify-content: flex-start;
+  gap: 1rem;
+  position: relative;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .options span span {
+  width: 3rem;
+  height: 80%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .options span label {
+  font-family: "Poppins", sans-serif;
+  color: #37474f;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .options span input {
+  margin-left: 1.5rem;
+  height: 75%;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .upi {
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .upi .inputField {
+  width: 46.95rem;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .upi .inputField label {
+  left: 2.5%;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .card {
+  display: none;
+  transition: all 0.3s ease-in-out;
+  gap: 1rem;
+}
+.paymentWrapper .paymentPage .content .proceed {
+  outline: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+  padding-block: 0.5rem;
+  margin-top: 1.5rem;
+  width: 15rem;
+  cursor: pointer;
+  z-index: 201;
+  color: #37474f;
+  border: 0.1rem solid rgba(0, 0, 0, 0.5);
+  transition: all 0.3s;
+  background-color: #ffffff;
+}
+.paymentWrapper .paymentPage .content .proceed:hover {
+  color: #ffffff;
+  border-color: transparent;
+  background-color: #318CE7;
+}/*# sourceMappingURL=payment.module.css.map */

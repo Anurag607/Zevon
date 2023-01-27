@@ -1,0 +1,1 @@
+export type cartType = { item_id: string; price: number; color: string; size: string }

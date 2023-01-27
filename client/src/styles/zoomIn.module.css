@@ -1,0 +1,44 @@
+.zoomInWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.zoomInWrapper .imageCont {
+  width: 35vw;
+  height: 95vh;
+  margin: 5% 0 0 5%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.zoomInWrapper .overlay {
+  display: none;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 25vw;
+  height: 50%;
+  top: 30%;
+  left: 35%;
+  border: 0.1rem solid #e8e8e8;
+  z-index: 1000;
+}
+.zoomInWrapper .mouseOverlay {
+  cursor: zoom-in;
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+  .zoomInWrapper .imageContainer {
+    width: 55%;
+  }
+  .zoomInWrapper .overlay {
+    margin-left: 70%;
+    width: 25%;
+    height: 15%;
+  }
+}/*# sourceMappingURL=zoomIn.module.css.map */
