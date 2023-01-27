@@ -9,3 +9,5 @@
 /api/.env
 
 /api/.env.*
+
+/client/.next
