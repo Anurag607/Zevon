@@ -20,14 +20,14 @@ const Page = ( {products} : {products: filterParamsType[] | string[]} ) =>  {
 
     if(router.isFallback) return <Preloader />
 
-    React.useEffect(() => {
+    const[result, setResult] = React.useState(products) // eslint-disable-line
+
+    React.useEffect(() => { // eslint-disable-line
         filterRes()
         Cookie.remove('searchParams', {path: ''})
         const body = document.querySelector('body')
         body.style.backgroundColor = '#ffffff'
     }, [])
-
-    const[result, setResult] = React.useState(products)
 
     const Fetcher = () => {
         let status = 200

@@ -2,7 +2,7 @@ import React from 'react'
 import { cartType } from '../../src/utils/cartType'
 import Cookie from 'js-cookie'
 
-const updateCart = ( props:{itemDetails:React.MutableRefObject<cartType>, id: string|string[]} ) => {
+const UpdateCart = ( props:{itemDetails:React.MutableRefObject<cartType>, id: string|string[]} ) => {
     const [cart, setCart] = React.useState<cartType[]>(JSON.parse(Cookie.get('cart') || `[]`))
     
     const itemExist = cart.find(item => item.item_id === `${props.id}`)
@@ -23,4 +23,4 @@ const updateCart = ( props:{itemDetails:React.MutableRefObject<cartType>, id: st
     console.log(props.itemDetails.current)
 }
 
-export default updateCart
+export default UpdateCart

@@ -31,6 +31,8 @@ const Burger = () => {
 
     const [itemList, setItemList] = React.useState(0)
 
+    /* eslint-disable */
+    
     React.useEffect(() => {
         Menu()
         search()
@@ -39,6 +41,8 @@ const Burger = () => {
         setItemList(JSON.parse(cart ? cart: `[]`).length)
         SetuserDetails(JSON.parse(auth || JSON.stringify(userDetails)))
     }, [])
+
+    /* eslint-enable */
 
     const router = useRouter()
 

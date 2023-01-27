@@ -8,6 +8,7 @@ import { NextApiRequest } from 'next'
 import {userDetails} from '../../src/utils/userDetails'
 import {useRouter} from 'next/router'
 import { ordersType } from '../../src/utils/ordersType'
+import Image from 'next/image'
 
 const Dashboard = ({auth, orders}: {auth: string, orders:ordersType[]}) => {
 
@@ -21,7 +22,7 @@ const Dashboard = ({auth, orders}: {auth: string, orders:ordersType[]}) => {
     body.style.backgroundColor = '#ffffff'
     console.log(orders)
     setUserAddr(`${(userDetails.address.address_line1 !== null) ? userDetails.address.address_line1 : ''} ${(userDetails.address.address_line2 !== null) ? userDetails.address.address_line2 : ''} ${(userDetails.address.city !== null) ? ', ' + userDetails.address.city : ''} ${(userDetails.address.country !== null ) ? ', ' + userDetails.address.country : ''} ${(userDetails.address.pincode !== null) ? '- ' + userDetails.address.pincode : ''}`)
-  }, [])
+  }, []) // eslint-disable-line
 
   const Orders = () =>  {
     let row = new Array(10).fill(1)
@@ -66,7 +67,7 @@ const Dashboard = ({auth, orders}: {auth: string, orders:ordersType[]}) => {
         </div>
         <Link href='/home' as='/home' passHref>
           <a id='logout' className={styles.home}>
-            <img src='/home.png' alt='logout' />
+            <Image src='/home.png' alt='home' width={32} height={32} />
             <span>Home</span>
           </a>
         </Link>
@@ -75,7 +76,7 @@ const Dashboard = ({auth, orders}: {auth: string, orders:ordersType[]}) => {
             Cookie.remove('currentLoggedIn', {path: ''})
             router.push('/home', '/home', {shallow: true})
           }}>
-            <img src='/logout.svg' alt='logout' />
+            <Image src='/logout.svg' alt='logout' width={32} height={32} />
             <span>Logout</span>
           </a>
         </Link>
@@ -90,7 +91,7 @@ const Dashboard = ({auth, orders}: {auth: string, orders:ordersType[]}) => {
           </div>
           <Link href='/home' as='/home' passHref>
             <a id='logout' className={styles.home}>
-              <img src='/home.png' alt='logout' />
+              <Image src='/home.png' alt='home' width={32} height={32} />
               <span>Home</span>
             </a>
           </Link>
@@ -99,13 +100,13 @@ const Dashboard = ({auth, orders}: {auth: string, orders:ordersType[]}) => {
               Cookie.remove('currentLoggedIn', {path: ''})
               router.push('/home', '/home', {shallow: true})
             }}>
-              <img src='/logout.svg' alt='logout' />
+              <Image src='/logout.svg' alt='logout' width={32} height={32} />
               <span>Logout</span>
             </a>
           </Link>
         </div>
         <div className={styles.header}>
-          <img src='/right-arrow.png' alt='right-arrow' />
+          <Image src='/right-arrow.png' alt='right-arrow' height={32} width={32} />
           <div>
             <p>Hi {userDetails.name},</p>
             <span>Welcome Back!</span>

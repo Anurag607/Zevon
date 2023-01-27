@@ -67,13 +67,22 @@
                         background-color: transparent;
                     }
                 }
-                a:nth-child(3), a:nth-child(4) {
+                a:nth-child(3) {
                     border-color: #e8e8e8;
                     color: #ffffff;
                 }
-                a:nth-child(3):hover, a:nth-child(4):hover {
+                a:nth-child(4) {
+                    border-color: #e8e8e8;
+                    color: #ffffff;
+                }
+                a:nth-child(3):hover {
                     background-color: #e8e8e8;
-                    color: #37474f;
+                    color: #37474f !important;
+                }
+
+                a:nth-child(4):hover {
+                    background-color: #e8e8e8;
+                    color: #37474f !important;
                 }
             }
         }

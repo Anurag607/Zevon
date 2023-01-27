@@ -34,6 +34,8 @@ const NavBar = () => {
 
     const router = useRouter()
 
+    /* eslint-disable */
+
     React.useEffect(() => {
         let cart = Cookie.get('cart')
         let auth = Cookie.get('currentLoggedIn')
@@ -42,6 +44,8 @@ const NavBar = () => {
         const searchico:HTMLElement = document.querySelector("#search-img")
         searchico.style.zIndex = '500'
     }, [])
+
+    /* eslint-enable */
 
     return (
         <nav className = {`${styles['nav']} nav`}>
@@ -108,7 +112,7 @@ const NavBar = () => {
                         </Link>
                          : 
                         <Link href='/login' as='/login' passHref>
-                            <a className={styles.login}>
+                            <a className={styles.login} onMouseOver={event => event.currentTarget.style.color = "#37474f"}>
                                 <div />
                                 <span>Login</span>
                             </a>

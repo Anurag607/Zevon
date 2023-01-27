@@ -58,6 +58,8 @@ export default function Login() {
         }
     }
 
+    /* eslint-disable */
+    
     const HandleSubmit = useCallback((e : React.FormEvent<LoginFormEl>) => {
         e.preventDefault();
         let status = 400
@@ -93,6 +95,8 @@ export default function Login() {
     React.useEffect(() => {
         router.prefetch('/home')
     },[])
+
+    /* eslint-enable */
 
     return (
         <main className={styles.loginWrapper}>

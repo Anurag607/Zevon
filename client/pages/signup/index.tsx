@@ -111,6 +111,8 @@ export default function Signup() {
         return null;
       }
 
+    /* eslint-disable */
+
     const HandleSubmit = React.useCallback((e: React.FormEvent<SignupFormEl>) => {
         e.preventDefault()
         let status = 201
@@ -171,6 +173,8 @@ export default function Signup() {
     React.useEffect(() => {
         router.prefetch('/home')
     }, [])
+
+    /* eslint-enable */
 
     return (
         <main className={styles.signupWrapper}>

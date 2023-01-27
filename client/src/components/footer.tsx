@@ -28,7 +28,7 @@ export default function Footer() {
                 <h1 style={{margin: "0"}}>NEWSLETTER</h1>
                 <p style={{fontSize: "1rem"}}>
                     To receieve your weekly fashion tips, <br />
-                    sign up to our weekly newsletter. We'll never send <br />
+                    sign up to our weekly newsletter. We&apos;ll never send <br />
                     you spam or pass on your eamil address
                 </p><br />
                 <form className={styles.Subform}>

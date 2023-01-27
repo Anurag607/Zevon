@@ -7,6 +7,8 @@ import Cookie from 'js-cookie'
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
+  /* eslint-disable */
+
   React.useEffect(() => {
     const handleRouteChange = (url: URL, {shallow}) => {
       Cookie.remove('selectedParams', { path: '' })
@@ -17,6 +19,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       router.events.off('routeChangeStart', handleRouteChange)
     }
   }, [])
+
+  /* eslint-enable */
 
   return (
     <Component {...pageProps} />

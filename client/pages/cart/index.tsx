@@ -99,7 +99,7 @@ const Page = ({cookieCart, userDetails} : {cookieCart: string, userDetails: stri
             <div className={styles.message}>
                 <span />
                 <h2>Oops! Your Cart is Empty!</h2>
-                <p>Looks like you haven't added anything to your cart yet</p>
+                <p>Looks like you haven&apos;t added anything to your cart yet</p>
                 <Link href={'/home'} as={'/home'} passHref>
                     <a>
                         <button>Shop Now</button>
