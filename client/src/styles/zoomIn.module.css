@@ -32,13 +32,29 @@
   border-radius: 50%;
 }
 
-@media only screen and (max-width: 768px) {
-  .zoomInWrapper .imageContainer {
-    width: 55%;
+@media only screen and (max-width: 825px) {
+  .zoomInWrapper .imageCont {
+    margin: 0% 0 0 0%;
+    width: 75vh;
+    height: 100vh;
   }
   .zoomInWrapper .overlay {
     margin-left: 70%;
-    width: 25%;
-    height: 15%;
+    left: -5%;
+    width: 30%;
+    height: 22.5%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .zoomInWrapper .imageCont {
+    margin: 0% 0 0 0%;
+    width: 50vh;
+    height: 75vh;
+  }
+  .zoomInWrapper .overlay {
+    margin-left: 70%;
+    left: -5%;
+    width: 30%;
+    height: 22.5%;
   }
 }/*# sourceMappingURL=zoomIn.module.css.map */

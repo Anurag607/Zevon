@@ -30,8 +30,7 @@
     background-color: #ffffff;
     nav {
         width: 96.5vw;
-        padding-left: 5rem;
-        padding-right: 6.5rem;
+        padding-inline: 5rem;
         gap: 0;
         div:nth-child(1) {
             li {
@@ -162,13 +161,27 @@
                         background-size: cover;
                         background-repeat: no-repeat;
                     }
-                    .itemName {
-                        @include flex($dir : row, $gap : 0rem);
-                        justify-content: flex-start;
-                        align-items: center;
+                    .otherDetails {
                         width: 80%;
+                        position: relative;
+                        @include flex($dir : column, $gap : 0.5rem);
+                        align-items: flex-start;
                         padding-left: 12.5%;
                         padding-right: 7.5%;
+                        .itemName {
+                            @include flex($dir : row, $gap : 0rem);
+                            justify-content: flex-start;
+                            align-items: center;
+                            width: 100%;
+                            font-size: 1.575rem;
+                        }
+                        .extra {
+                            @include flex($dir : row, $gap : 0.25rem);
+                            .Itemsize, .Itemcolor, .Itemqty {
+                                font-size: 0.75rem;
+                                color: #c5c5c5;
+                            }
+                        }
                     }
                     .price {
                         @include flex($dir : row, $gap : 0rem);
@@ -239,14 +252,14 @@
         backdrop-filter: blur(0.25rem);
         width: 100vw;
         height: 100vh;
-        z-index: 100;
+        z-index: 1500;
         div {
             width: 35vw;
             height: 35vh;
             background-color: #ffffff;
             padding-block: 1rem;
             border-radius: 1rem;
-            z-index: 105;
+            z-index: 1505;
             box-shadow: 0 0 0.5rem #c5c5c5;
             @include flex($dir: column, $gap: 1rem);
             .checkmark {
@@ -294,14 +307,30 @@
                 .billContents {
                     .item {
                         font-size: 1.275rem;
-                        .itemImg {
-                
+                        .otherDetails {
+                            .itemName {
+                                font-size: 1.275rem;
+                            }
                         }
-                        .itemName {
-                
-                        }
-                        .price {
-                
+                    }
+                }
+            }
+        }
+        .modal {
+            div {
+                width: 20rem;
+                height: 12.5rem;
+                .checkmark {
+                    width: 3rem;
+                    height: 3rem;
+                }
+                .confirmation {
+                    font-size: 1rem;
+                }
+                .redirection {
+                    a {
+                        button {
+                            width: 12.5rem;
                         }
                     }
                 }
@@ -317,6 +346,11 @@
                 .billContents {
                     .item {
                         font-size: 1.15rem;
+                    }
+                    .otherDetails {
+                        .itemName {
+                            font-size: 1.15rem;
+                        }
                     }
                 }
             }
@@ -343,6 +377,11 @@
                     .item {
                         font-size: 1rem;
                     }
+                    .otherDetails {
+                        .itemName {
+                            font-size: 1rem;
+                        }
+                    }
                 }
                 .ttlAmt {
                     gap: 6.5rem;
@@ -366,8 +405,16 @@
                 .billContents {
                     .item {
                         font-size: 0.9rem;
-                        .itemName {
+                        .otherDetails {
                             width: 70%;
+                            .itemName {
+                                font-size: 0.9rem;
+                            }
+                            .extra {
+                                .Itemsize, .Itemcolor, .Itemqty {
+                                    font-size: 0.6rem;
+                                }
+                            }
                         }
                         .price {
                             width: 30%;
@@ -395,6 +442,12 @@
                 .billContents {
                     .item {
                         font-size: 0.8rem;
+                        .otherDetails {
+                            .extra {
+                                flex-direction: column;
+                                align-items: flex-start;
+                            }
+                        }
                     }
                 }
                 .ttlAmt {
@@ -429,8 +482,17 @@
                 .billContents {
                     .item {
                         font-size: 0.75rem;
-                        .itemName {
+                        .otherDetails {
                             width: 65%;
+                            .itemName {
+                                font-size: 0.75rem;
+                            }
+                            .extra {
+                                gap: 0rem;
+                                .Itemsize, .Itemcolor, .Itemqty {
+                                    font-size: 0.5rem;
+                                }
+                            }
                         }
                         .price {
                             width: 35%;
@@ -443,6 +505,28 @@
                     padding-left: 0rem;
                     span {
                         translate: 0rem 0;
+                    }
+                }
+            }
+        }
+        .modal {
+            div {
+                width: 17.5rem;
+                height: 10rem;
+                .checkmark {
+                    width: 3rem;
+                    height: 3rem;
+                }
+                .confirmation {
+                    font-size: 1rem;
+                }
+                .redirection {
+                    a {
+                        button {
+                            font-size: 0.85rem;
+                            width: 12.5rem;
+                            height: 1.75rem;
+                        }
                     }
                 }
             }
@@ -469,8 +553,18 @@
                 .billContents {
                     .item {
                         font-size: 0.65rem;
-                        .itemName {
+                        .otherDetails {
                             width: 62.5%;
+                            .itemName {
+                                font-size: 0.65rem;
+                            }
+                            .extra {
+                                flex-direction: column;
+                                align-items: flex-start;
+                                .Itemsize, .Itemcolor, .Itemqty {
+                                    font-size: 0.375rem;
+                                }
+                            }
                         }
                         .price {
                             width: 37.5%;

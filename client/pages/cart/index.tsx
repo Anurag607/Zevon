@@ -22,6 +22,11 @@ const Page = ({cookieCart, userDetails} : {cookieCart: string, userDetails: stri
         ttlAmt += el.cost*el.quantity
     })
 
+    React.useEffect(() => {
+        const bodySelector = document.querySelector("body")
+        bodySelector.style.backgroundColor = "#ffffff"
+    }, [])
+
     const ItemsCont = () => {
         let img = []
         let prices = []
@@ -49,18 +54,29 @@ const Page = ({cookieCart, userDetails} : {cookieCart: string, userDetails: stri
         let items = []
         let prices = []
         let qty = []
+        let color = []
+        let size = []
         cart.forEach(el => {
             items.push(el.description)
             prices.push(el.cost)
             qty.push(el.quantity)
+            color.push(el.color)
+            size.push(el.size)
         })
         return (
             <div className={styles["billContents"]}>
                 {items.map((el,i) => {
                     return (
                         <div className={styles.item} key={i}>
-                            <span className={styles.itemName}>{el}</span>
-                            <span className={styles.price}> ₹ {qty[i]*prices[i]} </span>
+                            <div className={`${styles.otherDetails} otherDetails`}>
+                                <span className={`${styles.itemName} itemName`}>{el}</span>
+                                <div className={styles.extra}>
+                                    <span className={`${styles.Itemsize} size`}>Size: {size[i]} |</span>
+                                    <span className={`${styles.Itemcolor} color`}>Color: {color[i]} |</span>
+                                    <span className={`${styles.Itemqty} qty`}>Qty: {qty[i]}</span>
+                                </div>
+                            </div>
+                            <span className={styles.price}> ₹{qty[i]*prices[i]} </span>
                         </div>
                     )
                 })}

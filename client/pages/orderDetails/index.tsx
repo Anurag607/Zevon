@@ -3,7 +3,6 @@ import Head from 'next/head'
 import NavBar from '../../src/components/navbar'
 import Footer from '../../src/components/footer'
 import styles from './orderDetails.module.scss'
-import css from './orderDetails.module.css'
 import { productType } from '../../src/utils/productType'
 import { NextApiRequest } from 'next'
 import Cookie from 'js-cookie'
@@ -91,11 +90,15 @@ const Page = ({cookieCart, userDetails} : {cookieCart: string, userDetails: stri
         let prices = []
         let img = []
         let qty = []
+        let color = []
+        let size = []
         cart.forEach(el => {
             img.push(el.img_url)
             items.push(el.description)
             prices.push(el.cost)
             qty.push(el.quantity)
+            color.push(el.color)
+            size.push(el.size)
         })
         return (
             <div className={`${styles["billContents"]} billContents`}>
@@ -103,8 +106,15 @@ const Page = ({cookieCart, userDetails} : {cookieCart: string, userDetails: stri
                     return (
                         <div className={`${styles.item} item`} key={i}>
                             <span className={`${styles.itemImg} itemImg`} style={{backgroundImage: `url('${img[i]}')`,}}/>
-                            <span className={`${styles.itemName} itemName`}>{el}</span>
-                            <span className={`${styles.price} price`}> ₹ {qty[i]*prices[i]} </span>
+                            <div className={`${styles.otherDetails} otherDetails`}>
+                                <span className={`${styles.itemName} itemName`}>{el}</span>
+                                <div className={styles.extra}>
+                                    <span className={`${styles.Itemsize} size`}>Size: {size[i]} |</span>
+                                    <span className={`${styles.Itemcolor} color`}>Color: {color[i]} |</span>
+                                    <span className={`${styles.Itemqty} qty`}>Qty: {qty[i]}</span>
+                                </div>
+                            </div>
+                            <span className={`${styles.price} price`}> ₹{qty[i]*prices[i]} </span>
                         </div>
                     )
                 })}
@@ -167,7 +177,7 @@ const Page = ({cookieCart, userDetails} : {cookieCart: string, userDetails: stri
                     </span>
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

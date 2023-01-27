@@ -149,18 +149,6 @@
                 background-size: cover;
                 background-repeat: no-repeat;
             }
-            .cartContent .bill .billContents .item .itemName {
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                gap: 0rem;
-                justify-content: flex-start;
-                align-items: center;
-                width: 80%;
-                padding-left: 12.5%;
-                padding-right: 7.5%;
-            }
             .cartContent .bill .billContents .item .price {
                 display: flex;
                 flex-direction: row;
@@ -171,6 +159,40 @@
                 align-items: center;
                 width: 20%;
                 padding-right: 11%;
+            }
+            .cartContent .bill .billContents .item .otherDetails {
+                width: 80%;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+                align-items: flex-start;
+                padding-left: 12.5%;
+                padding-right: 7.5%;
+            }
+            .cartContent .bill .billContents .item .otherDetails .itemName {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 0rem;
+                justify-content: flex-start;
+                align-items: center;
+                width: 100%;
+                font-size: 1.575rem;
+            }
+            .cartContent .bill .billContents .item .otherDetails .extra {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            .cartContent .bill .billContents .item .otherDetails .extra .Itemsize, .cartContent .bill .billContents .item .otherDetails .extra .Itemcolor, .cartContent .bill .billContents .item .otherDetails .extra .Itemqty {
+                font-size: 0.75rem;
+                color: #c5c5c5;
             }
             .cartContent .bill .ttlAmt {
                 width: 100%;
@@ -200,9 +222,15 @@
                 .cartContent .bill .billContents .item {
                     font-size: 1.275rem;
                 }
+                .cartContent .bill .billContents .item .otherDetails .itemName {
+                    font-size: 1.275rem;
+                }
             }
             @media screen and (max-width: 1000px) {
                 .cartContent .bill .billContents .item {
+                    font-size: 1.15rem;
+                }
+                .cartContent .bill .billContents .otherDetails .itemName {
                     font-size: 1.15rem;
                 }
             }
@@ -217,6 +245,9 @@
                     font-size: 1.5rem;
                 }
                 .cartContent .bill .billContents .item {
+                    font-size: 1rem;
+                }
+                .cartContent .bill .billContents .otherDetails .itemName {
                     font-size: 1rem;
                 }
                 .cartContent .bill .ttlAmt {
@@ -236,8 +267,14 @@
                 .cartContent .bill .billContents .item {
                     font-size: 0.9rem;
                 }
-                .cartContent .bill .billContents .item .itemName {
+                .cartContent .bill .billContents .item .otherDetails {
                     width: 70%;
+                }
+                .cartContent .bill .billContents .item .otherDetails .itemName {
+                    font-size: 0.9rem;
+                }
+                .cartContent .bill .billContents .item .otherDetails .extra .Itemsize, .cartContent .bill .billContents .item .otherDetails .extra .Itemcolor, .cartContent .bill .billContents .item .otherDetails .extra .Itemqty {
+                    font-size: 0.6rem;
                 }
                 .cartContent .bill .billContents .item .price {
                     width: 30%;
@@ -279,8 +316,17 @@
                 .cartContent .bill .billContents .item {
                     font-size: 0.75rem;
                 }
-                .cartContent .bill .billContents .item .itemName {
+                .cartContent .bill .billContents .item .otherDetails {
                     width: 65%;
+                }
+                .cartContent .bill .billContents .item .otherDetails .itemName {
+                    font-size: 0.75rem;
+                }
+                .cartContent .bill .billContents .item .otherDetails .extra {
+                    gap: 0rem;
+                }
+                .cartContent .bill .billContents .item .otherDetails .extra .Itemsize, .cartContent .bill .billContents .item .otherDetails .extra .Itemcolor, .cartContent .bill .billContents .item .otherDetails .extra .Itemqty {
+                    font-size: 0.5rem;
                 }
                 .cartContent .bill .billContents .item .price {
                     width: 35%;
@@ -308,8 +354,18 @@
                 .cartContent .bill .billContents .item {
                     font-size: 0.65rem;
                 }
-                .cartContent .bill .billContents .item .itemName {
+                .cartContent .bill .billContents .item .otherDetails {
                     width: 62.5%;
+                }
+                .cartContent .bill .billContents .item .otherDetails .itemName {
+                    font-size: 0.65rem;
+                }
+                .cartContent .bill .billContents .item .otherDetails .extra {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                .cartContent .bill .billContents .item .otherDetails .extra .Itemsize, .cartContent .bill .billContents .item .otherDetails .extra .Itemcolor, .cartContent .bill .billContents .item .otherDetails .extra .Itemqty {
+                    font-size: 0.375rem;
                 }
                 .cartContent .bill .billContents .item .price {
                     width: 37.5%;
@@ -326,6 +382,6 @@
         </style>
     </head>
     <body>
-        <div style="width: 100vw; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 9.375rem;"><div class="orderDetails_greeting__zqetj greeting"><h1>Hello anurag,</h1><p>b-3, type-4, tower-5, NBCC towers, east kidwai nagar, near AIIMS  , new delhi , india - 110023</p><p>Your order details for which are listed below : </p></div><main class="orderDetails_cartContent__MisEi cartContent"><div class="orderDetails_bill__N_2tI bill"><h2 class="orderDetails_head__6oNit head">Order Details</h2><div class="orderDetails_billContents__S67Uh billContents"><div class="orderDetails_item__TTlpe item"><span class="orderDetails_itemImg__HEy_p itemImg" style="background-image: url(&quot;/clothes/mens/lowers/chinos.webp&quot;);"></span><span class="orderDetails_itemName__hbQp9 itemName">chinos</span><span class="orderDetails_price__okNbI price"> ₹ 1250 </span></div><div class="orderDetails_item__TTlpe item"><span class="orderDetails_itemImg__HEy_p itemImg" style="background-image: url(&quot;/clothes/mens/shoes/active_sneakers.png&quot;);"></span><span class="orderDetails_itemName__hbQp9 itemName">active sneakers</span><span class="orderDetails_price__okNbI price"> ₹ 799 </span></div><div class="orderDetails_item__TTlpe item"><span class="orderDetails_itemImg__HEy_p itemImg" style="background-image: url(&quot;/clothes/mens/shoes/active_sandals.png&quot;);"></span><span class="orderDetails_itemName__hbQp9 itemName">active sandals</span><span class="orderDetails_price__okNbI price"> ₹ 489 </span></div><div class="orderDetails_item__TTlpe item"><span class="orderDetails_itemImg__HEy_p itemImg" style="background-image: url(&quot;/clothes/mens/shirts/camp_collared_short_sleeve_shirt.jpeg&quot;);"></span><span class="orderDetails_itemName__hbQp9 itemName">camp collared short sleeve</span><span class="orderDetails_price__okNbI price"> ₹ 789 </span></div><div class="orderDetails_item__TTlpe item"><span class="orderDetails_itemImg__HEy_p itemImg" style="background-image: url(&quot;/clothes/mens/shirts/denim_shirt.webp&quot;);"></span><span class="orderDetails_itemName__hbQp9 itemName">denim shirt</span><span class="orderDetails_price__okNbI price"> ₹ 918 </span></div></div><div class="orderDetails_ttlAmt__VIFWd ttlAmt">Total Payable Amount:<span> ₹ 4245 </span></div></div></main></div>
+        <div style="width: 100vw; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 9.375rem;"><div class="orderDetails_greeting__zqetj greeting"><h1>Hello anurag goswami,</h1><p>b-3, type-4, tower-5, NBCC towers, east kidwai nagar, near AIIMA  , new delhi , india - 110023</p><p>Your order details for which are listed below : </p></div><main class="orderDetails_cartContent__MisEi cartContent"><div class="orderDetails_bill__N_2tI bill"><h2 class="orderDetails_head__6oNit head">Order Details</h2><div class="orderDetails_billContents__S67Uh billContents"><div class="orderDetails_item__TTlpe item"><span class="orderDetails_itemImg__HEy_p itemImg" style="background-image: url(&quot;/clothes/women/shirts/oversized_t_shirt.jpg&quot;);"></span><div class="orderDetails_otherDetails__udJGc otherDetails"><span class="orderDetails_itemName__hbQp9 itemName">oversized t shirt</span><div class="orderDetails_extra__IAueZ"><span class="orderDetails_Itemsize__IhUXV size">Size: m |</span><span class="orderDetails_Itemcolor__wiRFg color">Color: blue |</span><span class="orderDetails_Itemqty__oftQW qty">Qty: 2</span></div></div><span class="orderDetails_price__okNbI price"> ₹1000 </span></div><div class="orderDetails_item__TTlpe item"><span class="orderDetails_itemImg__HEy_p itemImg" style="background-image: url(&quot;/clothes/women/shirts/oversized_t_shirt.jpg&quot;);"></span><div class="orderDetails_otherDetails__udJGc otherDetails"><span class="orderDetails_itemName__hbQp9 itemName">oversized t shirt</span><div class="orderDetails_extra__IAueZ"><span class="orderDetails_Itemsize__IhUXV size">Size: s |</span><span class="orderDetails_Itemcolor__wiRFg color">Color: blue |</span><span class="orderDetails_Itemqty__oftQW qty">Qty: 1</span></div></div><span class="orderDetails_price__okNbI price"> ₹500 </span></div><div class="orderDetails_item__TTlpe item"><span class="orderDetails_itemImg__HEy_p itemImg" style="background-image: url(&quot;/clothes/women/shirts/oversized_t_shirt.jpg&quot;);"></span><div class="orderDetails_otherDetails__udJGc otherDetails"><span class="orderDetails_itemName__hbQp9 itemName">oversized t shirt</span><div class="orderDetails_extra__IAueZ"><span class="orderDetails_Itemsize__IhUXV size">Size: s |</span><span class="orderDetails_Itemcolor__wiRFg color">Color: rgb(255, 211, 0) |</span><span class="orderDetails_Itemqty__oftQW qty">Qty: 2</span></div></div><span class="orderDetails_price__okNbI price"> ₹1000 </span></div><div class="orderDetails_item__TTlpe item"><span class="orderDetails_itemImg__HEy_p itemImg" style="background-image: url(&quot;/clothes/women/shirts/oversized_t_shirt.jpg&quot;);"></span><div class="orderDetails_otherDetails__udJGc otherDetails"><span class="orderDetails_itemName__hbQp9 itemName">oversized t shirt</span><div class="orderDetails_extra__IAueZ"><span class="orderDetails_Itemsize__IhUXV size">Size: l |</span><span class="orderDetails_Itemcolor__wiRFg color">Color: rgb(255, 211, 0) |</span><span class="orderDetails_Itemqty__oftQW qty">Qty: 1</span></div></div><span class="orderDetails_price__okNbI price"> ₹500 </span></div></div><div class="orderDetails_ttlAmt__VIFWd ttlAmt">Total Payable Amount:<span> ₹ 3000 </span></div></div></main></div>
     </body>
 </html>

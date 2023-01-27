@@ -81,10 +81,8 @@
   color: rgba(0, 0, 0, 0.69);
   text-transform: uppercase;
 }
-.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms {
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .prsnlForm {
   width: 75%;
-}
-.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,20 +90,20 @@
   gap: 2.5rem;
   align-items: flex-start;
 }
-.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div {
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .prsnlForm div {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 1rem;
 }
-.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div .inputField {
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .prsnlForm div .inputField {
   width: 15rem;
   height: 2rem;
   box-sizing: border-box;
   position: relative;
 }
-.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div .inputField input {
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .prsnlForm div .inputField input {
   width: 100%;
   height: 100%;
   padding-left: 0.5rem;
@@ -114,7 +112,7 @@
   font-family: "Poppins", sans-serif;
   text-transform: capitalize;
 }
-.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div .inputField label {
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .prsnlForm div .inputField label {
   position: absolute;
   top: 55%;
   left: 7.5%;
@@ -128,19 +126,19 @@
   border-radius: 0.3rem;
   cursor: text;
 }
-.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div .inputField input:focus + label,
-.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div .inputField input:valid + label {
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .prsnlForm div .inputField input:focus + label,
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .prsnlForm div .inputField input:valid + label {
   font-size: 0.65rem;
   top: 0;
   left: 0.5rem;
   padding: 0 0.25rem;
   margin-bottom: 0.5rem;
 }
-.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div .inputField input:focus {
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .prsnlForm div .inputField input:focus {
   outline: none;
   border-color: #c5c5c5;
 }
-.paymentWrapper .paymentPage .content .prsnlblockWrapper .forms form div .inputField input:valid {
+.paymentWrapper .paymentPage .content .prsnlblockWrapper .prsnlForm div .inputField input:valid {
   background-color: rgba(137, 207, 240, 0.15);
 }
 .paymentWrapper .paymentPage .content .shippingblockWrapper {
@@ -173,10 +171,8 @@
   color: rgba(0, 0, 0, 0.69);
   text-transform: uppercase;
 }
-.paymentWrapper .paymentPage .content .shippingblockWrapper .forms {
+.paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm {
   width: 75%;
-}
-.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -184,20 +180,20 @@
   gap: 2.5rem;
   align-items: flex-start;
 }
-.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div {
+.paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm div {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 6rem;
 }
-.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div .inputField {
+.paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm div .inputField {
   width: 15rem;
   height: 2rem;
   box-sizing: border-box;
   position: relative;
 }
-.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div .inputField input {
+.paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm div .inputField input {
   width: 100%;
   height: 100%;
   padding-left: 0.5rem;
@@ -206,7 +202,7 @@
   font-family: "Poppins", sans-serif;
   text-transform: capitalize;
 }
-.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div .inputField label {
+.paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm div .inputField label {
   position: absolute;
   top: 55%;
   left: 7.5%;
@@ -220,28 +216,28 @@
   border-radius: 0.3rem;
   cursor: text;
 }
-.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div .inputField input:focus + label,
-.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div .inputField input:valid + label {
+.paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm div .inputField input:focus + label,
+.paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm div .inputField input:valid + label {
   font-size: 0.65rem;
   top: 0;
   left: 0.5rem;
   padding: 0 0.25rem;
   margin-bottom: 0.5rem;
 }
-.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div .inputField input:focus {
+.paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm div .inputField input:focus {
   outline: none;
   border-color: #c5c5c5;
 }
-.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form div .inputField input:valid {
+.paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm div .inputField input:valid {
   background-color: rgba(137, 207, 240, 0.15);
 }
-.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form .address .inputField {
+.paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm .address .inputField {
   width: 46.95rem;
 }
-.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form .address .inputField label {
+.paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm .address .inputField label {
   left: 2.5%;
 }
-.paymentWrapper .paymentPage .content .shippingblockWrapper .forms form .others {
+.paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm .others {
   gap: 1rem;
 }
 .paymentWrapper .paymentPage .content .paymentblockWrapper {
@@ -274,10 +270,8 @@
   color: rgba(0, 0, 0, 0.69);
   text-transform: uppercase;
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm {
   width: 75%;
-}
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -285,20 +279,20 @@
   gap: 2.5rem;
   align-items: flex-start;
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm div {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 6rem;
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div .inputField {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm div .inputField {
   width: 15rem;
   height: 2rem;
   box-sizing: border-box;
   position: relative;
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div .inputField input {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm div .inputField input {
   width: 100%;
   height: 100%;
   padding-left: 0.5rem;
@@ -307,7 +301,7 @@
   font-family: "Poppins", sans-serif;
   text-transform: capitalize;
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div .inputField label {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm div .inputField label {
   position: absolute;
   top: 55%;
   left: 7.5%;
@@ -321,22 +315,22 @@
   border-radius: 0.3rem;
   cursor: text;
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div .inputField input:focus + label,
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div .inputField input:valid + label {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm div .inputField input:focus + label,
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm div .inputField input:valid + label {
   font-size: 0.65rem;
   top: 0;
   left: 0.5rem;
   padding: 0 0.25rem;
   margin-bottom: 0.5rem;
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div .inputField input:focus {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm div .inputField input:focus {
   outline: none;
   border-color: #c5c5c5;
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form div .inputField input:valid {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm div .inputField input:valid {
   background-color: rgba(137, 207, 240, 0.15);
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .options span {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm .options span {
   height: 2rem;
   border: 0.05rem solid #c5c5c5;
   border-radius: 0.5rem;
@@ -350,7 +344,7 @@
   gap: 1rem;
   position: relative;
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .options span span {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm .options span span {
   width: 3rem;
   height: 80%;
   background-position: center;
@@ -358,25 +352,28 @@
   background-repeat: no-repeat;
   border: none;
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .options span label {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm .options span label {
   font-family: "Poppins", sans-serif;
   color: #37474f;
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .options span input {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm .options span input {
   margin-left: 1.5rem;
   height: 75%;
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .upi {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm .upi {
   display: none;
   transition: all 0.3s ease-in-out;
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .upi .inputField {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm .upi .inputField {
   width: 46.95rem;
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .upi .inputField label {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm .upi .inputField input {
+  text-transform: none;
+}
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm .upi .inputField label {
   left: 2.5%;
 }
-.paymentWrapper .paymentPage .content .paymentblockWrapper .forms form .card {
+.paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm .card {
   display: none;
   transition: all 0.3s ease-in-out;
   gap: 1rem;
@@ -400,4 +397,107 @@
   color: #ffffff;
   border-color: transparent;
   background-color: #318CE7;
+}
+.paymentWrapper .paymentPage .content .warning {
+  display: none;
+  border: transparent;
+  outline: none;
+  background: red;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  cursor: default;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .paymentWrapper .paymentPage .content {
+    width: 100%;
+  }
+  .paymentWrapper .paymentPage .content .prsnlblockWrapper {
+    flex-direction: column;
+  }
+  .paymentWrapper .paymentPage .content .prsnlblockWrapper aside {
+    width: 100vw;
+    align-items: center;
+  }
+  .paymentWrapper .paymentPage .content .prsnlblockWrapper .prsnlForm {
+    width: 100vw;
+    align-items: center;
+  }
+  .paymentWrapper .paymentPage .content .prsnlblockWrapper .prsnlForm div {
+    flex-direction: column;
+  }
+  .paymentWrapper .paymentPage .content .prsnlblockWrapper .prsnlForm div .inputField input {
+    text-align: center;
+  }
+  .paymentWrapper .paymentPage .content .shippingblockWrapper {
+    flex-direction: column;
+  }
+  .paymentWrapper .paymentPage .content .shippingblockWrapper aside {
+    width: 100vw;
+    align-items: center;
+  }
+  .paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm {
+    width: 100vw;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm .inputField input {
+    text-align: center;
+  }
+  .paymentWrapper .paymentPage .content .paymentblockWrapper {
+    flex-direction: column;
+  }
+  .paymentWrapper .paymentPage .content .paymentblockWrapper aside {
+    width: 100vw;
+    align-items: center;
+  }
+  .paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm {
+    width: 100vw;
+    align-items: center;
+  }
+  .paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm div {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm .options span:nth-child(2) {
+    gap: 0rem;
+  }
+  .paymentWrapper .paymentPage .content .paymentblockWrapper .paymentForm .upi .inputField {
+    width: 17.5rem;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .paymentWrapper nav {
+    padding-left: 2rem;
+    padding-right: 1.5rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .paymentWrapper .paymentPage .content .shippingblockWrapper {
+    flex-direction: column;
+  }
+  .paymentWrapper .paymentPage .content .shippingblockWrapper aside {
+    width: 100vw;
+    align-items: center;
+  }
+  .paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm {
+    width: 100vw;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm div .inputField input {
+    text-align: center;
+  }
+  .paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm .address .inputField {
+    width: 85vw;
+  }
+  .paymentWrapper .paymentPage .content .shippingblockWrapper .shippingForm .others {
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=payment.module.css.map */

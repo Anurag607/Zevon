@@ -1,11 +1,11 @@
 CREATE TABLE `user` (
     `user_id` INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(32) NOT NULL,
+    name VARCHAR(256) NOT NULL,
     password VARCHAR(128) NOT NULL,
     phone_number VARCHAR(15),
     email VARCHAR(128) NOT NULL UNIQUE,
     user_type VARCHAR(32) NOT NULL,
-    token VARCHAR(256)
+    token VARCHAR(256) NOT NULL UNIQUE
 );
 
 CREATE TABLE user_address (
@@ -14,7 +14,7 @@ CREATE TABLE user_address (
     address_line1 VARCHAR(256),
     address_line2 VARCHAR(256),
     city VARCHAR(128),
-    pincode INTEGER(6),
+    pincode INTEGER,
     country VARCHAR(128),
     FOREIGN KEY (`user_id`) REFERENCES user(`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -47,25 +47,14 @@ CREATE TABLE product (
     product_id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
     product_type VARCHAR(64) NOT NULL,
     color VARCHAR(64) NOT NULL,
-    size VARCHAR(8) NOT NULL,
+    size VARCHAR(32) NOT NULL,
     gender VARCHAR(32) NOT NULL,
     description VARCHAR(256) NOT NULL,
     img_url VARCHAR(512) NOT NULL UNIQUE,
     cost float(2) NOT NULL,
-    quantity INTEGER NOT NULL DEFAULT 1,
+    quantity INTEGER NOT NULL DEFAULT 6,
     seller_id INTEGER NOT NULL ,
     FOREIGN KEY (seller_id) REFERENCES seller(seller_id) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-CREATE TABLE current_order_details (
-    order_id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `user_id` INTEGER NOT NULL UNIQUE,
-    payment_id INTEGER NOT NULL UNIQUE,
-    product_id VARCHAR(128) NOT NULL,
-    order_date INTEGER NOT NULL,
-    total_amount FLOAT(2) NOT NULL,
-    FOREIGN KEY (`user_id`) REFERENCES user(`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (payment_id) REFERENCES payment(payment_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE past_order_details (

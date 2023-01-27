@@ -312,4 +312,61 @@
   font-family: "Poppins", sans-serif;
   color: #e3242b;
   cursor: default;
+}
+
+@media screen and (max-width: 825px) {
+  .itemWrapper nav {
+    padding-left: 2rem;
+    padding-right: 1.5rem;
+  }
+  .itemWrapper .itemContent {
+    gap: 10vh;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 20vh;
+  }
+  .itemWrapper .itemContent .itemImg {
+    width: 85vw;
+    height: 50vh;
+    display: none;
+  }
+  .itemWrapper .itemContent .itemDetails {
+    width: 100vw;
+  }
+  .itemWrapper .itemContent .itemDetails .itemName {
+    width: 100vw;
+    font-size: 1.25rem;
+  }
+  .itemWrapper .itemContent .itemDetails .itemprice {
+    width: 100%;
+  }
+  .itemWrapper .itemContent .itemDetails .itemColors {
+    width: 100vw;
+  }
+  .itemWrapper .itemContent .itemDetails .itemColors .colorCont {
+    gap: 1.5rem;
+  }
+  .itemWrapper .itemContent .itemDetails .itemColors .colorCont .Colors {
+    width: 2rem;
+    height: 2rem;
+  }
+  .itemWrapper .itemContent .itemDetails .itemSizes {
+    width: 100vw;
+    font-size: 1rem;
+  }
+  .itemWrapper .itemContent .itemDetails .itemSizes ul {
+    gap: 1rem;
+  }
+  .itemWrapper .itemContent .itemDetails .addItem {
+    width: auto;
+    height: auto;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.75rem;
+  }
+  .itemWrapper .itemContent .itemDetails .addItem span {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 }/*# sourceMappingURL=itemPage.module.css.map */

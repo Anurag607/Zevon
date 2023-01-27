@@ -15,11 +15,14 @@ const Menu = () => {
         menuBar2.style.backgroundColor = "#ffffff"
         menuBar3.style.backgroundColor = "#ffffff"
         sidebarel.forEach((el,i) => {
-            el.style.transition = "all 0.3s 0"
-            el.style.display = "flex"
-            el.style.opacity = "1"
+            el.style.display = "none"
+            setTimeout(() => {
+                el.style.transition = "all 0.3s 0"
+                el.style.display = "flex"
+                el.style.opacity = "1"
+            }, 100)
         })
-        navRight.display = 'flex'
+        navRight.style.display = 'flex'
         setTimeout(() => {
             navRight.style.opacity = 1
         }, 100)
@@ -39,10 +42,13 @@ const Menu = () => {
         sidebarel.forEach((el,i) => {
             el.style.transition = "all 0.3s 0.5s 0.5s"
             el.style.opacity = "0"
+            setTimeout(() => {
+                el.style.display = "none"
+            }, 350)
         })
         navRight.style.opacity = 0
         setTimeout(() => {
-            navRight.display = 'none'
+            navRight.style.display = 'none'
         }, 350)
         sidebar.style.width = "0"
         menu.dataset.toggle = "open"

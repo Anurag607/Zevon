@@ -222,7 +222,6 @@ const Page = ({userDetails} : {userDetails: string}) => {
         const upi:HTMLInputElement = document.querySelector("#upiId")
         const upiLabel:HTMLLabelElement = document.querySelector("#upiLabel")
         const upirgx = /^[a-zA-Z0-9.\-_]{2,256}@paypal$/
-        console.log(upirgx.test(upi.value))
         if(upirgx.test(upi.value) === false) {
             upi.style.borderColor = "rgba(255, 0, 0, 0.5)"
             upi.style.backgroundColor = "rgba(255, 0, 0, 0.5)"
@@ -262,7 +261,27 @@ const Page = ({userDetails} : {userDetails: string}) => {
                 <div className={styles.heading}>
                     <h1>Checkout</h1>
                 </div>
-                <form className={styles.content}>
+                <form className={styles.content} onSubmit={event => {
+                            event.preventDefault()
+                            if(payment.payment_type.current === "upi") upiValidation()
+                            else if(payment.payment_type.current === "card") cardValidation()
+
+                            else if(phNum === "") {
+                                styling.warning.current!.style.display = 'block'
+                                styling.warning.current!.innerHTML = 'Enter Phone Number'
+                            }
+                            else if(addr.address === "" || addr.city === "" || addr.country === "" || addr.pincode === "") {
+                                styling.warning.current!.style.display = 'block'
+                                styling.warning.current!.innerHTML = 'Enter all Address Details'
+                            }
+                            else if(payment.payment_type.current === "") {
+                                styling.warning.current!.style.display = 'block'
+                                styling.warning.current!.innerHTML = 'Select a Payment Method'
+                            }
+                            
+                            addrFetcher()
+                            paymentFetcher()
+                        }}>
                     <div className={styles.prsnlblockWrapper}>
                         <aside>
                             <span>{`01`}</span>
@@ -331,11 +350,12 @@ const Page = ({userDetails} : {userDetails: string}) => {
                                 <span>
                                     <span style={{backgroundImage: `url('/paypal.png')`}} />
                                     <label htmlFor='upi'>{"PayPal"}</label>
-                                    <input type='radio' className='option_upi' name='upi' id="upi" required onClick={() => {
+                                    <input type='radio' className='option_upi' name='upi' id="upi" onClick={() => {
                                         deSelectOptions()
                                         const upi:HTMLDivElement = document.querySelector('.upi')
                                         const card:HTMLDivElement = document.querySelector('.card')
-                                        upi.style.display = 'flex'
+                                        upi.style.display = 'flex';
+                                        (upi.children[0].children[0] as HTMLInputElement).required = true
                                         card.style.display = 'none'
                                         payment.payment_type.current = 'upi'
                                         payment.provider_name.current = 'paypal'
@@ -344,12 +364,15 @@ const Page = ({userDetails} : {userDetails: string}) => {
                                 <span>
                                     <span style={{backgroundImage: `url('/mastercard.png')`}} />
                                     <label htmlFor='card'>{"Credit Card or Debit"}</label>
-                                    <input type='radio' className='option_card'name='card' id="card" required onClick={() => {
+                                    <input type='radio' className='option_card'name='card' id="card" onClick={() => {
                                         deSelectOptions()
                                         const upi:HTMLDivElement = document.querySelector('.upi')
                                         const card:HTMLDivElement = document.querySelector('.card')
                                         upi.style.display = 'none'
                                         card.style.display = 'flex'
+                                        card.childNodes.forEach((el:HTMLDivElement,i:number) => {
+                                            (el.children[0] as HTMLInputElement).required = true
+                                        })
                                         payment.payment_type.current = 'card'
                                         payment.provider_name.current = 'rupay'
                                     }}/>
@@ -357,47 +380,28 @@ const Page = ({userDetails} : {userDetails: string}) => {
                             </div>
                             <div className={`${styles.upi} upi`}>
                                 <div className={styles.inputField}>
-                                    <input type='text' name='upiId' id='upiId' required />
+                                    <input type='text' name='upiId' id='upiId' autoFocus />
                                     <label id={"upiLabel"} htmlFor={"upiId"}>{"upi id"}</label>
                                 </div>
                             </div>
                             <div className={`${styles.card} card`}>
                                 <div className={styles.inputField}>
-                                    <input type="text" name="cardnum" id="cardnum" required />
+                                    <input type="text" name="cardnum" id="cardnum" autoFocus />
                                     <label id={"cardnumLabel"} htmlFor={"cardnum"}>{"card number"}</label>
                                 </div>
                                 <div className={styles.inputField}>
-                                    <input type="date" name="expirydate" id="expirydate" onChange={HandleChange} required />
+                                    <input type="date" name="expirydate" id="expirydate" onChange={HandleChange} />
                                     <label htmlFor={"expirydate"}>{"expiry date"}</label>
                                 </div>
                                 <div className={styles.inputField}>
-                                    <input type="number" name="cvv" id="cvv" required />
+                                    <input type="number" name="cvv" id="cvv" />
                                     <label id={"cvvLabel"} htmlFor={"cvv"}>{"cvc/cvv"}</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <button onClick={event => {
-                            if(payment.payment_type.current === "upi") upiValidation()
-                            else if(payment.payment_type.current === "card") cardValidation()
-
-                            else if(phNum === "") {
-                                styling.warning.current!.style.display = 'block'
-                                styling.warning.current!.innerHTML = 'Enter Phone Number'
-                            }
-                            else if(addr.address === "" || addr.city === "" || addr.country === "" || addr.pincode === "") {
-                                styling.warning.current!.style.display = 'block'
-                                styling.warning.current!.innerHTML = 'Enter all Address Details'
-                            }
-                            else if(payment.payment_type.current === "") {
-                                styling.warning.current!.style.display = 'block'
-                                styling.warning.current!.innerHTML = 'Select a Payment Method'
-                            }
-                            
-                            addrFetcher()
-                            paymentFetcher()
-                        }} className={styles.proceed}>Checkout</button>
+                        <input type="submit" className={styles.proceed} value={"Checkout"} />
                         <span className={styles.warning} ref={styling.warning}>Invalid Username or Password</span>
                     </div>
                 </form>

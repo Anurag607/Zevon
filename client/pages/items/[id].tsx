@@ -68,7 +68,7 @@ const Page = ({cookieCart, img_src, item_details} : {cookieCart: 'NA', img_src: 
         } else {
             let tempCart = JSON.parse(Cookie.get("cart") || '[]')
             tempCart.map((el:productType, i:number) => {
-                if(el.product_id === props.current.product_id) {
+                if(el.product_id === props.current.product_id && el.color === props.current.color && el.size === props.current.size) {
                     tempCart[i] = {
                         ...el,
                         color: props.current.color,

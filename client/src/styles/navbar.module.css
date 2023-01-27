@@ -66,15 +66,17 @@
   display: none;
   opacity: 0;
   border: 0.075rem solid #000000;
+  text-align: left;
+  padding-left: 0.75rem;
 }
 
 .search-img {
   width: 2rem;
   filter: brightness(0) invert(1) brightness(0.25);
   transition: all 0.5s;
-  cursor: pointer;
+  cursor: pointer !important;
   margin-top: 0.225rem;
-  z-index: 20;
+  z-index: 500;
 }
 
 .navicons {
@@ -197,7 +199,30 @@
     text-align: center;
     flex-wrap: wrap-reverse;
   }
-  .nav-left {
+  .nav-left, .searchbox {
+    display: none;
+  }
+  .navicons a:nth-child(1) {
+    display: none;
+  }
+  .navicons a:nth-child(3) {
+    width: auto;
+    height: auto;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+  }
+  .navicons a:nth-child(3) div {
+    width: 2rem;
+    height: 2rem;
+    background-image: url("../../public/user.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .navicons a:nth-child(3) span {
+    display: none;
+  }
+  .navDash div:nth-child(2) {
     display: none;
   }
   .navl {
@@ -219,7 +244,7 @@
   }
   .navicons {
     padding: 1rem 0 0 0;
-    gap: 0.65rem;
+    gap: 1.25rem;
   }
 }
 @media screen and (max-width: 750px) {

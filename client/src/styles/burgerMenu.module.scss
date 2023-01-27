@@ -25,7 +25,7 @@
         cursor: pointer;
         border-radius: 15px;
         transition: all 0.5s;
-        z-index: 1000;
+        z-index: 1100;
         position: relative;
         background-color: transparent;
         .menuBarCont {
@@ -85,7 +85,7 @@
     }
 
     .sidebar {
-        z-index: 800;
+        z-index: 1050;
         position: absolute;
         top: 0;
         left: 0;
@@ -108,11 +108,15 @@
             font-family: 'Poppins', sans-serif;
             margin-left: 2rem;
             letter-spacing: 0.075rem;
+            display: none;
+            transition: all 0.3s;
         }
         .nav-right {
             @include flex(column, 1rem);
             align-items: flex-start;
             margin-left: 2rem;
+            display: none;
+            // transition: all 0.3s;
             .searchbox {
                 background: transparent;
                 display: flex;

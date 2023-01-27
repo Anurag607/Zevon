@@ -16,8 +16,8 @@
 }
 .loginWrapper div {
   z-index: 1;
-  width: 30vw;
-  height: 95vh;
+  width: 22.5rem;
+  height: 34.5rem;
   border-radius: 0.75rem;
   background-color: #ffffff;
   display: flex;
@@ -106,9 +106,9 @@
   filter: brightness(0) opacity(0.75);
   border-top: transparent;
   border-left: transparent;
-  border-right: 0.05rem solid rgba(0, 0, 0, 0.25);
   border-bottom: transparent;
-  padding-right: 0.5rem;
+  border-right: 0.05rem solid rgba(0, 0, 0, 0.25);
+  padding-right: 1rem;
 }
 .loginWrapper div form label .loginemail input {
   outline: none;
@@ -224,8 +224,8 @@
   background: linear-gradient(106.7deg, rgb(251, 0, 145) -2.6%, rgb(251, 134, 145) 31%, rgb(251, 158, 145) 45.8%, rgb(251, 218, 145) 100.1%);
   padding: 0.5rem 2rem;
   outline: none;
-  border: none !important;
-  width: 21rem !important;
+  border: none;
+  width: 21rem;
   border-radius: 0.5rem;
   cursor: pointer;
   background-size: 200% 200%;
@@ -261,4 +261,44 @@
 
 .loginLinks {
   color: #fa86c4;
+}
+
+@media screen and (max-width: 1240px) {
+  .loginWrapper div {
+    width: 20rem;
+    height: 28.5rem;
+  }
+  .loginWrapper div form h2 {
+    font-size: 2.5rem;
+  }
+  .loginWrapper div form span {
+    font-size: 0.95rem;
+  }
+  .loginWrapper div form label .loginemail span, .loginWrapper div form label .loginpass span {
+    width: 1rem;
+    height: 1.5rem;
+    padding-right: 1rem;
+  }
+  .loginWrapper div form label .loginemail input, .loginWrapper div form label .loginpass input {
+    width: 12.5rem;
+    margin-left: 0.35rem;
+  }
+  .loginSubmit {
+    width: 16.5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .loginWrapper div {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0rem;
+  }
+}
+@media screen and (max-width: 300px) {
+  .loginWrapper div form label .loginemail input, .loginWrapper div form label .loginpass input {
+    width: 8.5rem;
+  }
+  .loginSubmit {
+    width: 13.5rem;
+  }
 }/*# sourceMappingURL=login.module.css.map */

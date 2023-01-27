@@ -38,7 +38,6 @@ const confirmation = (req,res) => {
   const read = async () => {
     try {
       html = await readFile(new URL('views/index.html', import.meta.url), 'utf-8')
-      console.log("HTML:" + html)
 
       const __filename = fileURLToPath(import.meta.url)
       const __dirname = path.dirname(__filename)

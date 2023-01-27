@@ -2,7 +2,6 @@
   display: none;
   transition: all 0.3s;
   border-radius: 0.75rem;
-  margin-left: 1rem;
   margin-top: 0.75rem;
 }
 .burgerWrapper .menu1 {
@@ -12,7 +11,7 @@
   cursor: pointer;
   border-radius: 15px;
   transition: all 0.5s;
-  z-index: 1000;
+  z-index: 1100;
   position: relative;
   background-color: transparent;
 }
@@ -70,11 +69,11 @@
   height: 3.25rem;
 }
 .burgerWrapper .sidebar {
-  z-index: 800;
+  z-index: 1050;
   position: absolute;
   top: 0;
   left: 0;
-  width: 20vw;
+  width: 100vw;
   height: 100vh;
   background-color: #ffffff;
   display: flex;
@@ -94,9 +93,55 @@
   font-family: "Poppins", sans-serif;
   margin-left: 2rem;
   letter-spacing: 0.075rem;
+  display: none;
+  transition: all 0.3s;
+}
+.burgerWrapper .sidebar .nav-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-left: 2rem;
+  display: none;
+}
+.burgerWrapper .sidebar .nav-right .searchbox {
+  background: transparent;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  width: auto;
+}
+.burgerWrapper .sidebar .nav-right .searchbox input {
+  border-radius: 2rem;
+  height: 1.75rem;
+  text-align: right;
+  width: 0;
+  color: black;
+  transition: all 0.5s;
+  margin-inline: 0.5rem;
+  display: none;
+  opacity: 0;
+  border: 0.075rem solid #000000;
+  text-align: left;
+  padding-left: 0.75rem;
+}
+.burgerWrapper .sidebar .nav-right .searchbox div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  filter: brightness(0);
+}
+.burgerWrapper .sidebar .nav-right .navicons {
+  filter: brightness(0);
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1100px) {
   .burgerWrapper {
     display: block;
   }

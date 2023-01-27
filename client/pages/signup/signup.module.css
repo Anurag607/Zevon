@@ -52,6 +52,8 @@
   font-size: 0.75rem;
   border-radius: 0.25rem;
   cursor: default;
+  max-width: 75vw;
+  text-align: center;
 }
 .signupWrapper section:nth-child(2) form span {
   display: flex;
@@ -282,7 +284,75 @@
     background-position: 0% 50%;
   }
 }
+.signupWrapper .signInSubmit {
+  font-size: 1rem;
+  font-family: "Poppins";
+  color: #fff;
+  background: linear-gradient(106.7deg, rgb(251, 0, 145) -2.6%, rgb(251, 134, 145) 31%, rgb(251, 158, 145) 45.8%, rgb(251, 218, 145) 100.1%);
+  padding: 0.5rem 2rem;
+  outline: none;
+  border: none;
+  width: 21rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-size: 200% 200%;
+}
 .signupWrapper .signInSubmit:hover {
   -webkit-animation: animatedGradient 5s ease infinite;
           animation: animatedGradient 5s ease infinite;
+}
+
+@media screen and (max-width: 925px) {
+  .signupWrapper section:nth-child(1) {
+    width: 0vw;
+  }
+  .signupWrapper section:nth-child(2) {
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    overflow: scroll;
+  }
+  .signupWrapper section:nth-child(2) form {
+    height: auto;
+    overflow: scroll;
+    justify-content: flex-start;
+    padding-top: 7.5rem;
+    padding-bottom: 3rem;
+  }
+  .signupWrapper section:nth-child(2) form h2 {
+    font-size: 1.25rem;
+  }
+  .signupWrapper section:nth-child(2) form span {
+    font-size: 0.95rem;
+  }
+  .signupWrapper section:nth-child(2) form label .user input, .signupWrapper section:nth-child(2) form label .pass input, .signupWrapper section:nth-child(2) form label .signupemail input, .signupWrapper section:nth-child(2) form label .phnum input {
+    font-size: 0.75rem;
+  }
+  .signupWrapper .signInSubmit {
+    width: 18.5rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .signupWrapper section:nth-child(2) form label .user input, .signupWrapper section:nth-child(2) form label .pass input, .signupWrapper section:nth-child(2) form label .signupemail input, .signupWrapper section:nth-child(2) form label .phnum input {
+    width: 12.5rem;
+  }
+  .signupWrapper .signInSubmit {
+    width: 17.5rem;
+  }
+}
+@media screen and (max-width: 325px) {
+  .signupWrapper section:nth-child(2) form label .user input, .signupWrapper section:nth-child(2) form label .pass input, .signupWrapper section:nth-child(2) form label .signupemail input, .signupWrapper section:nth-child(2) form label .phnum input {
+    width: 11.5rem;
+  }
+  .signupWrapper .signInSubmit {
+    width: 16.5rem;
+  }
+}
+@media screen and (max-width: 300px) {
+  .signupWrapper section:nth-child(2) form label .user input, .signupWrapper section:nth-child(2) form label .pass input, .signupWrapper section:nth-child(2) form label .signupemail input, .signupWrapper section:nth-child(2) form label .phnum input {
+    width: 8.5rem;
+  }
+  .signupWrapper .signInSubmit {
+    width: 13.5rem;
+  }
 }/*# sourceMappingURL=signup.module.css.map */
