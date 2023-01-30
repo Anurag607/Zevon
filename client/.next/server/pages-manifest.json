@@ -1,23 +1,7 @@
 {
   "/_app": "pages/_app.js",
-  "/api": "pages/api.js",
-  "/[...params]": "pages/[...params].html",
-  "/api/images": "pages/api/images.js",
-  "/api/users/login": "pages/api/users/login.js",
-  "/api/users": "pages/api/users.js",
-  "/api/users/signup": "pages/api/users/signup.js",
-  "/": "pages/index.html",
-  "/home": "pages/home.html",
-  "/login": "pages/login.html",
-  "/signup": "pages/signup.html",
-  "/dashboard": "pages/dashboard.js",
-  "/filterRes/[id]": "pages/filterRes/[id].js",
-  "/emailTemplate": "pages/emailTemplate.js",
-  "/orderDetails": "pages/orderDetails.js",
-  "/cart": "pages/cart.js",
-  "/items/[id]": "pages/items/[id].js",
-  "/payment": "pages/payment.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/home": "pages/home.js",
+  "/api/images": "pages/api/images.js"
 }

@@ -68,7 +68,7 @@ const Home = () => {
                 <label htmlFor="male">Male</label>
                 <label htmlFor="female">Female</label>
                 <div className={`${styles["switch-wrapper"]} switch-wrapper`}>
-                    <div className={`${styles.switch} switch`} onClick={() => console.log()}>
+                    <div className={`${styles.switch} switch`}>
                         <div>Male</div>
                         <div>Female</div>
                     </div>

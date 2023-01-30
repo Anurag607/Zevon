@@ -75,7 +75,6 @@ const Page = ({cookieCart, img_src, item_details} : {cookieCart: 'NA', img_src: 
                         size: props.current.size,
                         quantity: (el.quantity+props.current.quantity > 2) ? el.quantity : el.quantity+props.current.quantity
                     }
-                    console.log((el.quantity+props.current.quantity > 2) ? el.quantity : el.quantity+props.current.quantity)
                 }
             })
             Cookie.set("cart", JSON.stringify(tempCart))
@@ -270,7 +269,6 @@ const Page = ({cookieCart, img_src, item_details} : {cookieCart: 'NA', img_src: 
 
 export async function getServerSideProps ({req} : {req:NextApiRequest}) {
     const cookies = parseCookies(req)
-    console.log(cookies.cart)
     
     return {
         props : {

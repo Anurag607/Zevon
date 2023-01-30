@@ -19,8 +19,6 @@ const UpdateCart = ( props:{itemDetails:React.MutableRefObject<cartType>, id: st
         )
     }
     Cookie.set('cart', JSON.stringify(cart))
-    console.log(JSON.parse(Cookie.get('cart')))
-    console.log(props.itemDetails.current)
 }
 
 export default UpdateCart

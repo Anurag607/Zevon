@@ -20,7 +20,6 @@ const Dashboard = ({auth, orders}: {auth: string, orders:ordersType[]}) => {
   React.useEffect(() => {
     const body = document.querySelector('body')
     body.style.backgroundColor = '#ffffff'
-    console.log(orders)
     setUserAddr(`${(userDetails.address.address_line1 !== null) ? userDetails.address.address_line1 : ''} ${(userDetails.address.address_line2 !== null) ? userDetails.address.address_line2 : ''} ${(userDetails.address.city !== null) ? ', ' + userDetails.address.city : ''} ${(userDetails.address.country !== null ) ? ', ' + userDetails.address.country : ''} ${(userDetails.address.pincode !== null) ? '- ' + userDetails.address.pincode : ''}`)
   }, []) // eslint-disable-line
 
