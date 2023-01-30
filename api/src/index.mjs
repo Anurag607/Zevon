@@ -21,6 +21,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+app.get('/hello', (_,res) => res.send("HELLO WORLD!"))
 app.use('/api/user', userRouter)
 app.use('/api/product', productRouter)
 app.use('/api/email', emailRouter)
