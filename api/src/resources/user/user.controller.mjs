@@ -111,9 +111,8 @@ const updateAddress = async (req, res) => {
   try {
     let {user_id, addr_1, addr_2, city, pincode, country} = req.body
     pincode = parseInt(pincode)
-    const newAddrId = await service.updateAddress(user_id, addr_1, addr_2, city, pincode, country)
-    console.log(newAddrId)
-    res.status(201).end();
+    await service.updateAddress(user_id, addr_1, addr_2, city, pincode, country)
+    res.status(201).end()
   } catch(err) {
     console.error(err);
   }
@@ -125,10 +124,19 @@ const registerPaymentDetails = async (req, res) => {
     let customer_id = cust_id
     let timestamp = Math.floor(Date.now() / 1000)
     const newPaymentId = await service.insertPaymentDetails(customer_id, timestamp, payment_type, provider_name, total_amount, payment_status)
-    console.log(newPaymentId)
     res.status(201).json({payment_id: newPaymentId})
   } catch(err) {
     console.error(err);
+  }
+}
+
+const updateProfile = async (req, res) => {
+  try {
+    const {user_id, name, phone_number, email} = req.body
+    await service.updateProfile(user_id, name, phone_number, email)
+    res.status(201).end()
+  } catch (err) {
+    console.error(err)
   }
 }
 
@@ -136,5 +144,6 @@ export {
   registerUser,
   loginUser,
   updateAddress,
-  registerPaymentDetails
+  registerPaymentDetails,
+  updateProfile
 }

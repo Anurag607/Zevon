@@ -142,7 +142,7 @@ export default function Signup() {
             styling.warning.current!.innerHTML = 'Passwords do not match'            
         }
         else {
-            fetch(`${process.env.NEXT_PUBLIC_LOCALHOST_SERVER}/api/user/register`, {
+            fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_SERVER}/api/user/register`, {
                 method : 'POST',
                 mode : 'cors',
                 headers : { 'Content-type' : 'application/json' },

@@ -26,23 +26,35 @@ const Dashboard = ({auth, orders}: {auth: string, orders:ordersType[]}) => {
   const Orders = () =>  {
     let row = new Array(10).fill(1)
     return (
-      <div className={styles.orders}>
-        {orders.map((el,i) => {
-          return (
-            <div className={styles.head} key={i}>
+      <>
+        {(orders.length > 0) ? 
+          <div className={styles.orders}>
+            {orders.map((el,i) => {
+              return (
+                <div className={styles.head} key={i}>
+                  <div>
+                    <span className={styles.desc}>{`${el.product_desc}`}</span>
+                    <span className={styles.qtynSize}>
+                      <span>{`Quantity: ${el.qty}`}</span>
+                      <span>{`Size: ${el.product_size}`}</span>
+                    </span>
+                    <span className={styles.price}>{`Price: ₹${el.price}`}</span>
+                  </div>
+                  <div className={`${styles.itemImg} itemImg`} style={{backgroundImage: `url('${(typeof el.productImg === 'string') ? el.productImg : '/casual2.jpg'}')`}} />
+                </div>
+              )
+            })}
+          </div> :
+          <div className={styles.noOrders}>
+            <div className={styles.head}>
               <div>
-                <span className={styles.desc}>{`${el.product_desc}`}</span>
-                <span className={styles.qtynSize}>
-                  <span>{`Quantity: ${el.qty}`}</span>
-                  <span>{`Size: ${el.product_size}`}</span>
-                </span>
-                <span className={styles.price}>{`Price: ₹${el.price}`}</span>
+                <h1>{"Oops!"}</h1>
+                <p>{"no Orders available"}</p>
               </div>
-              <div className={`${styles.itemImg} itemImg`} style={{backgroundImage: `url('${(typeof el.productImg === 'string') ? el.productImg : '/casual2.jpg'}')`}} />
             </div>
-          )
-        })}
-      </div>
+          </div>
+        }
+      </>
     )
   }
 
@@ -123,11 +135,11 @@ const Dashboard = ({auth, orders}: {auth: string, orders:ordersType[]}) => {
             </span>
             <span className={`${styles.phnum} phnum`}>
               <span>Contact Number: </span>
-              <p>{`${(typeof userDetails.phone_number !== 'undefined' && userDetails.phone_number) ? userDetails.phone_number : 'NA'}`}</p>
+              <p>{`${(userDetails.phone_number === 'undefined' || userDetails.phone_number === null) ? '-NA-' : userDetails.phone_number}`}</p>
             </span>
             <span className={`${styles.addr} addr`}>
               <span>Address:  </span>
-              <p>{userAddr}</p>
+              <p>{`${(userAddr !== undefined && userAddr !== null && userAddr !== '    ') ? userAddr : '-NA-'}`}</p>
             </span>
           </div>
         </div>
@@ -143,7 +155,7 @@ export async function getServerSideProps ({req}: {req:NextApiRequest}) {
   let userId = JSON.parse(cookies.currentLoggedIn).user_id
   let orderDetails = []
   let status = 201
-  const response = await fetch(`${process.env.NEXT_PUBLIC_LOCALHOST_SERVER}/api/orders/getOrders`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_SERVER}/api/orders/getOrders`, {
     method: 'POST',
     mode: 'cors',
     headers: {'Content-type': 'application/json'},

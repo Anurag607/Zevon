@@ -19,26 +19,10 @@ const Page = ({userDetails} : {userDetails: string}) => {
         warning: React.useRef<HTMLInputElement>(null)
     }
 
-    React.useEffect(() => {
-        const lastName:HTMLInputElement = document.querySelector('#lname')
-        const firstName:HTMLInputElement = document.querySelector('#fname')
-        const email:HTMLInputElement = document.querySelector('#email')
-        const phnum:HTMLInputElement = document.querySelector('#phnum')
-        email.style.textTransform = 'none'
-        if(typeof auth.current.phone_number !== 'undefined') {
-            phnum.style.cursor = 'default'
-        }
-        if(typeof lname.current === 'undefined' && typeof fname.current === 'string') {
-            lastName.style.color = '#c5c5c5'
-            lastName.style.cursor = 'default'
-        }
-        if(typeof fname.current === 'string') firstName.style.cursor = 'default'
-        if(typeof auth.current.email === 'string') email.style.cursor = 'default'
-    }, [])
-
-    const [phNum, setPhnum] = React.useState((typeof auth.current.phone_number !== 'undefined') ? auth.current.phone_number : '')
-    const fname = React.useRef(auth.current.name.split(' ')[0])
-    const lname = React.useRef(auth.current.name.split(' ')[1])
+    const [phNum, setPhnum] = React.useState((auth.current.phone_number !== 'undefined') ? auth.current.phone_number : '')
+    const [fname, setfname] = React.useState(auth.current.name.split(' ')[0])
+    const [lname, setlname] = React.useState(auth.current.name.split(' ')[1])
+    const [userEmail, setemail] = React.useState(auth.current.email)
     const address = React.useRef(`${(auth.current.address.address_line1 != null) ? `${auth.current.address.address_line1}${auth.current.address.address_line2}` : ''}`)
 
     const payment = {
@@ -88,6 +72,18 @@ const Page = ({userDetails} : {userDetails: string}) => {
                 setPhnum(target.value)
                 break
             }
+            case 'fname' : {
+                setfname(target.value)
+                break
+            }
+            case 'lname' : {
+                setlname(target.value)
+                break
+            }
+            case 'email' : {
+                setemail(target.value)
+                break
+            }
             default : {
                 SetAddr({
                     ...addr
@@ -95,6 +91,41 @@ const Page = ({userDetails} : {userDetails: string}) => {
                 break
             }
         }
+    }
+
+    const userFetcher = () => {
+        let status = 201
+        let userDetails = {
+            user_id: auth.current.user_id,
+            name: `${fname} ${lname}`,
+            phone_number: phNum,
+            email: userEmail
+        }
+        console.log(userDetails)
+        if(userDetails.name === auth.current.name && userDetails.phone_number === auth.current.phone_number && userDetails.email === auth.current.email) return;
+        fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_SERVER}/api/user/updateProfile`, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify(userDetails)
+        })
+        .then(response => {
+            status = response.status
+            return response
+        })
+        .then(resMessage => {
+            if(status !== 201) {
+                console.log("ERROR IN USER UPDATION!")
+            } else {
+                auth.current = {
+                    ...auth.current,
+                    name: userDetails.name,
+                    phone_number: userDetails.phone_number,
+                    email: userDetails.email
+                }
+                Cookie.set("currentLoggedIn", JSON.stringify(auth.current), {expires: 0.125})
+            }
+        })
     }
 
     const addrFetcher = () => {
@@ -108,7 +139,7 @@ const Page = ({userDetails} : {userDetails: string}) => {
             country: addr.country
         }
         if(address.addr_1 === auth.current.address.address_line1 && address.addr_2 === auth.current.address.address_line2 && address.pincode === `${auth.current.address.pincode}` && address.city === auth.current.address.city && address.country === auth.current.address.country) return;
-        fetch(`${process.env.NEXT_PUBLIC_LOCALHOST_SERVER}/api/user/address`, {
+        fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_SERVER}/api/user/address`, {
             method: 'POST',
             mode: 'cors',
             headers: {'Content-type': 'application/json'},
@@ -145,7 +176,7 @@ const Page = ({userDetails} : {userDetails: string}) => {
             total_amount: parseFloat(Cookie.get('ttlAmt')),
             payment_status: "complete"
         }
-        fetch(`${process.env.NEXT_PUBLIC_LOCALHOST_SERVER}/api/user/payment`, {
+        fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_SERVER}/api/user/payment`, {
             method: 'POST',
             mode: 'cors',
             headers: {'Content-type': 'application/json'},
@@ -278,7 +309,7 @@ const Page = ({userDetails} : {userDetails: string}) => {
                                 styling.warning.current!.style.display = 'block'
                                 styling.warning.current!.innerHTML = 'Select a Payment Method'
                             }
-                            
+                            userFetcher()
                             addrFetcher()
                             paymentFetcher()
                         }}>
@@ -290,17 +321,17 @@ const Page = ({userDetails} : {userDetails: string}) => {
                         <div className={styles.prsnlForm}>
                             <div className={styles.name}>
                                 <div className={styles.inputField}>
-                                    <input type="text" name="fname" id="fname" value={`${fname.current}`} onChange={HandleChange} required />
+                                    <input type="text" name="fname" id="fname" value={fname} onChange={HandleChange} required />
                                     <label htmlFor={"fname"}>{"first name"}</label>
                                 </div>
                                 <div className={styles.inputField}>
-                                    <input type="text" name="lname" id="lname" value={`${lname.current || "-NA-  "}`} onChange={HandleChange} required />
+                                    <input type="text" name="lname" id="lname" value={lname || ""} onChange={HandleChange} required />
                                     <label htmlFor={"lname"}>{"last name"}</label>
                                 </div>
                             </div>
                             <div className={styles.others}>
                                 <div className={styles.inputField}>
-                                    <input type="email" name="email" id="email" value={auth.current.email} onChange={HandleChange} required />
+                                    <input type="email" name="email" id="email" value={userEmail} onChange={HandleChange} required />
                                     <label htmlFor={"email"}>{"email address"}</label>
                                 </div>
                                 <div className={styles.inputField}>

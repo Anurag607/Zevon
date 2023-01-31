@@ -42,8 +42,13 @@ const updateAddress = async (user_id, addr_1, addr_2, city, pincode, country) =>
 const insertPaymentDetails = async (customer_id, timestamp, payment_type, provider_name, total_amount, payment_status) => {
   const [res, ] = await pool.query(`
     INSERT INTO payment (customer_id, payment_date, payment_type, provider_name, total_amount, payment_status) VALUES
-    (${customer_id}, ${timestamp}, "${payment_type}", "${provider_name}", ${total_amount}, "${payment_status}")
+    (${customer_id}, ${timestamp}, "${payment_type}", "${provider_name}", ${total_amount}, "${payment_status}");
   `)
+  return res.insertId
+}
+
+const updateProfile = async (user_id, name, phone_number, email) => {
+  const [res, ] = await pool.query(`UPDATE user SET name = '${name}', phone_number = '${phone_number}', email = '${email}' WHERE user_id = ${user_id};`)
   return res.insertId
 }
 
@@ -60,5 +65,6 @@ export {
   insertAddress,
   getAddressById,
   insertPaymentDetails,
-  updateAddress
+  updateAddress,
+  updateProfile
 }

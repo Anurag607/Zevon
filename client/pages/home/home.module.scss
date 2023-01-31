@@ -76,13 +76,15 @@
                     color: #ffffff;
                 }
                 a:nth-child(3):hover {
-                    background-color: #e8e8e8;
+                    background-color: #e8e8e8 !important;
                     color: #37474f !important;
+                    border-color: transparent !important;
                 }
 
                 a:nth-child(4):hover {
-                    background-color: #e8e8e8;
+                    background-color: #e8e8e8 !important;
                     color: #37474f !important;
+                    border-color: transparent !important;
                 }
             }
         }

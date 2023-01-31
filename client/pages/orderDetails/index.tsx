@@ -23,7 +23,7 @@ const Page = ({cookieCart, userDetails} : {cookieCart: string, userDetails: stri
 
     const sendMail = () => {
         let status = 200
-        fetch(`${process.env.NEXT_PUBLIC_LOCALHOST_SERVER}/api/email/confirmation`, {
+        fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_SERVER}/api/email/confirmation`, {
             method: 'POST',
             mode: 'cors',
             headers: {'Content-type': 'application/json'},
@@ -65,7 +65,7 @@ const Page = ({cookieCart, userDetails} : {cookieCart: string, userDetails: stri
             product_colors: productColors,
             productImgs: product_imgs
         }
-        fetch(`${process.env.NEXT_PUBLIC_LOCALHOST_SERVER}/api/orders/placeOrder`, {
+        fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_SERVER}/api/orders/placeOrder`, {
           method: 'POST',
           mode: 'cors',
           headers: {'Content-type': 'application/json'},
