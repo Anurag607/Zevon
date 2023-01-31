@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Source+Code+Pro:wght@400;500;600&display=swap');
+
 @mixin flex($dir : row, $gap: 0rem) {
     display: flex;
     flex-direction: $dir;
@@ -101,7 +103,7 @@
 .logo {
     margin: 10% 2% 10% 0;
     font-size: 8rem;
-    font-family: 'Kaushan Script', cursive;
+    font-family: 'Kaushan Script', sans-serif;
     color: #e8e8e8;
     text-align: center;
     cursor: default;
