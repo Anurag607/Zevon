@@ -82,7 +82,8 @@ const Burger = () => {
                             if(event.key === 'Enter') {
                                 Cookie.set('searchParams', event.currentTarget.value, {path: '/'})
                                 Cookie.set('filterParams', JSON.stringify({url: event.currentTarget.value, data: {color: [event.currentTarget.value], category: [event.currentTarget.value], gender: [event.currentTarget.value], cost: []}}), {path: '/'})
-                                router.push(`/filterRes/search:${event.currentTarget.value}`, `/filterRes/search:${event.currentTarget.value}`, {shallow: true})
+                                router.push(`/filterRes/filterSearchResults`, `/filterRes/filterSearchResults`, {shallow: true})
+                                if(router.asPath === '/filterRes/filterSearchResults') router.reload()
                             }
                         }} />
                         <div>

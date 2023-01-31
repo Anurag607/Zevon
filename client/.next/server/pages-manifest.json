@@ -4,5 +4,5 @@
   "/_document": "pages/_document.js",
   "/home": "pages/home.js",
   "/api/images": "pages/api/images.js",
-  "/dashboard": "pages/dashboard.js"
+  "/filterRes/[id]": "pages/filterRes/[id].js"
 }

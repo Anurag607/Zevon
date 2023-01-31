@@ -9,12 +9,15 @@ import Cookie from 'js-cookie'
 import parseCookies from '../../src/script/cookieParser.mjs'
 import { userDetails } from '../../src/utils/userDetails'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const Page = ({cookieCart, userDetails} : {cookieCart: string, userDetails: string}) => {
 
     const [cart, setCart] = React.useState<productType[]>(JSON.parse(cookieCart ? cookieCart : '[]'))
     const auth = React.useRef<userDetails>(JSON.parse(userDetails))
     const [userAddr, setUserAddr] = React.useState<string>('')
+
+    const router = useRouter()
 
     let ttlAmt = 0
     cart.forEach(el => {
