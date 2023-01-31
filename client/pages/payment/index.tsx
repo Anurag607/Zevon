@@ -101,7 +101,6 @@ const Page = ({userDetails} : {userDetails: string}) => {
             phone_number: phNum,
             email: userEmail
         }
-        console.log(userDetails)
         if(userDetails.name === auth.current.name && userDetails.phone_number === auth.current.phone_number && userDetails.email === auth.current.email) return;
         fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_SERVER}/api/user/updateProfile`, {
             method: 'POST',

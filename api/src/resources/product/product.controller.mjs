@@ -81,7 +81,7 @@ const getFilteredProduct = async (req, res) => {
             console.log('searching...')
             let params = req.body.search.split(' ')
             for(let i = 0; i < params.length; i++) {
-                let [products, ] = await service.getBySearchParams(params[i])
+                let [products, ] = await service.getBySearchParams(params[i].toLowerCase())
                 if(result.length > 0) result = ItemFilter(result, products)
                 else result.push(...products)
             }

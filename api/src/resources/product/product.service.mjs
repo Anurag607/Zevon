@@ -30,8 +30,20 @@ const getProductsBySex = async (gender, len) => {
 
 const getBySearchParams = async (searchParams) => {
     if(searchParams === 'pants' || searchParams === 'pant') searchParams = 'lowers'
-    console.log(`SELECT * FROM product WHERE product_type LIKE '%${searchParams}%' OR color LIKE '%${searchParams}%' OR description LIKE '%${searchParams}%' AND gender LIKE '%${(searchParams === 'men') ? 'male' : 'female'}%';`)
-    return pool.query(`SELECT * FROM product WHERE product_type LIKE '%${searchParams}%' OR color LIKE '%${searchParams}%' OR description LIKE '%${searchParams}%' AND gender LIKE '%${(searchParams === 'men') ? 'male' : (searchParams === 'women') ? 'female': ''}%';`)
+    if(searchParams == 'tops' || searchParams === 'top' || searchParams === 'tshirt' || searchParams === 't-shirt' || searchParams === 'tshirts') searchParams = 'shirt'
+
+    if(searchParams === 'men' || searchParams === 'mens' || searchParams === "men's") {
+        searchParams = 'male'
+        console.log(`SELECT * FROM product WHERE product_type LIKE '%${searchParams}%' OR color LIKE '%${searchParams}%' OR description LIKE '%${searchParams}%' OR gender LIKE '%${searchParams}%' AND gender NOT LIKE '%female%';`)
+    return pool.query(`SELECT * FROM product WHERE product_type LIKE '%${searchParams}%' OR color LIKE '%${searchParams}%' OR description LIKE '%${searchParams}%' OR gender LIKE '%${searchParams}%' AND gender NOT LIKE '%female%';`)
+    } else if(searchParams === 'women' || searchParams === 'womens' || searchParams === "women's") {
+        searchParams = 'female'
+        console.log(`SELECT * FROM product WHERE product_type LIKE '%${searchParams}%' OR color LIKE '%${searchParams}%' OR description LIKE '%${searchParams}%' OR gender LIKE '%${searchParams}%' AND gender NOT LIKE '%male%';`)
+        return pool.query(`SELECT * FROM product WHERE product_type LIKE '%${searchParams}%' OR color LIKE '%${searchParams}%' OR description LIKE '%${searchParams}%' OR gender LIKE '%${searchParams}%' AND gender NOT LIKE '%male%';`)
+    } else {
+        console.log(`SELECT * FROM product WHERE product_type LIKE '%${searchParams}%' OR color LIKE '%${searchParams}%' OR description LIKE '%${searchParams}%';`)
+        return pool.query(`SELECT * FROM product WHERE product_type LIKE '%${searchParams}%' OR color LIKE '%${searchParams}%' OR description LIKE '%${searchParams}%';`)
+    }
 }
 
 export {

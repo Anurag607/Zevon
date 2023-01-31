@@ -17,7 +17,7 @@ const Burger = () => {
         user_type: '',
         token: '',
         user_id: 0,
-        phone_number: 0,
+        phone_number: '',
         address: {
             addr_id: 0,
             user_id: 0,
