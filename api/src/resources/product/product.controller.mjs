@@ -93,4 +93,13 @@ const getFilteredProduct = async (req, res) => {
     }
 }
 
-export { getFilteredProduct }
+const getAllProducts = async (req, res) => {
+    try {
+        let [products, ] = await service.getAllProducts()
+        res.status(200).json(JSON.parse(JSON.stringify(products)))
+    } catch(err) {
+        console.error(err.message)
+    }
+}
+
+export { getFilteredProduct, getAllProducts }

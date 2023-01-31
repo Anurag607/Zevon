@@ -6,7 +6,7 @@ INSERT INTO user_address (addr_id, `user_id`) VALUES (1, 1);
 
 INSERT INTO seller (seller_id, addr_id) VALUES (1, 1);
 
-INSERT INTO product (product_type, color, size, gender, `desc`, img_url, cost, quantity, seller_id) VALUES
+INSERT INTO product (product_type, color, size, gender, description, img_url, cost, quantity, seller_id) VALUES
 ('shirt', 'black', 's,m,l,xl,xxl', 'male', 'camp collared short sleeve', '/clothes/mens/shirts/camp_collared_short_sleeve_shirt.jpeg', 789.00, 6, 1),
 ('shirt', 'teal', 's,m,l,xl,xxl', 'male', 'chambray', '/clothes/mens/shirts/chambray.webp', 700.00, 6, 1),
 ('shirt', 'blue', 's,m,l,xl,xxl', 'male', 'denim shirt', '/clothes/mens/shirts/denim_shirt.webp', 459.00, 6, 1),
@@ -77,4 +77,4 @@ INSERT INTO product (product_type, color, size, gender, `desc`, img_url, cost, q
 ('shoes', 'brown', 's,m,l', 'female', 'ankle boots', '/clothes/women/shoes/cowboy_boots.webp', 750.00, 6, 1),
 ('shoes', 'white', 's,m,l', 'female', 'ankle boots', '/clothes/women/shoes/dorsay_shoes.webp', 1200.00, 6, 1),
 ('shoes', 'grey', 's,m,l', 'female', 'ankle boots', '/clothes/women/shoes/double_strap_mary_janes.webp', 885.00, 6, 1),
-('shoes', 'pink', 's,m,l', 'female', 'ankle boots', '/clothes/women/shoes/espadrilles.webp', 775.00, 1);
+('shoes', 'pink', 's,m,l', 'female', 'ankle boots', '/clothes/women/shoes/espadrilles.webp', 775.00, 6, 1);

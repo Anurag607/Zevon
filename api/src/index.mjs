@@ -15,7 +15,7 @@ const app = express()
 const HOST = process.env.HOST
 const PORT = process.env.PORT
 
-app.disable('x-powered-by')
+// app.disable('x-powered-by')
 
 app.use(cors())
 app.use(express.json())

@@ -1,6 +1,6 @@
 import pool from '../../utils/db.mjs'
 
-const getAllProducts = async() => pool.query(`SELECT * FROM product;`)
+const getAllProducts = async () => pool.query(`SELECT * FROM product;`)
 const getProductsByColor = async (color, len) => {
     if(len === 1) {
         console.log(`SELECT * FROM product WHERE color = ${color};`)
