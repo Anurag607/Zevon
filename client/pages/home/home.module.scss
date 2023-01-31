@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Source+Code+Pro:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 
 @mixin flex($dir : row, $gap: 0rem) {
     display: flex;
@@ -103,7 +103,7 @@
 .logo {
     margin: 10% 2% 10% 0;
     font-size: 8rem;
-    font-family: 'Kaushan Script', sans-serif;
+    font-family: 'Kaushan Script', cursive;
     color: #e8e8e8;
     text-align: center;
     cursor: default;
@@ -199,6 +199,9 @@
 /* -----------------------------------MEDIA QUERIES-------------------------------------*/
 
 @media screen and (max-width: 950px) {
+    .title {
+        max-height: 35rem;
+    }
     .logo {
         font-size: 7rem;
         margin: 10% 5% 12.5% 0;
