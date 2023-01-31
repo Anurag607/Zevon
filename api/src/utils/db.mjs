@@ -13,13 +13,13 @@ const pool = mysql.createPool({
   multipleStatements: true
 })
 
-pool.getConnection((err, connection) => {
-  if (!err) {
-    console.log("MySQL Connected!")
-  } else {
-    console.log("MySQL Connection Failed!")
-    console.error(err.message)
-  }
-})
+// pool.getConnection((err, connection) => {
+//   if (!err) {
+//     console.log("MySQL Connected!")
+//   } else {
+//     console.log("MySQL Connection Failed!")
+//     console.error(err.message)
+//   }
+// })
 
 export default pool
