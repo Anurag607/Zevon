@@ -164,15 +164,16 @@
     padding: 0.25rem 0.5rem;
     text-transform: capitalize;
     div {
-        height: 1.5rem;
+        height: 2rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
     div:nth-child(1) {
-        width: 1.5rem;
-        background-image: url('../../public/user.png');
+        width: 2rem;
+        background-image: url('../../public/profile.webp');
+        border-radius: 50%;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -232,7 +233,6 @@
             div {
                 width: 2rem;
                 height: 2rem;
-                @include bg('../../public/user.png');
             }
             span {
                 display: none;
@@ -240,7 +240,16 @@
         }
     }
 
+    .login {
+        div {
+            @include bg('../../public/user.png');
+        }
+    }
+
     .navDash {
+        div:nth-child(1) {
+            @include bg('../../public/profile.webp');
+        }
         div:nth-child(2) {
             display: none;
         }
