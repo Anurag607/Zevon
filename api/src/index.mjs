@@ -28,5 +28,5 @@ app.use('/api/email', emailRouter)
 app.use('/api/orders', orderRouter)
 
 app.listen(PORT, () => {
-    console.log(`Server running on http://${HOST}:${PORT}`)
+    console.log(`Server running on ${HOST}:${PORT}`)
 })
