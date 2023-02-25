@@ -20,6 +20,97 @@ INSERT INTO user_address (addr_id, "user_id")
 VALUES (1, 1);
 INSERT INTO seller (seller_id, addr_id)
 VALUES (1, 1);
+INSERT INTO "user" (
+        name,
+        password,
+        phone_number,
+        email,
+        user_type,
+        token
+    )
+VALUES (
+        'rohan raj',
+        '$2b$10$EwRf6sMkneV9C4DhdCoSbet8C/I.vOQMmTmrk4OaQlWtmNUbpM/9.',
+        '8773546810',
+        'rohanraj@gmail.com',
+        'customer',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFudXJhZzc5MDAyQGdtYWlsLmNvbSIsImlhdCI6MTY3NTE4MDQyMywiZXhwIjoxNjc1MTg3NjIzfQ.Qcdpu2O_mO6p3zgCj5gT8hRED4MTleZru2ugI2PRqck'
+    ),
+(
+        '2',
+        '$2b$10$c24.kFDjDxEYR0qWolM0s.qhFFZthuJGHhtcBdtFRMxYn16YAhqCu',
+        '2222222222',
+        '2@3.4',
+        'customer',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IjJAMy40IiwiaWF0IjoxNjczNTgwNTQ1LCJleHAiOjE2NzM1ODc3NDV9.fS8s8N6DAmeBdy9jfSaujOJHtnRgE66grI-eqmR2rYU'
+    ),
+(
+        'boi',
+        '$2b$10$6m4BPfEK.yQVhNocA5hGU.FCUdZQZjv6G9MfthRj/8/5VpaOjCHya',
+        '9375819384',
+        'speedy@gmail.com',
+        'delivery man',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0LCJlbWFpbCI6InNwZWVkeUBnYW1pbC5jb20iLCJpYXQiOjE2NzM0NDAyMDEsImV4cCI6MTY3MzQ0NzQwMX0.chYzthRUU4sSf0hXsJZ0CTMklDthTw5QQX_3uFFwIyg'
+    ),
+(
+        'jackson',
+        '$2b$10$V5bJhFpT6BC1pf7.V5efm.ZdCjnm85IitYR4/7nUo9BdRP9SrmWUi',
+        '9274019532',
+        'michael@gmail.com',
+        'delivery man',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJlbWFpbCI6Im1pY2hhZWxAZ2FtaWwuY29tIiwiaWF0IjoxNjczNDQyMjMxLCJleHAiOjE2NzM0NDk0MzF9.RzmEoW6F5fdDHAQ6SIUrHpvIjVhlqfehxVFmpF2UyRE'
+    ),
+(
+        'aryan shrivastava',
+        '$2b$10$kXlea7VTmFP6CNtYBSjuVuvxzR7KaPMjv7qGcRm4kqNSM6p7j4t6K',
+        '8770413699',
+        'aryanshrivastava237@gmail.com',
+        'customer',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFyeWFuc2hyaXZhc3RhdmEyMzdAZ21haWwuY29tIiwiaWF0IjoxNjczNjIzMzE3LCJleHAiOjE2NzM2MzA1MTd9.jvOK7cVeIDMOu7PU384e8xIIML2ZFYvmEKh9eynd_5k'
+    ),
+(
+        'Anurag Goswami',
+        '$2b$10$eHSuRNUmdWiTQQnuKsne8eOFVg4vTdgAJPDsNycPmUiIvNBkz8ETK',
+        '09937511593',
+        'anurag79002@gmail.com',
+        'customer',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJlbWFpbCI6ImFudXJhZzc5MDAyQGdtYWlsLmNvbSIsImlhdCI6MTY3NzI5NjkwMCwiZXhwIjoxNjc3MzA0MTAwfQ.MEfUkbQKgDdmLjlyCIg6AWifoLK7FGt8p9Qd-0wV5LQ'
+    );
+INSERT INTO user_address (
+        "user_id",
+        address_line1,
+        address_line2,
+        city,
+        pincode,
+        country
+    )
+VALUES (
+        2,
+        'b-3, type-4, tower-5, NBCC towers, east kidwai nagar, near AIIMS',
+        '',
+        'new delhi',
+        110023,
+        'india'
+    ),
+    (
+        3,
+        'b-2, type-2, tower-2, the two towers',
+        ', sector-22',
+        'twice double city',
+        220020,
+        'prime two'
+    ),
+    (4, null, null, null, null, null),
+    (5, null, null, null, null, null),
+    (6, 'somewhere', '', 'bhopal', 110023, 'india'),
+    (
+        7,
+        '52GG+H4G, Airport Rd, PDPM IIITDM Jabalpur Campus, Khamaria',
+        '',
+        'Jabalpur',
+        482005,
+        'india'
+    );
 INSERT INTO product (
         product_type,
         color,
