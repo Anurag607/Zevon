@@ -2,8 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/images": "pages/api/images.js",
-  "/dashboard": "pages/dashboard.js",
+  "/orderDetails": "pages/orderDetails.js",
   "/home": "pages/home.js",
-  "/login": "pages/login.js"
+  "/payment": "pages/payment.js",
+  "/dashboard": "pages/dashboard.js",
+  "/api/images": "pages/api/images.js"
 }

@@ -1,5 +1,3 @@
 DROP DATABASE IF EXISTS zevon;
-
 CREATE DATABASE zevon;
-
 USE zevon;
