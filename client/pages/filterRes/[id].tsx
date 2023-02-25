@@ -31,7 +31,7 @@ const Page = ( {products} : {products: filterParamsType[] | string[]} ) =>  {
 
     const Fetcher = () => {
         let status = 200
-        fetch(`${process.env.NEXT_PUBLIC_LOCALHOST_SERVER}/api/product/filtered`, {
+        fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_SERVER}/api/product/filtered`, {
             method: 'POST',
             mode: 'cors',
             headers: { 'Content-Type' : 'application/json' },
@@ -239,7 +239,7 @@ export async function getServerSideProps( {params, req, res} : {params: {id: str
         ...JSON.parse(cookies.filterParams),
         search: cookies.searchParams
     }
-    const response = await fetch(`${process.env.NEXT_PUBLIC_LOCALHOST_SERVER}/api/product/filtered`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_SERVER}/api/product/filtered`, {
         method: 'POST',
         mode: 'cors',
         headers: {'Content-type': 'application/json'},

@@ -18,7 +18,7 @@ const NavBar = () => {
         user_type: '',
         token: '',
         user_id: 0,
-        phone_number: 0,
+        phone_number: '',
         address: {
             addr_id: 0,
             user_id: 0,
@@ -79,7 +79,7 @@ const NavBar = () => {
                             Cookie.set('searchParams', event.currentTarget.value, {path: '/'})
                             Cookie.set('filterParams', JSON.stringify({url: event.currentTarget.value, data: {color: [event.currentTarget.value], category: [event.currentTarget.value], gender: [event.currentTarget.value], cost: []}}), {path: '/'})
                             router.push(`/filterRes/filterSearchResults`, `/filterRes/filterSearchResults`, {shallow: true})
-                            // router.push(`/filterRes/search:${event.currentTarget.value}`, `/filterRes/search:${event.currentTarget.value}`, {shallow: true})
+                            if(router.asPath === '/filterRes/filterSearchResults') router.reload()
                         }
                     }} />
                     <div>

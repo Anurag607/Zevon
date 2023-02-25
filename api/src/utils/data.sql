@@ -6,7 +6,7 @@ INSERT INTO user_address (addr_id, `user_id`) VALUES (1, 1);
 
 INSERT INTO seller (seller_id, addr_id) VALUES (1, 1);
 
-INSERT INTO product (product_type, color, size, gender, `desc`, img_url, cost, quantity, seller_id) VALUES
+INSERT INTO product (product_type, color, size, gender, description, img_url, cost, quantity, seller_id) VALUES
 ('shirt', 'black', 's,m,l,xl,xxl', 'male', 'camp collared short sleeve', '/clothes/mens/shirts/camp_collared_short_sleeve_shirt.jpeg', 789.00, 6, 1),
 ('shirt', 'teal', 's,m,l,xl,xxl', 'male', 'chambray', '/clothes/mens/shirts/chambray.webp', 700.00, 6, 1),
 ('shirt', 'blue', 's,m,l,xl,xxl', 'male', 'denim shirt', '/clothes/mens/shirts/denim_shirt.webp', 459.00, 6, 1),
@@ -42,7 +42,7 @@ INSERT INTO product (product_type, color, size, gender, `desc`, img_url, cost, q
 ('lowers', 'blue', 's,m,l,xl,xxl', 'male', 'pajamas', '/clothes/mens/lowers/pajamas.webp', 500.00, 6, 1),
 ('lowers', 'brown', 's,m,l,xl,xxl', 'male', 'sweatpants', '/clothes/mens/lowers/sweatpants.webp', 1055.00, 6, 1),
 ('lowers', 'brown', 's,m,l,xl,xxl', 'male', 'trousers', '/clothes/mens/lowers/trousers.webp', 1559.00, 6, 1),
-('lowers', 'blue', 's,m,l,xl,xxl', 'male', 'jeans', '/clothes/mens/lowers/jeans.webp', 800.00, 6, 1),
+('lowers', 'blue', 's,m,l,xl,xxl', 'male', 'jeans', '/clothes/mens/lowers/jeans.jpg', 800.00, 6, 1),
 ('shirt', 'white', 's,m,l,xl,xxl', 'female', 'knot croped t shirt', '/clothes/women/shirts/knot_croped_t_shirt.jpeg', 779.00, 6, 1),
 ('shirt', 'white', 's,m,l,xl,xxl', 'female', 'cold shoulder t shirt', '/clothes/women/shirts/cold_shoulder_t_shirt.jpg', 1239.00, 6, 1),
 ('shirt', 'white', 's,m,l,xl,xxl', 'female', 'collared t shirt', '/clothes/women/shirts/collared_t_shirt.jpg', 859.00, 6, 1),
@@ -59,7 +59,7 @@ INSERT INTO product (product_type, color, size, gender, `desc`, img_url, cost, q
 ('lowers', 'red', 's,m,l,xl,xxl', 'female', 'cropped pants', '/clothes/women/lowers/cropped_pants.webp', 850.00, 6, 1),
 ('lowers', 'orange', 's,m,l,xl,xxl', 'female', 'bell bottoms', '/clothes/women/lowers/bell_bottoms.jpg', 900.00, 6, 1),
 ('lowers', 'white', 's,m,l,xl,xxl', 'female', 'cargo pants', '/clothes/women/lowers/cargo_pants.jpg', 700.00, 6, 1),
-('lowers', 'orange', 's,m,l,xl,xxl', 'female', 'culottes', '/clothes/women/lowers/cullotes.jpg', 1355.00, 6, 1),
+('lowers', 'orange', 's,m,l,xl,xxl', 'female', 'culottes', '/clothes/women/lowers/culottes.jpg', 1355.00, 6, 1),
 ('lowers', 'black', 's,m,l,xl,xxl', 'female', 'dress pants', '/clothes/women/lowers/dress_pants.jpg', 1200.00, 6, 1),
 ('lowers', 'orange', 's,m,l,xl,xxl', 'female', 'eastern pants', '/clothes/women/lowers/eastern_pants.jpg', 679.00, 6, 1),
 ('lowers', 'others', 's,m,l,xl,xxl', 'female', 'fatigue trousers', '/clothes/women/lowers/fatigue_trousers.jpg', 1075.00, 6, 1),
@@ -77,4 +77,4 @@ INSERT INTO product (product_type, color, size, gender, `desc`, img_url, cost, q
 ('shoes', 'brown', 's,m,l', 'female', 'ankle boots', '/clothes/women/shoes/cowboy_boots.webp', 750.00, 6, 1),
 ('shoes', 'white', 's,m,l', 'female', 'ankle boots', '/clothes/women/shoes/dorsay_shoes.webp', 1200.00, 6, 1),
 ('shoes', 'grey', 's,m,l', 'female', 'ankle boots', '/clothes/women/shoes/double_strap_mary_janes.webp', 885.00, 6, 1),
-('shoes', 'pink', 's,m,l', 'female', 'ankle boots', '/clothes/women/shoes/espadrilles.webp', 775.00, 1);
+('shoes', 'pink', 's,m,l', 'female', 'ankle boots', '/clothes/women/shoes/espadrilles.webp', 775.00, 6, 1);

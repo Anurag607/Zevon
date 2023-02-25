@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
 @mixin flex($dir : row, $gap: 0rem) {
     display: flex;
     flex-direction: $dir;
@@ -76,13 +78,15 @@
                     color: #ffffff;
                 }
                 a:nth-child(3):hover {
-                    background-color: #e8e8e8;
+                    background-color: #e8e8e8 !important;
                     color: #37474f !important;
+                    border-color: transparent !important;
                 }
 
                 a:nth-child(4):hover {
-                    background-color: #e8e8e8;
+                    background-color: #e8e8e8 !important;
                     color: #37474f !important;
+                    border-color: transparent !important;
                 }
             }
         }
@@ -195,6 +199,9 @@
 /* -----------------------------------MEDIA QUERIES-------------------------------------*/
 
 @media screen and (max-width: 950px) {
+    .title {
+        max-height: 35rem;
+    }
     .logo {
         font-size: 7rem;
         margin: 10% 5% 12.5% 0;

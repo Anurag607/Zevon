@@ -63,7 +63,7 @@ export default function Login() {
     const HandleSubmit = useCallback((e : React.FormEvent<LoginFormEl>) => {
         e.preventDefault();
         let status = 400
-        fetch(`${process.env.NEXT_PUBLIC_LOCALHOST_SERVER}/api/user/login`, {
+        fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_SERVER}/api/user/login`, {
             method : 'POST',
             mode : 'cors',
             headers : {'Content-type' : 'application/json'},

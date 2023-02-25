@@ -5,7 +5,7 @@ export type userDetails = {
     user_type: string,
     token: string,
     user_id: number,
-    phone_number: number | null,
+    phone_number: string | null,
     address: {
         addr_id: number,
         user_id: number,

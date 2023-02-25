@@ -11,5 +11,6 @@ router.use((req,res,next) => {
 })
 
 router.post('/filtered', controller.getFilteredProduct)
+router.get('/getAll', controller.getAllProducts)
 
 export default router
