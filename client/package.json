@@ -21,7 +21,8 @@
     "react": "18.2.0",
     "react-cookie": "^4.1.1",
     "react-dom": "18.2.0",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "vercel": "^28.16.7"
   },
   "devDependencies": {
     "@types/node": "18.7.18",

@@ -95,7 +95,7 @@
         width: 100vw;
         height: auto;
         @include flex($dir : row, $gap : 5rem);
-        padding: 0 5rem;
+        padding-bottom: 5rem;
         background-color: #ffffff;
         .itemImg {
             width: 35vw;

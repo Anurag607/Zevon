@@ -198,7 +198,7 @@ const Page = ({
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            gap: "9.375rem",
+            gap: "5rem",
           }}
         >
           <div className={`${styles.greeting} greeting`}>

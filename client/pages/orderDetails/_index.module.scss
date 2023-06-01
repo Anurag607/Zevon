@@ -106,13 +106,13 @@
         color: rgba(0,0,0,0.8);
         text-transform: capitalize;
         padding-block: 0.75rem;
-        margin-bottom: 12.5%;
+        // margin-bottom: 12.5%;
         text-align: center;
         cursor: default;
     }
     .cartContent {
         width: 100vw;
-        height: 100vh;
+        height: auto;
         @include flex($dir : row, $gap: 3rem);
         animation: fade_cardcont 0.75s ease;
         transition: all 0.5s;
@@ -227,7 +227,7 @@
         cursor: pointer;
         padding: 0.5rem 2.25rem;
         border-radius: 0.5rem;
-        margin-top: 10vh;
+        margin-bottom: 10vh;
         span {
             width: 2rem;
             height: 2rem;

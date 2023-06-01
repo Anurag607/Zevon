@@ -22,13 +22,18 @@ const pool = new pg.Pool({
   port: process.env.DB_PORT
 })
 
-// pool.getConnection((err, connection) => {
-//   if (!err) {
-//     console.log("MySQL Connected!")
-//   } else {
-//     console.log("MySQL Connection Failed!")
-//     console.error(err.message)
-//   }
-// })
+const client = new pg.Client({ connectionString: process.env.EXTERNAL_DATABASE_URL })
 
+client.connect((err) => {
+  if (err) {
+    console.error('Error connecting to PostgreSQL:', err);
+  } else {
+    console.log('Connected to PostgreSQL');
+    // Perform any database operations here
+  }
+});
+
+client.on('end', () => {
+  console.log('Disconnected from PostgreSQL');
+});
 export default pool
