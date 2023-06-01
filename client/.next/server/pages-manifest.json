@@ -2,8 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/dashboard": "pages/dashboard.js",
-  "/orderDetails": "pages/orderDetails.js",
+  "/": "pages/index.js",
+  "/filterRes/[id]": "pages/filterRes/[id].js",
   "/api/images": "pages/api/images.js",
   "/home": "pages/home.js"
 }
