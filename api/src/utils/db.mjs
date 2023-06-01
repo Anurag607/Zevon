@@ -19,7 +19,10 @@ const pool = new pg.Pool({
   host: process.env.DB_HOST,
   database: process.env.DB_NAME,
   password: process.env.DB_PASS,
-  port: process.env.DB_PORT
+  port: process.env.DB_PORT,
+  ssl: {
+    rejectUnauthorized: false
+  },
 })
 
 const client = new pg.Client({ connectionString: process.env.EXTERNAL_DATABASE_URL })
