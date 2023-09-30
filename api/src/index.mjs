@@ -6,7 +6,6 @@ import emailRouter from './resources/email/email.router.mjs'
 import orderRouter from './resources/orders/order.router.mjs'
 import * as dotenv from 'dotenv'
 import envPath from '../env_path.mjs'
-import { engine } from 'express-handlebars';
 
 dotenv.config({ path: envPath })
 
@@ -15,10 +14,6 @@ const HOST = process.env.HOST
 const PORT = process.env.PORT
 
 app.disable('x-powered-by')
-
-app.engine('handlebars', engine());
-app.set('view engine', 'handlebars');
-app.set('views', '../src/resources/email/views');
 
 app.use(cors())
 app.use(express.json())
