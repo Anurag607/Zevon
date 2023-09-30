@@ -1,3 +1,5 @@
+// eslint-disable
+
 import React from "react";
 import { useRouter } from "next/router";
 import styles from "./filterRes.module.scss";
@@ -22,7 +24,6 @@ const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
   const [result, setResult] = React.useState(products); // eslint-disable-line
 
   React.useEffect(() => {
-    // eslint-disable-line
     filterRes();
     Cookie.remove("searchParams", { path: "" });
     const body = document.querySelector("body");
@@ -366,3 +367,4 @@ export async function getServerSideProps({
 }
 
 export default Page;
+/* eslint-enable */
