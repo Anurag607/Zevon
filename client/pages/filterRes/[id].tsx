@@ -21,7 +21,6 @@ const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
   const [result, setResult] = React.useState(products);
 
   React.useEffect(() => {
-    if (router.isFallback) return;
     filterRes();
     Cookie.remove("searchParams", { path: "" });
     const body = document.querySelector("body");
@@ -88,22 +87,26 @@ const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
 
   const ProductList = () => {
     let img_sources: string[] = [];
-    (result ?? []).forEach((el: filterParamsType | string) => {
-      if (typeof el === "string") img_sources.push(el);
-      else img_sources.push(el.img_url);
-    });
+    (result !== undefined ? result : []).forEach(
+      (el: filterParamsType | string) => {
+        if (typeof el === "string") img_sources.push(el);
+        else img_sources.push(el.img_url);
+      }
+    );
     return (
       <section className={`${styles.resList} resList`}>
-        {(result ?? []).map((el: filterParamsType | string, i: number) => {
-          return (
-            <Cards
-              key={i}
-              type="shopping"
-              details={el}
-              image={img_sources[i]}
-            />
-          );
-        })}
+        {(result !== undefined ? result : []).map(
+          (el: filterParamsType | string, i: number) => {
+            return (
+              <Cards
+                key={i}
+                type="shopping"
+                details={el}
+                image={img_sources[i]}
+              />
+            );
+          }
+        )}
       </section>
     );
   };
