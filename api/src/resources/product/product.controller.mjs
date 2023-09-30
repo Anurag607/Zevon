@@ -105,7 +105,7 @@ const getAllProducts = async (req, res) => {
         const products = response.rows
         res.status(200).json(JSON.parse(JSON.stringify(products)))
     } catch (err) {
-        console.error(err.message)
+        console.error("$: " + err.message)
     }
 }
 
