@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import styles from "./filterRes.module.scss";
 import Head from "next/head";
 import NavBar from "../../src/components/navbar";
-import Footer from "../../src/components/footer";
 import Cards from "../../src/components/cards";
 import Preloader from "../../src/components/preloader";
 import type { NextApiRequest, NextApiResponse } from "next";
@@ -19,16 +18,17 @@ const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
 
   Cookie.set("filteredProducts", JSON.stringify(products));
 
-  if (router.isFallback) return <Preloader />;
-
-  const [result, setResult] = React.useState(products); // eslint-disable-line
+  const [result, setResult] = React.useState(products);
 
   React.useEffect(() => {
+    if (router.isFallback) return;
     filterRes();
     Cookie.remove("searchParams", { path: "" });
     const body = document.querySelector("body");
     body.style.backgroundColor = "#ffffff";
   }, []);
+
+  if (router.isFallback) return <Preloader />;
 
   const Fetcher = () => {
     let status = 200;
@@ -367,4 +367,3 @@ export async function getServerSideProps({
 }
 
 export default Page;
-/* eslint-enable */
