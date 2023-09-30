@@ -347,7 +347,9 @@ export async function getServerSideProps({
   if (!response.ok) {
     res.writeHead(302, { Location: "/nf" }).end();
     return {
-      props: {},
+      props: {
+        products: [],
+      },
     };
   }
 
