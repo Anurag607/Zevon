@@ -5,7 +5,7 @@ import { readFile, writeFile } from 'fs/promises'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import DOMParser from 'dom-parser'
-import hbs from 'nodemailer-express-handlebars'
+// import hbs from 'nodemailer-express-handlebars'
 
 dotenv.config({ path: envPath })
 
@@ -63,7 +63,7 @@ const confirmation = (req, res) => {
         extName: '.handlebars',
       }
 
-      transporter.use('compile', hbs(handlebarOptions))
+      // transporter.use('compile', hbs(handlebarOptions))
 
       let mailOptions = {
         from: process.env.EMAIL,
@@ -105,18 +105,6 @@ const subscription = (req, res) => {
     port: 587,
     host: "smtp.google.com"
   });
-
-  let handlebarOptions = {
-    viewEngine: {
-      extName: '.handlebars',
-      partialsDir: path.resolve(__dirname, './views'),
-      defaultLayout: false,
-    },
-    viewPath: path.resolve(__dirname, './views'),
-    extName: '.handlebars',
-  }
-
-  transporter.use('compile', hbs(handlebarOptions))
 
   let mailOptions = {
     from: process.env.EMAIL,
