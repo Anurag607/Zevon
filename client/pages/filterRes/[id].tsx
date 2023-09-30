@@ -88,13 +88,13 @@ const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
 
   const ProductList = () => {
     let img_sources: string[] = [];
-    result.forEach((el: filterParamsType | string) => {
+    (result ?? []).forEach((el: filterParamsType | string) => {
       if (typeof el === "string") img_sources.push(el);
       else img_sources.push(el.img_url);
     });
     return (
       <section className={`${styles.resList} resList`}>
-        {result.map((el: filterParamsType | string, i: number) => {
+        {(result ?? []).map((el: filterParamsType | string, i: number) => {
           return (
             <Cards
               key={i}
