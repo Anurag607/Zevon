@@ -237,10 +237,8 @@ const Page = ({
           <span className={styles.checkmark} />
           <h2 className={styles.confirmation}>Your Order has been Placed!</h2>
           <span className={styles.redirection}>
-            <Link href={"/home"} as={"/home"} passHref>
-              <a>
-                <button>Continue Shopping</button>
-              </a>
+            <Link href={"/home"}>
+              <button>Continue Shopping</button>
             </Link>
             .
           </span>

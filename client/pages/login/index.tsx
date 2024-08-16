@@ -165,10 +165,6 @@ export default function Login() {
                   placeholder="Enter your Password"
                 />
               </span>
-              {/* <span>
-                                Forgot your Password?
-                                <Link href='/passReset' passHref><a className={styles.loginLinks}>Reset Here</a></Link>
-                            </span> */}
             </label>
           </span>
           <input
@@ -178,18 +174,10 @@ export default function Login() {
             name="submit"
             className={styles.loginSubmit}
           />
-          {/* <section>
-                        <p>Or Sign Up using </p>
-                        <div>
-                            <a href="#" />
-                            <a href="#" />
-                            <a href="#" />
-                        </div>
-                    </section> */}
           <span className={styles.toSignup} ref={styling.toSignup}>
             Dont have an account?
-            <Link href="/signup" as="/signup" passHref>
-              <a className={styles.loginLinks}>Sign Up</a>
+            <Link href="/signup">
+              <div className={styles.loginLinks}>Sign Up</div>
             </Link>
           </span>
         </form>

@@ -1,51 +1,54 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import nc from 'next-connect'
-import data from '../../../../src/data/data.json'
-import { readFile, writeFile } from 'fs/promises'
+import { readFile } from "fs/promises";
 
-// const handler = nc<NextApiRequest, NextApiResponse>({
-//     onError(error, req, res) {
-//         res.status(501).json({ error: `Sorry something Happened! ${error.message}` })
-//     },
-//       onNoMatch(req, res) {
-//         res.status(405).json({ error: `Method '${req.method}' Not Allowed` })
-//     },
-// })
+async function handler(req: NextApiRequest, res: NextApiResponse) {
+  if (req.method === "POST") {
+    // let userData: string = "";
+    // try {
+    //   userData = await readFile(
+    //     new URL("/src/data/data.json", import.meta.url),
+    //     "utf-8"
+    //   );
+    // } catch (err) {
+    //   console.error(err.message);
+    //   res.status(201).send({ message: "Error while logging in (R)." });
+    // }
 
-const handler = nc<NextApiRequest, NextApiResponse>()
+    // let users = JSON.parse(userData);
 
-handler.get('/api/users/login', async(req,res) => {
-    console.log("Running")
-    res.status(400).json("HELLO!")
-})
+    // if (users.hasOwnProperty(req.body.username)) {
+    //   if (users[req.body.username] === req.body.password) {
+    //     let userDetails = [
+    //       {
+    //         name: `${req.body.username}`,
+    //       },
+    //     ];
+    //     res.status(200).send(userDetails);
+    //   } else {
+    //     res.status(201).send({ message: "invalid password" });
+    //   }
+    // } else {
+    //   res.status(201).send({ message: "invalid username" });
+    // }
 
-handler.post('/api/users/login', async(req, res) => {
-    let userData:string = '';
+    let userData: string = "";
     try {
-        userData = await readFile(new URL('/src/data/data.json', import.meta.url), 'utf-8')
-    } catch(err) {
-        console.error(err.message)
-        res.status(201).send({message : 'Error while logging in (R).'})
+      userData = await readFile("./src/data/data.json", "utf-8");
+    } catch (err) {
+      console.error(err.message);
+      res.send("Error while logging in (R).");
     }
 
-    let users = JSON.parse(userData)
-
-    // Serialization Ends
-
-    if(users.hasOwnProperty(req.body.username)) {
-        if (users[req.body.username] === req.body.password) {
-            let userDetails = [{
-                name: `${req.body.username}`
-            }]
-            res.status(200).send(userDetails)
-        } else {
-            res.status(201).send({message : 'invalid password'})                    
-        }
+    let users = JSON.parse(userData);
+    if (users.hasOwnProperty(req.body.username)) {
+      if (users[req.body.userName] == req.body.password) {
+        res.send("success");
+      } else {
+        res.send("invalid password");
+      }
     } else {
-        res.status(201).send({message : 'invalid username'})
+      res.send("invalid username");
     }
-
-    // Validation Ends
-})
-
-export default handler
+  }
+}
+export default handler;

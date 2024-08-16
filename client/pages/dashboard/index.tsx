@@ -115,14 +115,14 @@ const Dashboard = ({
           <h3>v</h3>
           <span>on</span>
         </div>
-        <Link href="/home" as="/home" passHref>
-          <a id="logout" className={styles.home}>
+        <Link href="/home">
+          <div id="logout" className={styles.home}>
             <Image src="/home.png" alt="home" width={32} height={32} />
             <span>Home</span>
-          </a>
+          </div>
         </Link>
-        <Link href="/login" as="/login" passHref>
-          <a
+        <Link href="/login">
+          <div
             id="logout"
             className={styles.logout}
             onClick={() => {
@@ -132,7 +132,7 @@ const Dashboard = ({
           >
             <Image src="/logout.svg" alt="logout" width={32} height={32} />
             <span>Logout</span>
-          </a>
+          </div>
         </Link>
       </section>
       <section id="profile" className={styles.profile}>
@@ -143,14 +143,14 @@ const Dashboard = ({
             <h3>v</h3>
             <span>on</span>
           </div>
-          <Link href="/home" as="/home" passHref>
-            <a id="logout" className={styles.home}>
+          <Link href="/home">
+            <div id="logout" className={styles.home}>
               <Image src="/home.png" alt="home" width={32} height={32} />
               <span>Home</span>
-            </a>
+            </div>
           </Link>
-          <Link href="/login" as="/login" passHref>
-            <a
+          <Link href="/login">
+            <div
               id="logout"
               className={styles.logout}
               onClick={() => {
@@ -160,7 +160,7 @@ const Dashboard = ({
             >
               <Image src="/logout.svg" alt="logout" width={32} height={32} />
               <span>Logout</span>
-            </a>
+            </div>
           </Link>
         </div>
         <div className={styles.header}>

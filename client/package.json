@@ -13,22 +13,21 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "cookie": "^0.5.0",
-    "express": "^4.18.1",
-    "js-cookie": "^3.0.1",
-    "next": "12.3.0",
-    "next-connect": "^0.13.0",
-    "react": "18.2.0",
-    "react-cookie": "^4.1.1",
-    "react-dom": "18.2.0",
-    "sass": "^1.57.1",
-    "vercel": "^28.16.7"
+    "cookie": "^0.6.0",
+    "express": "^4.19.2",
+    "js-cookie": "^3.0.5",
+    "next": "^14.2.5",
+    "next-connect": "^1.0.0",
+    "react": "^18.2.0",
+    "react-cookie": "^7.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.77.8"
   },
   "devDependencies": {
-    "@types/node": "18.7.18",
-    "dotenv-load": "^2.0.1",
-    "eslint": "8.23.1",
-    "eslint-config-next": "12.3.1",
+    "@types/node": "^18.7.18",
+    "dotenv-load": "^3.0.0",
+    "eslint": "^8.23.1",
+    "eslint-config-next": "^12.3.1",
     "next-env": "^1.1.1"
   }
 }

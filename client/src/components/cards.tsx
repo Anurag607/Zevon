@@ -26,13 +26,7 @@ const Cards = (props: {
           className={styles.shopimgCont}
           style={{ backgroundImage: `url(${src})` }}
         >
-          <Image
-            src={src}
-            alt="Image17"
-            width={256}
-            height={384}
-            layout="intrinsic"
-          />
+          <Image src={src} alt="Image17" width={256} height={384} />
         </div>
         <div className={styles["overlay1"]} />
       </div>
@@ -106,13 +100,7 @@ const Cards = (props: {
               style={{ backgroundImage: `url(${src})` }}
             >
               {props.img !== "placeholder" ? (
-                <Image
-                  src={src}
-                  alt="Image"
-                  width={256}
-                  height={320}
-                  layout="intrinsic"
-                />
+                <Image src={src} alt="Image" width={256} height={320} />
               ) : (
                 <></>
               )}
@@ -127,7 +115,6 @@ const Cards = (props: {
                     alt="ADD TO WISHLIST"
                     width={43}
                     height={43}
-                    layout="intrinsic"
                   />
                 </span>
                 <div className={styles["size"]}>
@@ -230,9 +217,16 @@ const Cards = (props: {
           <Image
             src={src}
             alt="category"
-            width={props.width}
-            height={props.height}
-            layout="responsive"
+            width={
+              typeof props.width === "string"
+                ? parseInt(props.width)
+                : props.width
+            }
+            height={
+              typeof props.height === "string"
+                ? parseInt(props.height)
+                : props.height
+            }
           />
         </div>
         <div className={styles["overlay"]}>

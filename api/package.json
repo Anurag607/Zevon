@@ -9,21 +9,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.0",
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
-    "dom-parser": "^0.1.6",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "handlebars": "^4.7.7",
-    "jsdom": "^20.0.3",
-    "jsonwebtoken": "^8.5.1",
+    "dom-parser": "^1.1.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "handlebars": "^4.7.8",
+    "jsdom": "^24.1.1",
+    "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
-    "mysql2": "^2.3.3",
-    "nodemailer": "^6.8.0",
-    "nodemailer-express-handlebars": "^6.1.0",
-    "pg": "^8.9.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.20"
+    "mysql2": "^3.11.0",
+    "nodemailer": "^6.9.14",
+    "nodemailer-express-handlebars": "^6.1.2",
+    "nodemon": "^3.1.4",
+    "pg": "^8.12.0"
   }
 }

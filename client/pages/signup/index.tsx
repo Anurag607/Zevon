@@ -291,8 +291,8 @@ export default function Signup() {
           />
           <span className={styles.tologin}>
             Already have an account?
-            <Link href="/login" as="/login" passHref>
-              <a className={styles.loginLinks}>Login Here</a>
+            <Link href="/login">
+              <div className={styles.loginLinks}>Login Here</div>
             </Link>
           </span>
         </form>

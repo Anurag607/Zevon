@@ -20,9 +20,6 @@ const pool = new pg.Pool({
   database: process.env.DB_NAME,
   password: process.env.DB_PASS,
   port: process.env.DB_PORT,
-  ssl: {
-    rejectUnauthorized: false
-  },
 })
 
 const client = new pg.Client({ connectionString: process.env.EXTERNAL_DATABASE_URL })
@@ -32,7 +29,6 @@ client.connect((err) => {
     console.error('Error connecting to PostgreSQL:', err);
   } else {
     console.log('Connected to PostgreSQL');
-    // Perform any database operations here
   }
 });
 
