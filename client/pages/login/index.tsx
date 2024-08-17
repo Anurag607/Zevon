@@ -176,8 +176,8 @@ export default function Login() {
           />
           <span className={styles.toSignup} ref={styling.toSignup}>
             Dont have an account?
-            <Link href="/signup">
-              <div className={styles.loginLinks}>Sign Up</div>
+            <Link href="/signup" className={styles.loginLinks}>
+              {"Sign Up"}
             </Link>
           </span>
         </form>

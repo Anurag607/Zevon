@@ -70,7 +70,9 @@
                 font-size: 0.75rem;
                 font-family: 'Poppins', sans-serif;
                 cursor: default;
-                color: #fa86c4;
+                .loginLinks {
+                    color: #fa86c4;
+                }
             }
             label {
                 @include flex($dir : column, $gap : 0.5rem);

@@ -291,8 +291,8 @@ export default function Signup() {
           />
           <span className={styles.tologin}>
             Already have an account?
-            <Link href="/login">
-              <div className={styles.loginLinks}>Login Here</div>
+            <Link href="/login" className={styles.loginLinks}>
+              {"Login Here"}
             </Link>
           </span>
         </form>
