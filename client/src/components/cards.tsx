@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "../styles/card.module.scss";
 import Cookie from "js-cookie";
 import { productType } from "../utils/productType";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 // Main Function :------------------------------------------------------------------------------------
 
@@ -91,7 +91,7 @@ const Cards = (props: {
         }}
       >
         <Link
-          href={data.quantity > 0 ? "/items/[id]" : "#"}
+          href={data.quantity > 0 ? "/items/[id]" : "/#"}
           as={data.quantity > 0 ? `/items/${img_name}` : ""}
         >
           <div>
@@ -200,34 +200,14 @@ const Cards = (props: {
             data!.length > 0 &&
             JSON.parse(data).url.length > 0
           ) {
-            router.push(
-              `/filterRes/${JSON.parse(data).url}`,
-              `/filterRes/${JSON.parse(data).url}`,
-              { shallow: true }
-            );
+            router.push(`/filterRes/${JSON.parse(data).url}`);
           } else {
-            router.push(`/filterRes/all`, `/filterRes/all`, { shallow: true });
+            router.push(`/filterRes/all`);
           }
         }}
       >
-        <div
-          className={styles.catImg}
-          style={{ backgroundImage: `url(${src})` }}
-        >
-          <Image
-            src={src}
-            alt="category"
-            width={
-              typeof props.width === "string"
-                ? parseInt(props.width)
-                : props.width
-            }
-            height={
-              typeof props.height === "string"
-                ? parseInt(props.height)
-                : props.height
-            }
-          />
+        <div className={styles.catImg}>
+          <img src={src} alt="category" style={{ objectFit: "cover" }} />
         </div>
         <div className={styles["overlay"]}>
           <div
@@ -255,7 +235,7 @@ const Cards = (props: {
     const width = ["310", "310", "310", "310", "310", "628"];
     const height = ["265.78", "265.78", "544.9", "265.78", "265.78", "430.6"];
     return (
-      <div className={`${styles["category"]} ${styles["main"]}`}>
+      <div className={`${styles["category"]}`}>
         {img.map((el, i) => {
           return (
             <CategoryGen

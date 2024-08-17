@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Head from "next/head";
 import styles from "./signup.module.scss";
@@ -171,7 +171,7 @@ export default function Signup() {
               styling.email.current!.style.border = "transparent";
               styling.password.current!.style.border = "transparent";
               styling.heading.current!.style.marginBottom = "1rem";
-              router.push(`/home`, "/home", { shallow: true });
+              router.push(`/home`);
             } else {
               styling.warning.current!.style.display = "block";
               styling.warning.current!.innerHTML =

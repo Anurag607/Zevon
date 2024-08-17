@@ -55,7 +55,7 @@
   width: auto;
 }
 
-.searchbox > input {
+.searchbox>input {
   border-radius: 2rem;
   height: 1.75rem;
   text-align: right;
@@ -93,15 +93,18 @@
   transition: all 0.3s;
   padding: 0.15rem 0.175rem;
 }
+
 .navico span:not(.cartCount) .navimg {
   width: 2rem;
   filter: brightness(0) invert(1) brightness(0.25);
   transition: all 0.3s;
 }
+
 .navico span:not(.cartCount):hover {
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 0.5rem;
 }
+
 .navico span:not(.cartCount):hover .navimg {
   background-color: transparent;
   border-radius: 0.5rem;
@@ -146,6 +149,7 @@
   padding: 0.25rem 0.5rem;
   text-transform: capitalize;
 }
+
 .navDash div {
   height: 1.5rem;
   display: flex;
@@ -153,6 +157,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .navDash div:nth-child(1) {
   width: 1.5rem;
   background-image: url("../../public/user.png");
@@ -160,6 +165,7 @@
   background-position: center;
   background-size: cover;
 }
+
 .navDash div:nth-child(2) {
   width: auto;
   padding: 0rem 0.5rem;
@@ -199,18 +205,23 @@
     text-align: center;
     flex-wrap: wrap-reverse;
   }
-  .nav-left, .searchbox {
+
+  .nav-left,
+  .searchbox {
     display: none;
   }
+
   .navicons a:nth-child(1) {
     display: none;
   }
+
   .navicons a:nth-child(3) {
     width: auto;
     height: auto;
     border-radius: 0.5rem;
     padding: 0.25rem;
   }
+
   .navicons a:nth-child(3) div {
     width: 2rem;
     height: 2rem;
@@ -219,21 +230,27 @@
     background-size: cover;
     background-repeat: no-repeat;
   }
+
   .navicons a:nth-child(3) span {
     display: none;
   }
+
   .navDash div:nth-child(2) {
     display: none;
   }
+
   .navl {
     font-size: 1rem;
   }
+
   .nav-right {
     margin-right: 0.75rem;
   }
+
   .searchbox {
     transform: translateX(-27.5%);
   }
+
   .login {
     margin: -0.175rem 0 0 0;
     display: flex;
@@ -242,13 +259,17 @@
     width: 6rem;
     height: 2rem;
   }
+
   .navicons {
     padding: 1rem 0 0 0;
     gap: 1.25rem;
   }
 }
+
 @media screen and (max-width: 750px) {
   .searchbox input {
     translate: 13rem 3rem;
   }
-}/*# sourceMappingURL=navbar.module.css.map */
+}
+
+/*# sourceMappingURL=navbar.module.css.map */

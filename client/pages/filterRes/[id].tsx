@@ -1,7 +1,7 @@
 // eslint-disable
 
 import React from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import styles from "./filterRes.module.scss";
 import Head from "next/head";
 import NavBar from "../../src/components/navbar";
@@ -26,8 +26,6 @@ const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
     const body = document.querySelector("body");
     body.style.backgroundColor = "#ffffff";
   }, []);
-
-  if (router.isFallback) return <Preloader />;
 
   const Fetcher = () => {
     let status = 200;
@@ -63,16 +61,16 @@ const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
           }
           urlId = urlId.substring(0, urlId.length - 1);
           Cookie.set("urlId", urlId, { path: "" });
-          router.reload();
+          router.refresh();
 
           // if(urlId.length > 0) {
           //     setResult(currState => currState = resMessage)
-          //     router.push(`/filterRes/${urlId}`, `/filterRes/${urlId}`)
-          //     router.reload()
+          //     router.push(`/filterRes/${urlId}`)
+          //     router.refresh()
           // } else {
           //     setResult(currState => currState = resMessage)
-          //     router.push(`/filterRes/all`, `/filterRes/all`)
-          //     router.reload()
+          //     router.push(`/filterRes/all`)
+          //     router.refresh()
           // }
         }
       })
@@ -315,7 +313,6 @@ const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
         <FilterBar />
         <ProductList />
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };

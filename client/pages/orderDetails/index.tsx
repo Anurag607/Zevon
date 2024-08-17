@@ -1,7 +1,6 @@
 import React from "react";
 import Head from "next/head";
 import NavBar from "../../src/components/navbar";
-import Footer from "../../src/components/footer";
 import styles from "./orderDetails.module.scss";
 import { productType } from "../../src/utils/productType";
 import { NextApiRequest } from "next";
@@ -9,7 +8,7 @@ import Cookie from "js-cookie";
 import parseCookies from "../../src/script/cookieParser.mjs";
 import { userDetails } from "../../src/utils/userDetails";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const Page = ({
   cookieCart,
@@ -244,7 +243,6 @@ const Page = ({
           </span>
         </div>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };

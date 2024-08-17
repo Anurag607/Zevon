@@ -6,10 +6,10 @@ import Cookie from "js-cookie";
 import parseCookies from "../../src/script/cookieParser.mjs";
 import { userDetails } from "../utils/userDetails";
 import Burger from "./burgerMenu";
-import { useRouter } from "next/router";
+import { usePathname, useRouter } from "next/navigation";
 import { search, searchonclick } from "../script/Search.mjs";
 
-const NavBar = () => {
+const NavBar = ({ openModal }: { openModal?: VoidFunction }) => {
   const [userDetails, SetuserDetails] = React.useState<userDetails>({
     email: "",
     name: "",
@@ -32,6 +32,7 @@ const NavBar = () => {
   const [itemList, setItemList] = React.useState(0);
 
   const router = useRouter();
+  const pathname = usePathname();
 
   /* eslint-disable */
 
@@ -47,27 +48,27 @@ const NavBar = () => {
   /* eslint-enable */
 
   return (
-    <nav className={`${styles["nav"]} nav`}>
+    <div className={`${styles["nav"]} nav`}>
       <Burger />
-      <div className={styles["nav-left"]}>
+      <div className={styles["nav-left-hero"]}>
         <li>
-          <Link href="/home">
-            <div className={styles.navl}>Home</div>
+          <Link href="/home" className={styles.navl}>
+            Home
           </Link>
         </li>
         <li>
-          <Link href="/blog">
-            <div className={styles.navl}>Blog</div>
+          <Link href="/blog" className={styles.navl}>
+            Blog
           </Link>
         </li>
         <li>
-          <Link href="about">
-            <div className={styles.navl}>About</div>
+          <Link href="about" className={styles.navl}>
+            About
           </Link>
         </li>
         <li>
-          <Link href="/contacts">
-            <div className={styles.navl}>Contact</div>
+          <Link className={styles.navl} href="/contacts">
+            Contact
           </Link>
         </li>
       </div>
@@ -95,13 +96,9 @@ const NavBar = () => {
                   }),
                   { path: "/" }
                 );
-                router.push(
-                  `/filterRes/filterSearchResults`,
-                  `/filterRes/filterSearchResults`,
-                  { shallow: true }
-                );
-                if (router.asPath === "/filterRes/filterSearchResults")
-                  router.reload();
+                router.push(`/filterRes/filterSearchResults`);
+                if (pathname === "/filterRes/filterSearchResults")
+                  router.refresh();
               }
             }}
           />
@@ -119,57 +116,51 @@ const NavBar = () => {
           </div>
         </div>
         <div className={styles["navicons"]}>
-          <Link href="/wishList">
-            <div className={styles["navico"]}>
-              <span>
-                <Image
-                  className={styles.navimg}
-                  src="/wishlist.png"
-                  alt="wishlist"
-                  width={32}
-                  height={32}
-                />
-              </span>
-            </div>
+          <Link
+            href="/wishList"
+            className={styles["navico"]}
+            onClick={(e) => {
+              e.preventDefault();
+              openModal();
+            }}
+          >
+            <span>
+              <Image
+                className={styles.navimg}
+                src="/wishlist.png"
+                alt="wishlist"
+                width={32}
+                height={32}
+              />
+            </span>
           </Link>
-          <Link href={itemList === 0 ? "#" : "/cart"}>
-            <div className={styles["navico"]}>
-              <span>
-                <Image
-                  className={styles.navimg}
-                  src="/cart.png"
-                  alt="cart"
-                  width={32}
-                  height={32}
-                />
-              </span>
-              <div className={styles.cartCount}>{itemList}</div>
-              {/* {(userDetails.hasOwnProperty("name") && userDetails.name.length > 0) ? <span className={styles.cartCount}>{itemList}</span> : <></>} */}
-            </div>
+          <Link
+            className={styles["navico"]}
+            href={itemList === 0 ? "/#" : "/cart"}
+          >
+            <span>
+              <Image
+                className={styles.navimg}
+                src="/cart.png"
+                alt="cart"
+                width={32}
+                height={32}
+              />
+            </span>
+            <div className={styles.cartCount}>{itemList}</div>
           </Link>
           {userDetails.hasOwnProperty("name") && userDetails.name.length > 0 ? (
-            <Link href="/dashboard">
-              <div className={styles.navDash} onClick={() => {}}>
-                <div />
-                <div>{userDetails.name}</div>
-              </div>
+            <Link href="/dashboard" className={styles.navDash}>
+              <div>{userDetails.name}</div>
             </Link>
           ) : (
-            <Link href="/login">
-              <div
-                className={styles.login}
-                onMouseOver={(event) =>
-                  (event.currentTarget.style.color = "#37474f")
-                }
-              >
-                <div />
-                <span>Login</span>
-              </div>
+            <Link href="/login" className={styles["login-hero"]}>
+              <span>Login</span>
             </Link>
           )}
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 

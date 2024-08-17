@@ -6,7 +6,7 @@ import Head from "next/head";
 import parseCookies from "../../src/script/cookieParser.mjs";
 import { NextApiRequest } from "next";
 import { userDetails } from "../../src/utils/userDetails";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { ordersType } from "../../src/utils/ordersType";
 import Image from "next/image";
 
@@ -127,7 +127,7 @@ const Dashboard = ({
             className={styles.logout}
             onClick={() => {
               Cookie.remove("currentLoggedIn", { path: "" });
-              router.push("/home", "/home", { shallow: true });
+              router.push("/home");
             }}
           >
             <Image src="/logout.svg" alt="logout" width={32} height={32} />
@@ -155,7 +155,7 @@ const Dashboard = ({
               className={styles.logout}
               onClick={() => {
                 Cookie.remove("currentLoggedIn", { path: "" });
-                router.push("/home", "/home", { shallow: true });
+                router.push("/home");
               }}
             >
               <Image src="/logout.svg" alt="logout" width={32} height={32} />

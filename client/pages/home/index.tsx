@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import styles from "./home.module.scss";
 import main from "../../src/script/main.mjs";
 import NavBar from "../../src/components/navbar";
@@ -166,6 +166,33 @@ const Home = () => {
     );
   };
 
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [formData, setFormData] = React.useState({ text: "", file: null });
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [isSubmitted, setIsSubmitted] = React.useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  const handleChange1 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, files } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: files ? files[0] : value,
+    }));
+  };
+
+  const handleSubmit1 = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setTimeout(() => {
+      console.log("Form submitted:", formData);
+      setIsLoading(false);
+      setIsSubmitted(true);
+      // closeModal();
+    }, 2000);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -180,12 +207,92 @@ const Home = () => {
 
       {/* -----------------------------------TITLE-------------------------------------*/}
 
+      {isModalOpen && (
+        <div className={styles.overlay} onClick={closeModal}>
+          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeButton} onClick={closeModal}>
+              <img src={"/cancel.png"} alt="cancel" width={16} height={16} />
+            </button>
+            <h2>
+              {isSubmitted ? (
+                <div
+                  className={styles["backButton"]}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsSubmitted(false);
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlSpace="preserve"
+                    width="16"
+                    height="16"
+                    shape-rendering="geometricPrecision"
+                    text-rendering="geometricPrecision"
+                    image-rendering="optimizeQuality"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    viewBox="0 0 298 511.93"
+                  >
+                    <path
+                      fill="white"
+                      fill-rule="nonzero"
+                      d="M285.77 441c16.24 16.17 16.32 42.46.15 58.7-16.16 16.24-42.45 16.32-58.69.16l-215-214.47c-16.24-16.16-16.32-42.45-.15-58.69L227.23 12.08c16.24-16.17 42.53-16.09 58.69.15 16.17 16.24 16.09 42.54-.15 58.7l-185.5 185.04L285.77 441z"
+                    />
+                  </svg>
+                </div>
+              ) : (
+                <>{"Try On!"}</>
+              )}
+            </h2>
+            {isSubmitted ? (
+              <div className={styles.imageOutput}>
+                {/* <img
+                  src={"output.png" ?? URL.createObjectURL(formData.file)}
+                  alt="output"
+                /> */}
+              </div>
+            ) : (
+              <form className={styles.form} onSubmit={handleSubmit1}>
+                <label>
+                  <p>{"Item Name: "}</p>
+                  <input
+                    type="text"
+                    name="text"
+                    value={formData.text}
+                    onChange={handleChange1}
+                    className={styles.inputField}
+                  />
+                </label>
+                <label>
+                  <p>{"Image: "}</p>
+                  <input
+                    type="file"
+                    name="file"
+                    onChange={handleChange1}
+                    className={styles.fileInput}
+                  />
+                </label>
+                <button type="submit" className={styles.submitButton}>
+                  Submit
+                </button>
+                {isLoading && (
+                  <div className={styles["spinner-overlay"]}>
+                    <div className={styles.spinner}></div>
+                  </div>
+                )}
+              </form>
+            )}
+          </div>
+        </div>
+      )}
+
       <div
         id="title"
-        className={`${styles.title} ${styles.main}`}
+        className={`${styles.title}`}
         style={{ backgroundImage: "url('/a7.jpg')" }}
       >
-        <NavBar />
+        <NavBar openModal={openModal} />
 
         <div className={styles["logo"]}>
           <i>Zevon</i>
@@ -210,7 +317,7 @@ const Home = () => {
 
       {/* -----------------------------------PAGINATOR-------------------------------------*/}
       {/* <div className={styles["page"]}>
-                <div className={`${styles.paginator} ${styles.main}`}>
+                <div className={`${styles.paginator}`}>
                     <div className={styles["filtercont"]} id="filtercont" data-toggle="off">
                         <span id="filter" className={styles.filter}>
                             <Image src="/filter1.png" alt="filter" width={32} height={32} />
@@ -244,9 +351,9 @@ const Home = () => {
                         <button className={`goBtn ${styles.resGo}`} onClick={() => {
                             let data = Cookie.get('filterParams')
                             if(typeof data !== 'undefined' && data!.length > 0 && JSON.parse(data).url.length > 0) {
-                                router.push(`/filterRes/${JSON.parse(data).url}`, `/filterRes/${JSON.parse(data).url}`, {shallow: true})
+                                router.push(`/filterRes/${JSON.parse(data).url}`)
                             } else {
-                                router.push(`/filterRes/all`, `/filterRes/all`, {shallow: true})
+                                router.push(`/filterRes/all`)
                             }
                             
                         }}>{`Go >`}</button>
@@ -267,7 +374,7 @@ const Home = () => {
 
       {/*-----------------------------------FOOTER-------------------------------------*/}
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

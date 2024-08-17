@@ -1,12 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import NavBar from "../../src/components/navbar";
-import Footer from "../../src/components/footer";
 import Head from "next/head";
 import styles from "./cart.module.scss";
 import Cards from "../../src/components/cards";
 import { productType } from "../../src/utils/productType";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { NextApiRequest } from "next";
 import parseCookies from "../../src/script/cookieParser.mjs";
 import Cookie from "js-cookie";
@@ -153,7 +152,7 @@ const Page = ({
                 setRedirect(0);
                 Cookie.set("orderDetails", cookieCart);
                 Cookie.set("ttlAmt", ttlAmt);
-                router.push("/payment", "/payment", { shallow: true });
+                router.push("/payment");
               } else {
                 setRedirect(1);
               }
@@ -178,7 +177,6 @@ const Page = ({
           </span>
         </div>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };

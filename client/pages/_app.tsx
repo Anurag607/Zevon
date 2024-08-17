@@ -1,30 +1,24 @@
-import '../src/styles/globals.css'
-import React from 'react'
-import { AppProps } from 'next/app'
-import { useRouter } from 'next/router'
-import Cookie from 'js-cookie'
+import "../src/styles/globals.css";
+import React from "react";
+import type { AppProps } from "next/app";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import Cookie from "js-cookie";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter()
-
-  /* eslint-disable */
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   React.useEffect(() => {
-    const handleRouteChange = (url: URL, {shallow}) => {
-      Cookie.remove('selectedParams', { path: '' })
-    }
+    const handleRouteChange = () => {
+      Cookie.remove("selectedParams", { path: "" });
+    };
 
-    router.events.on('routeChangeStart', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChange)
-    }
-  }, [])
+    // Trigger the cookie removal on route change
+    handleRouteChange();
+  }, [pathname, searchParams]);
 
-  /* eslint-enable */
-
-  return (
-    <Component {...pageProps} />
-  )
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+export default MyApp;

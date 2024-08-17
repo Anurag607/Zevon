@@ -23,11 +23,50 @@
     padding-top: 1.25rem;
     margin-inline: 1.25rem;
     width: 96.5vw;
-    padding-left: 5rem;
-    padding-right: 6.5rem;
+     div:nth-child(1) {
+            div:nth-child(2) {
+                li {
+                    a {
+                        color: rgba(0, 0, 0, 0.75);
+                    }
+                }
+            }
+        }
+        div:nth-child(2) {
+            li {
+                a {
+                    color: #ffffff;
+                }
+                a:hover {
+                    background-color: #ffffff;
+                    color: rgba(0, 0, 0, 0.75);
+                }
+            }
+        }
+        div:nth-child(3) {
+            div:nth-child(1) {
+                input {
+                    border: none;
+                }
+                div {
+                    filter: brightness(0) invert(1);
+                }
+            }
+            div:nth-child(2) {
+                a:not(.login-hero) {
+                    span:not(.cartCount) {
+                        filter: brightness(0) invert(1);
+                        border-radius: 0.5rem;
+                    }
+                    span:not(.cartCount):hover {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
 }
 
-.nav-left {
+.nav-left-hero {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -36,6 +75,7 @@
     gap: 2rem;
     margin-left: 1rem;
     margin-top: 0.575rem;
+    color: #ffffff;
 }
 
 .nav-right {
@@ -126,16 +166,15 @@
     }
 }
 
-.login {
+.login-hero {
     cursor: pointer;
-    border: 0.1rem solid rgba(0,0,0,0.75);
+    border: 0.1rem solid white;
     text-align: center;
     border-radius: 50rem;
     width: 8rem;
     height: 1.75rem;
     background: transparent;
-    color: rgba(0,0,0,0.75);
-    transition: 0.5s;
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -143,9 +182,9 @@
     transition: all 0.5s;
 }
 
-.login:hover {
-    background-color: rgba(0,0,0,0.75) !important;
-    color: #ffffff !important;
+.login-hero:hover {
+    color: #000000;
+    background-color: white;
 }
 
 .navDash {

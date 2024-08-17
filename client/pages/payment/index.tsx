@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import styles from "./payment.module.scss";
 import Head from "next/head";
 import NavBar from "../../src/components/navbar";
@@ -295,7 +295,7 @@ const Page = ({ userDetails }: { userDetails: string }) => {
       cvvLabel.innerHTML = "cvc/cvv";
       cvvLabel.style.color = "#c5c5c5";
     }
-    router.push("/orderDetails", "/orderDetails", { shallow: true });
+    router.push("/orderDetails");
   };
 
   const upiValidation = () => {
@@ -324,7 +324,7 @@ const Page = ({ userDetails }: { userDetails: string }) => {
       upiLabel.innerHTML = "Upi Id";
       upiLabel.style.color = "#c5c5c5";
     }
-    router.push("/orderDetails", "/orderDetails", { shallow: true });
+    router.push("/orderDetails");
   };
 
   return (

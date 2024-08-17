@@ -6,6 +6,7 @@ import emailRouter from './resources/email/email.router.mjs'
 import orderRouter from './resources/orders/order.router.mjs'
 import * as dotenv from 'dotenv'
 import envPath from '../env_path.mjs'
+import { getAllProducts } from "./resources/product/product.controller.mjs"
 
 dotenv.config({ path: envPath })
 
@@ -19,13 +20,15 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.get('/hello', (_, res) => res.send("HELLO WORLD!"))
-app.use('/api/user', userRouter)
-app.use('/api/product', productRouter)
-app.use('/api/email', emailRouter)
-app.use('/api/orders', orderRouter)
+app.get('/hello', (_, res) => {
+    res.send("HELLO WORLD!");
+});
+app.get('/db-test', getAllProducts);
+app.use('/api/user', userRouter);
+app.use('/api/product', productRouter);
+app.use('/api/email', emailRouter);
+app.use('/api/orders', orderRouter);
 
 app.listen(PORT, () => {
     console.log(`Server running on ${HOST}:${PORT}`);
-
 })

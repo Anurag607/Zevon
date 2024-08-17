@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../styles/burgerMenu.module.scss";
 import { Menu } from "../script/burger.mjs";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname, useRouter } from "next/navigation";
 import Cookie from "js-cookie";
 import Image from "next/image";
 import { userDetails } from "../utils/userDetails";
@@ -29,6 +29,7 @@ const Burger = () => {
   });
 
   const [itemList, setItemList] = React.useState(0);
+  const pathname = usePathname();
 
   /* eslint-disable */
 
@@ -49,9 +50,7 @@ const Burger = () => {
     <div
       className={`${styles.burgerWrapper} burgerWrapper`}
       style={{
-        backgroundColor: `${
-          router.asPath === "/home" ? "#ffffff" : "transparent"
-        }`,
+        backgroundColor: `${pathname === "/home" ? "#ffffff" : "transparent"}`,
       }}
     >
       <div
@@ -109,13 +108,9 @@ const Burger = () => {
                     }),
                     { path: "/" }
                   );
-                  router.push(
-                    `/filterRes/filterSearchResults`,
-                    `/filterRes/filterSearchResults`,
-                    { shallow: true }
-                  );
-                  if (router.asPath === "/filterRes/filterSearchResults")
-                    router.reload();
+                  router.push(`/filterRes/filterSearchResults`);
+                  if (pathname === "/filterRes/filterSearchResults")
+                    router.refresh();
                 }
               }}
             />

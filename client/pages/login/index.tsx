@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Head from "next/head";
 import styles from "./login.module.scss";
@@ -92,7 +92,7 @@ export default function Login() {
             styling.email.current!.style.border = "transparent";
             styling.pass.current!.style.border = "transparent";
             styling.toSignup.current!.style.marginTop = "2.5rem";
-            router.push(`/home`, "/home", { shallow: true });
+            router.push(`/home`);
           }
         });
     },
