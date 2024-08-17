@@ -1,10 +1,11 @@
-import React from "react";
+import { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/card.module.scss";
 import Cookie from "js-cookie";
 import { productType } from "../utils/productType";
 import { useRouter } from "next/navigation";
+import { AppContext } from "../../pages/_app";
 
 // Main Function :------------------------------------------------------------------------------------
 
@@ -15,6 +16,7 @@ const Cards = (props: {
   details?: productType | string;
 }) => {
   const router = useRouter();
+  const { setIsLoading } = useContext(AppContext);
 
   // Blog Cards:------------------------------------------------------------------------------------
 
@@ -163,30 +165,39 @@ const Cards = (props: {
       <div
         className={styles["cards"]}
         onClick={() => {
+          let type = "others";
           let params = props.type.toLowerCase();
-          if (params === "men") params = "male";
-          else if (params === "women") params = "female";
+          if (params === "men") {
+            params = "male";
+            type = "gender";
+          } else if (params === "women") {
+            params = "female";
+            type = "gender";
+          }
 
-          let data = {
+          let filters = {
             url: params,
             data: {
               color: [],
-              category: [`${params}`],
+              category: [],
               gender: [],
               cost: [],
             },
           };
-          Cookie.set("filterParams", JSON.stringify(data), { path: "/" });
+
+          if (type === "gender") filters["data"]["gender"].push(`${params}`);
+          else filters["data"]["category"].push(`${params}`);
+
+          Cookie.set("filterParams", JSON.stringify(filters), {
+            path: "/",
+          });
           const filterCookie = Cookie.get("filterParams");
 
-          console.log(data, filterCookie);
-
           if (filterCookie && filterCookie !== undefined) {
-            console.log(`Loading: /filterRes/${data.url}`);
-            router.push(`/filterRes/${data.url}`);
-          } else {
-            console.log(`Loading: /filterRes/all`);
-            router.push(`/filterRes/all`);
+            setIsLoading(true);
+            const query =
+              type === "gender" ? `gender=${params}` : `category=${params}`;
+            router.push(`/filterRes?${query}`);
           }
         }}
       >

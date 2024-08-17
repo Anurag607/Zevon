@@ -1,7 +1,6 @@
-import React from "react";
+import { useState, useEffect, useContext, ChangeEvent, FormEvent } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import styles from "./home.module.scss";
 import main from "../../src/script/main.mjs";
 import NavBar from "../../src/components/navbar";
@@ -9,14 +8,62 @@ import Footer from "../../src/components/footer";
 import Cards from "../../src/components/cards";
 import FilterDropDowns from "../../src/components/filter";
 import Cookie from "js-cookie";
+import { AppContext } from "../_app";
+
+// Gender Switch :------------------------------------------------------------------------------------
+
+const Switch = ({ isChecked, setIsChecked }) => {
+  const handleChange = (event: ChangeEvent) => {
+    if (isChecked) {
+      setIsChecked((currState: boolean) => (currState = false));
+      Cookie.set("flag", "false");
+    } else {
+      setIsChecked((currState: boolean) => (currState = true));
+      Cookie.set("flag", "true");
+    }
+  };
+
+  return (
+    <div className={`${styles["switches-container"]} switches-container`}>
+      <input
+        type="radio"
+        id="male"
+        name="switchPlan"
+        value="male"
+        checked={isChecked}
+        onChange={handleChange}
+      />
+      <input
+        type="radio"
+        id="female"
+        name="switchPlan"
+        value="female"
+        checked={!isChecked}
+        onChange={handleChange}
+      />
+      <label htmlFor="male">Male</label>
+      <label htmlFor="female">Female</label>
+      <div className={`${styles["switch-wrapper"]} switch-wrapper`}>
+        <div className={`${styles.switch} switch`}>
+          <div>Male</div>
+          <div>Female</div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 // Main Function :------------------------------------------------------------------------------------
 
 const Home = () => {
-  const [images, setImages] = React.useState<string[]>([]);
-  const [isChecked, setIsChecked] = React.useState(true);
+  const [images, setImages] = useState<string[]>([]);
+  const [isChecked, setIsChecked] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({ text: "", file: null });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const { setIsLoading } = useContext(AppContext);
 
-  const Fetcher = () => {
+  const fetcher = () => {
     let status = 200;
     fetch("/api/images/", {
       method: "GET",
@@ -35,62 +82,25 @@ const Home = () => {
       });
   };
 
-  React.useEffect(() => {
-    Fetcher();
+  useEffect(() => {
+    fetcher();
     main();
     Cookie.remove("filterParams", { path: "" });
     Cookie.remove("searchParams", { path: "" });
     Cookie.remove("urlId", { path: "" });
     Cookie.remove("currentItemSrc", { path: "" });
     Cookie.remove("orderDetails", { path: "" });
-    Cookie.remove("filteredProducts", { path: "" });
     Cookie.remove("currentItem", { path: "" });
-    const body = document.querySelector("body");
-    body.style.backgroundColor = "#e8e8e8";
+
+    Cookie.remove("filterParams", { path: "/" });
+    Cookie.remove("searchParams", { path: "/" });
+    Cookie.remove("urlId", { path: "/" });
+    Cookie.remove("currentItemSrc", { path: "/" });
+    Cookie.remove("orderDetails", { path: "/" });
+    Cookie.remove("currentItem", { path: "/" });
+
+    document.querySelector("body").style.backgroundColor = "#e8e8e8";
   }, []);
-
-  const handleChange = (event: React.ChangeEvent) => {
-    if (isChecked) {
-      setIsChecked((currState) => (currState = false));
-      Cookie.set("flag", "false");
-    } else {
-      setIsChecked((currState) => (currState = true));
-      Cookie.set("flag", "true");
-    }
-  };
-
-  // Gender Switch :------------------------------------------------------------------------------------
-
-  const Switch = () => {
-    return (
-      <div className={`${styles["switches-container"]} switches-container`}>
-        <input
-          type="radio"
-          id="male"
-          name="switchPlan"
-          value="male"
-          checked={isChecked}
-          onChange={handleChange}
-        />
-        <input
-          type="radio"
-          id="female"
-          name="switchPlan"
-          value="female"
-          checked={!isChecked}
-          onChange={handleChange}
-        />
-        <label htmlFor="male">Male</label>
-        <label htmlFor="female">Female</label>
-        <div className={`${styles["switch-wrapper"]} switch-wrapper`}>
-          <div className={`${styles.switch} switch`}>
-            <div>Male</div>
-            <div>Female</div>
-          </div>
-        </div>
-      </div>
-    );
-  };
 
   // Shopping Card Containers :------------------------------------------------------------------------------------
 
@@ -166,15 +176,12 @@ const Home = () => {
     );
   };
 
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
-  const [formData, setFormData] = React.useState({ text: "", file: null });
-  const [isLoading, setIsLoading] = React.useState(false);
-  const [isSubmitted, setIsSubmitted] = React.useState(false);
+  // Try On Modal Functions :------------------------------------------------------------------------------------
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  const handleChange1 = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeTryOn = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value, files } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -182,14 +189,14 @@ const Home = () => {
     }));
   };
 
-  const handleSubmit1 = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmitTryOn = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
     setTimeout(() => {
       console.log("Form submitted:", formData);
       setIsLoading(false);
       setIsSubmitted(true);
-      // closeModal();
+      closeModal();
     }, 2000);
   };
 
@@ -207,6 +214,7 @@ const Home = () => {
 
       {/* -----------------------------------TITLE-------------------------------------*/}
 
+      {/* -----------------------------------TRY ON-------------------------------------*/}
       {isModalOpen && (
         <div className={styles.overlay} onClick={closeModal}>
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
@@ -247,20 +255,20 @@ const Home = () => {
             </h2>
             {isSubmitted ? (
               <div className={styles.imageOutput}>
-                {/* <img
-                  src={"output.png" ?? URL.createObjectURL(formData.file)}
+                <img
+                  src={URL.createObjectURL(formData.file) ?? "/output.png"}
                   alt="output"
-                /> */}
+                />
               </div>
             ) : (
-              <form className={styles.form} onSubmit={handleSubmit1}>
+              <form className={styles.form} onSubmit={handleSubmitTryOn}>
                 <label>
                   <p>{"Item Name: "}</p>
                   <input
                     type="text"
                     name="text"
                     value={formData.text}
-                    onChange={handleChange1}
+                    onChange={handleChangeTryOn}
                     className={styles.inputField}
                   />
                 </label>
@@ -269,18 +277,13 @@ const Home = () => {
                   <input
                     type="file"
                     name="file"
-                    onChange={handleChange1}
+                    onChange={handleChangeTryOn}
                     className={styles.fileInput}
                   />
                 </label>
                 <button type="submit" className={styles.submitButton}>
                   Submit
                 </button>
-                {isLoading && (
-                  <div className={styles["spinner-overlay"]}>
-                    <div className={styles.spinner}></div>
-                  </div>
-                )}
               </form>
             )}
           </div>
@@ -317,50 +320,82 @@ const Home = () => {
 
       {/* -----------------------------------PAGINATOR-------------------------------------*/}
       {/* <div className={styles["page"]}>
-                <div className={`${styles.paginator}`}>
-                    <div className={styles["filtercont"]} id="filtercont" data-toggle="off">
-                        <span id="filter" className={styles.filter}>
-                            <Image src="/filter1.png" alt="filter" width={32} height={32} />
-                        </span>
-                        <span id="filterOff" className={styles.filterOff}>
-                            <Image src="/cancel.png" alt="cancel" width={32} height={32} />
-                        </span>
-                    </div>
-                    <div>
-                        <span id="prev" className={styles.prev}> {'<'} </span>
-                        <span id="next" className={styles.next}> {'>'} </span>
-                    </div>
-                </div>
-                <menu className={styles["items-wrapper"]} id="items-wrapper">
-                    <section>
-                        <div className={styles["item-cont-range"]} data-toggle="off" style={{display: "flex; flex-direction: column"}}>
-                            <label htmlFor="price">Price Range</label>
-                            <div>
-                                <span id='minPrice'>{0}</span>
-                                <input type="range" id='price' name='price' className={`${styles.menu} ${styles.priceSlider}`} min="0" max="2500" step="500" />
-                                <span id='maxPrice'>{2500}</span>
-                            </div>
-                        </div>
-                        <div className={`${styles["item-cont"]} itemCont`} id="items-cont" data-toggle="off">
-                            <span className={styles["menu"]} data-type="Colors">Color</span>
-                        </div>
-                        <div className={`${styles["item-cont"]} itemCont`} id="items-cont" data-toggle="off">
-                            <span className={styles["menu"]} data-type="Categories">Category</span>
-                        </div>
-                        <Switch />
-                        <button className={`goBtn ${styles.resGo}`} onClick={() => {
-                            let data = Cookie.get('filterParams')
-                            if(typeof data !== 'undefined' && data!.length > 0 && JSON.parse(data).url.length > 0) {
-                                router.push(`/filterRes/${JSON.parse(data).url}`)
-                            } else {
-                                router.push(`/filterRes/all`)
-                            }
-                            
-                        }}>{`Go >`}</button>
-                    </section>
-                    <FilterDropDowns />
-                </menu>
-            </div> */}
+        <div className={`${styles.paginator}`}>
+          <div
+            className={styles["filtercont"]}
+            id="filtercont"
+            data-toggle="off"
+          >
+            <span id="filter" className={styles.filter}>
+              <Image src="/filter1.png" alt="filter" width={32} height={32} />
+            </span>
+            <span id="filterOff" className={styles.filterOff}>
+              <Image src="/cancel.png" alt="cancel" width={32} height={32} />
+            </span>
+          </div>
+          <div>
+            <span id="prev" className={styles.prev}>
+              {" "}
+              {"<"}{" "}
+            </span>
+            <span id="next" className={styles.next}>
+              {" "}
+              {">"}{" "}
+            </span>
+          </div>
+        </div>
+        <menu className={styles["items-wrapper"]} id="items-wrapper">
+          <section>
+            <div
+              className={styles["item-cont-range"]}
+              data-toggle="off"
+              style={{ display: "flex; flex-direction: column" }}
+            >
+              <label htmlFor="price">Price Range</label>
+              <div>
+                <span id="minPrice">{0}</span>
+                <input
+                  type="range"
+                  id="price"
+                  name="price"
+                  className={`${styles.menu} ${styles.priceSlider}`}
+                  min="0"
+                  max="2500"
+                  step="500"
+                />
+                <span id="maxPrice">{2500}</span>
+              </div>
+            </div>
+            <div
+              className={`${styles["item-cont"]} itemCont`}
+              id="items-cont"
+              data-toggle="off"
+            >
+              <span className={styles["menu"]} data-type="Colors">
+                Color
+              </span>
+            </div>
+            <div
+              className={`${styles["item-cont"]} itemCont`}
+              id="items-cont"
+              data-toggle="off"
+            >
+              <span className={styles["menu"]} data-type="Categories">
+                Category
+              </span>
+            </div>
+            <Switch isChecked={isChecked} setIsChecked={setIsChecked} />
+            <button
+              className={`goBtn ${styles.resGo}`}
+              onClick={() => {
+                let data = Cookie.get("filterParams");
+                router.push(`/filterRes`);
+              }}
+            >{`Go >`}</button>
+          </section>
+          <FilterDropDowns />
+        </menu>
+      </div> */}
 
       {/* -----------------------------------SHOP-------------------------------------*/}
 

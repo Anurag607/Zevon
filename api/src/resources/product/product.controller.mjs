@@ -11,7 +11,7 @@ const ItemFilter = (result, products) => {
 
 const getFilteredProduct = async (req, res) => {
     try {
-        let data = req.body.data || req.body;
+        let data = req.body.data;
         if (!data) {
             const placeholder = ['c9', 'c10', 'c11', 'c12', 'c13', 'c14', 'c15', 'c16'];
             return res.status(200).json(placeholder);

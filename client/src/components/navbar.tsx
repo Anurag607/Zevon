@@ -100,9 +100,8 @@ const NavBar = ({ openModal }: { openModal?: VoidFunction }) => {
                   }),
                   { path: "/" }
                 );
-                router.push(`/filterRes/filterSearchResults`);
-                if (pathname === "/filterRes/filterSearchResults")
-                  router.refresh();
+                router.push(`/filterRes`);
+                if (pathname === "/filterRes") router.refresh();
               }
             }}
           />
@@ -138,10 +137,7 @@ const NavBar = ({ openModal }: { openModal?: VoidFunction }) => {
               />
             </span>
           </Link>
-          <Link
-            className={styles["navico"]}
-            href={itemList === 0 ? "/#" : "/cart"}
-          >
+          <Link className={styles["navico"]} href={"/cart"}>
             <span>
               <Image
                 className={styles.navimg}

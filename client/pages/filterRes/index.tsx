@@ -1,43 +1,127 @@
 // eslint-disable
 
-import React from "react";
-import { useRouter } from "next/navigation";
-import styles from "./filterRes.module.scss";
+import { useState, useEffect, FormEvent, useContext } from "react";
+import type { NextApiRequest, NextApiResponse } from "next";
 import Head from "next/head";
+import { useRouter } from "next/navigation";
+import Cookie from "js-cookie";
+
+import styles from "./filterRes.module.scss";
 import NavBar from "../../src/components/navbar";
 import Cards from "../../src/components/cards";
-import Preloader from "../../src/components/preloader";
-import type { NextApiRequest, NextApiResponse } from "next";
 import { filterParamsType } from "../../src/utils/filterParamsType";
-import Cookie from "js-cookie";
 import parseCookies from "../../src/script/cookieParser.mjs";
 import filterRes from "../../src/script/filterRes.mjs";
+import { AppContext } from "../_app";
+
+const colors = [
+  "red",
+  "green",
+  "yellow",
+  "blue",
+  "black",
+  "white",
+  "orange",
+  "purple",
+  "pink",
+  "gray",
+  "brown",
+  "teal",
+];
+
+const hex = [
+  "#ff4040",
+  "#4cbb17",
+  "#ffef00",
+  "#2a52be",
+  "#000000",
+  "#e8e8e8",
+  "#fc6a03",
+  "#7851a9",
+  "#faafba",
+  "#37474f",
+  "#65350f",
+  "#008080",
+];
+
+const categories = [
+  "Shirts & Tops",
+  "Pants & Lowers",
+  "Jackets",
+  "Accessories",
+  "Shoes & Footwear",
+];
+const type = ["shirt", "lowers", "jackets", "accessories", "shoes"];
+
+const ProductList = ({ result }) => {
+  let img_sources: string[] = [];
+  (result !== undefined ? result : []).forEach(
+    (el: filterParamsType | string) => {
+      if (typeof el === "string") img_sources.push(el);
+      else img_sources.push(el.img_url);
+    }
+  );
+  return (
+    <section className={`${styles.resList} resList`}>
+      {(result !== undefined ? result : []).map(
+        (el: filterParamsType | string, i: number) => {
+          return (
+            <Cards
+              key={i}
+              type="shopping"
+              details={el}
+              image={img_sources[i]}
+            />
+          );
+        }
+      )}
+    </section>
+  );
+};
 
 const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
   const router = useRouter();
+  const { setIsLoading } = useContext(AppContext);
+  const [gender, setGender] = useState([]);
+  const [category, setCategory] = useState([]);
 
-  Cookie.set("filteredProducts", JSON.stringify(products));
+  useEffect(() => {
+    let filterCookies = Cookie.get("filterParams");
+    if (filterCookies && filterCookies !== undefined) {
+      filterCookies = JSON.parse(filterCookies);
+      if (filterCookies.data === undefined) return;
 
-  const [result, setResult] = React.useState(products);
+      let genderCookie = [filterCookies.url];
+      if (filterCookies.data.gender !== undefined) {
+        genderCookie = Array.from(
+          new Set([...genderCookie, ...filterCookies.data.gender])
+        );
+      }
 
-  React.useEffect(() => {
-    filterRes();
+      let categoryCookie = [];
+      if (filterCookies.data.category !== undefined) {
+        categoryCookie.push(...filterCookies.data.category);
+      }
+
+      setGender(genderCookie);
+      setCategory(categoryCookie);
+    }
+  }, [products]);
+
+  useEffect(() => {
+    filterRes(false);
     Cookie.remove("searchParams", { path: "" });
     const body = document.querySelector("body");
     body.style.backgroundColor = "#ffffff";
   }, []);
 
-  const Fetcher = () => {
+  const fetcher = () => {
     let status = 200;
     fetch(`${process.env.NEXT_PUBLIC_PRODUCTION_SERVER}/api/product/filtered`, {
       method: "POST",
       mode: "cors",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(
-        JSON.parse(
-          Cookie.get("filterParams") ? Cookie.get("filterParams") : `{}`
-        )
-      ),
+      body: Cookie.get("filterParams").data ?? `{}`,
     })
       .then((response) => {
         status = response.status;
@@ -45,7 +129,17 @@ const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
       })
       .then((resMessage) => {
         if (status === 200) {
-          let data = JSON.parse(Cookie.get("filterParams"));
+          let data = JSON.parse(
+            Cookie.get("filterParams") ?? {
+              url: "",
+              data: {
+                color: [],
+                category: [],
+                gender: [],
+                cost: [],
+              },
+            }
+          ).data;
           let urlId = "";
           for (let key of Object.keys(data)) {
             let value = data[key];
@@ -61,94 +155,24 @@ const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
           }
           urlId = urlId.substring(0, urlId.length - 1);
           Cookie.set("urlId", urlId, { path: "" });
-          router.refresh();
-
-          // if(urlId.length > 0) {
-          //     setResult(currState => currState = resMessage)
-          //     router.push(`/filterRes/${urlId}`)
-          //     router.refresh()
-          // } else {
-          //     setResult(currState => currState = resMessage)
-          //     router.push(`/filterRes/all`)
-          //     router.refresh()
-          // }
+          router.push(`/filterRes?${urlId.replaceAll(":", "=")}`);
         }
       })
       .catch((err) => console.error(err.message));
   };
 
-  const HandleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    filterRes();
-    Fetcher();
-  };
-
-  const ProductList = () => {
-    let img_sources: string[] = [];
-    (result !== undefined ? result : []).forEach(
-      (el: filterParamsType | string) => {
-        if (typeof el === "string") img_sources.push(el);
-        else img_sources.push(el.img_url);
-      }
-    );
-    return (
-      <section className={`${styles.resList} resList`}>
-        {(result !== undefined ? result : []).map(
-          (el: filterParamsType | string, i: number) => {
-            return (
-              <Cards
-                key={i}
-                type="shopping"
-                details={el}
-                image={img_sources[i]}
-              />
-            );
-          }
-        )}
-      </section>
-    );
+    setIsLoading(true);
+    filterRes(true);
+    fetcher();
   };
 
   const FilterBar = () => {
-    const colors = [
-      "red",
-      "green",
-      "yellow",
-      "blue",
-      "black",
-      "white",
-      "orange",
-      "purple",
-      "pink",
-      "gray",
-      "brown",
-      "teal",
-    ];
-    const hex = [
-      "#ff4040",
-      "#4cbb17",
-      "#ffef00",
-      "#2a52be",
-      "#000000",
-      "#e8e8e8",
-      "#fc6a03",
-      "#7851a9",
-      "#faafba",
-      "#37474f",
-      "#65350f",
-      "#008080",
-    ];
-    const categories = [
-      "Shirts & Tops",
-      "Pants & Lowers",
-      "Jackets",
-      "Accessories",
-      "Shoes & Footwear",
-    ];
-    const type = ["shirt", "lowers", "jackets", "accessories", "shoes"];
     let row = [];
     let clrLen = colors.length / 2;
     let index = 0;
+
     while (clrLen--) {
       for (let i = 0; i < 1; i++) {
         row.push(
@@ -179,10 +203,10 @@ const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
             </span>
           </div>
         );
-        ++index;
-        ++index;
+        index += 2;
       }
     }
+
     let ColorColumn = () => {
       return (
         <div className={styles.filterColor}>
@@ -193,6 +217,7 @@ const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
         </div>
       );
     };
+
     let CatColumn = () => {
       return (
         <div className={styles.filterCategory}>
@@ -205,6 +230,9 @@ const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
                   id={`${type[i]}`}
                   name="category"
                   value={`${type[i]}`}
+                  defaultChecked={category.some((catEl) =>
+                    el.toLocaleLowerCase().includes(catEl)
+                  )}
                 />
                 <label htmlFor={`${type[i]}`}>{`${el}`}</label>
               </span>
@@ -213,20 +241,33 @@ const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
         </div>
       );
     };
+
     return (
       <section className={`${styles.filterOptions} filterOptions`}>
         <form
           className={`${styles.filterForm} filterForm`}
-          onSubmit={HandleSubmit}
+          onSubmit={handleSubmit}
         >
           <div className={styles.filterGender}>
             <h3>gender : </h3>
             <span>
-              <input type="checkbox" id="msex" name="gender" value="male" />
+              <input
+                type="checkbox"
+                id="msex"
+                name="gender"
+                value="male"
+                defaultChecked={gender.includes("male")}
+              />
               <label htmlFor="msex">male</label>
             </span>
             <span>
-              <input type="checkbox" id="fsec" name="gender" value="female" />
+              <input
+                type="checkbox"
+                id="fsex"
+                name="gender"
+                value="female"
+                defaultChecked={gender.includes("female")}
+              />
               <label htmlFor="fsex">female</label>
             </span>
           </div>
@@ -311,18 +352,16 @@ const Page = ({ products }: { products: filterParamsType[] | string[] }) => {
           </div>
         </section>
         <FilterBar />
-        <ProductList />
+        <ProductList result={products} />
       </div>
     </div>
   );
 };
 
 export async function getServerSideProps({
-  params,
   req,
   res,
 }: {
-  params: { id: string };
   req: NextApiRequest;
   res: NextApiResponse;
 }) {

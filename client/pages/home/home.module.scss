@@ -338,9 +338,8 @@
     background-size: contain;
     background-color: #e8e8e8;
     border-radius: 0.5rem;
-    background-image: url('./output.png');
-    // img {
-    //     object-fit: contain;
-    //     border-radius: 0.5rem;
-    // }
+    img {
+        object-fit: contain;
+        border-radius: 0.5rem;
+    }
 }

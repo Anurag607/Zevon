@@ -108,9 +108,8 @@ const Burger = () => {
                     }),
                     { path: "/" }
                   );
-                  router.push(`/filterRes/filterSearchResults`);
-                  if (pathname === "/filterRes/filterSearchResults")
-                    router.refresh();
+                  router.push(`/filterRes`);
+                  if (pathname === "/filterRes") router.refresh();
                 }
               }}
             />
