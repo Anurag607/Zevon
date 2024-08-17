@@ -48,7 +48,11 @@ const NavBar = ({ openModal }: { openModal?: VoidFunction }) => {
   /* eslint-enable */
 
   return (
-    <div className={`${styles["nav"]} nav`}>
+    <div
+      className={`${styles[`${pathname !== "/home" ? "nav-light" : "nav"}`]} ${
+        pathname !== "/home" ? "nav-light" : "nav"
+      }`}
+    >
       <Burger />
       <div className={styles["nav-left-hero"]}>
         <li>

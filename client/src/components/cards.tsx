@@ -163,45 +163,29 @@ const Cards = (props: {
       <div
         className={styles["cards"]}
         onClick={() => {
-          let params = `${props.type === "Men" ? "male" : "female"}`;
-          if (props.type !== "Men" && props.type !== "Women") {
-            params = props.type.toLowerCase();
-            Cookie.set(
-              "filterParams",
-              JSON.stringify({
-                url: params,
-                data: {
-                  color: [],
-                  category: [`${params}`],
-                  gender: [],
-                  cost: [],
-                },
-              }),
-              { path: "/" }
-            );
+          let params = props.type.toLowerCase();
+          if (params === "men") params = "male";
+          else if (params === "women") params = "female";
+
+          let data = {
+            url: params,
+            data: {
+              color: [],
+              category: [`${params}`],
+              gender: [],
+              cost: [],
+            },
+          };
+          Cookie.set("filterParams", JSON.stringify(data), { path: "/" });
+          const filterCookie = Cookie.get("filterParams");
+
+          console.log(data, filterCookie);
+
+          if (filterCookie && filterCookie !== undefined) {
+            console.log(`Loading: /filterRes/${data.url}`);
+            router.push(`/filterRes/${data.url}`);
           } else {
-            Cookie.set(
-              "filterParams",
-              JSON.stringify({
-                url: params,
-                data: {
-                  color: [],
-                  category: [],
-                  gender: [`${params}`],
-                  cost: [],
-                },
-              }),
-              { path: "/" }
-            );
-          }
-          let data = Cookie.get("filterParams");
-          if (
-            typeof data !== "undefined" &&
-            data!.length > 0 &&
-            JSON.parse(data).url.length > 0
-          ) {
-            router.push(`/filterRes/${JSON.parse(data).url}`);
-          } else {
+            console.log(`Loading: /filterRes/all`);
             router.push(`/filterRes/all`);
           }
         }}

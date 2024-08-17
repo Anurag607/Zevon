@@ -327,10 +327,20 @@ export async function getServerSideProps({
   res: NextApiResponse;
 }) {
   const cookies = parseCookies(req);
+
+  if (cookies.filterParams === undefined) {
+    return {
+      redirect: {
+        destination: "/nf",
+        permanent: false,
+      },
+    };
+  }
   const filter = {
     ...JSON.parse(cookies.filterParams),
-    search: cookies.searchParams,
+    search: cookies.searchParams ?? "",
   };
+
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_PRODUCTION_SERVER}/api/product/filtered`,
     {
