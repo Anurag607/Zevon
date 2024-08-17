@@ -211,7 +211,7 @@ const Home = () => {
         <div className={styles.overlay} onClick={closeModal}>
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <button className={styles.closeButton} onClick={closeModal}>
-              <img src={"/cancel.png"} alt="cancel" width={16} height={16} />
+              <Image src={"/cancel.png"} alt="cancel" width={16} height={16} />
             </button>
             <h2>
               {isSubmitted ? (

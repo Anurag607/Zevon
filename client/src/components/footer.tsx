@@ -28,7 +28,7 @@ export default function Footer() {
             marginLeft: "-0.75rem",
           }}
         >
-          <a href="/#">
+          <a href="#">
             <Image
               className={styles["contact_ico"]}
               src="/f.svg"
@@ -37,7 +37,7 @@ export default function Footer() {
               height={40}
             />
           </a>
-          <a href="/#">
+          <a href="#">
             <Image
               className={styles["contact_ico"]}
               src="/i.svg"
@@ -46,7 +46,7 @@ export default function Footer() {
               height={40}
             />
           </a>
-          <a href="/#">
+          <a href="#">
             <Image
               className={styles["contact_ico"]}
               src="/t.svg"
@@ -55,7 +55,7 @@ export default function Footer() {
               height={40}
             />
           </a>
-          <a href="/#">
+          <a href="#">
             <Image
               className={styles["contact_ico"]}
               src="/l.svg"
